@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { LuMenu } from "react-icons/lu";
 import { TbDownload } from "react-icons/tb";
+import { Sheet, SheetContent, SheetTrigger } from "../Sheet";
 import { Logo } from "./Logo";
 import { Menu } from "./Menu";
-import { Sheet, SheetContent, SheetTrigger } from "./Sheet";
 
 export function Header() {
   return (
