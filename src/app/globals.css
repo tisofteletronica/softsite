@@ -21,12 +21,18 @@ body {
 }
 
 .MenuItem {
-  @apply py-9 relative outline-none;
+  @apply py-2 lg:py-9 relative outline-none;
 }
 
 .MenuItem::after {
   content: '';
-  @apply w-full h-[5px] bg-transparent absolute left-0 bottom-0;
+  @apply w-full h-[5px] bg-transparent absolute left-0 bottom-0 transition-all;
+}
+
+@media(max-width: 767px) {
+  .MenuItem::after {
+    display: none;
+  }
 }
 
 .MenuItem::after:hover {
@@ -43,6 +49,14 @@ body {
 
 .MenubarItemSub:hover {
   @apply bg-orange text-white;
+}
+
+.MenubarItemSubSub {
+  @apply text-sm lg:text-base px-4 lg:px-8 text-white lg:text-gray;
+}
+
+.MenubarSubContent {
+  @apply ml-[-230px] mt-[26px] lg:ml-0 lg:mt-0
 }
 
 @layer utilities {

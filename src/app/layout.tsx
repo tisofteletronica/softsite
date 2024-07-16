@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   initialScale: 1,
   width: 'device-width, shrink-to-fit=no',
-  minimumScale: 1,
+  minimumScale: 1, 
 }
 
 export default function RootLayout({
