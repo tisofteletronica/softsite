@@ -16,6 +16,7 @@ const config: Config = {
       },
       colors: {
         'orange': '#FC4C02',
+        'darkGray': '#252429',
         'gray': '#484848',
         'lightGray': '#DFDFE7',
         'lighterGray': '#F5F5F7',

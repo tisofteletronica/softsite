@@ -1,8 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { LuMenu } from "react-icons/lu";
 import { TbDownload } from "react-icons/tb";
-import Logo from "../../../public/logo.png";
+import { Logo } from "./Logo";
 import { Menu } from "./Menu";
 import { Sheet, SheetContent, SheetTrigger } from "./Sheet";
 
@@ -43,9 +42,7 @@ export function Header() {
           lg:mt-[-13px] items-center relative z-[1] flex-wrap py-5 lg:py-0"
         >
           <div>
-            <Link href="/">
-              <Image src={Logo} alt="Logo Soft" />
-            </Link>
+            <Logo className="w-[169px]" />
           </div>
 
           <div>
@@ -64,12 +61,7 @@ export function Header() {
               </SheetTrigger>
               <SheetContent side="left" className="bg-white">
                 <nav className="grid gap-6 text-base font-medium">
-                  <Link
-                    href="/"
-                    className="flex items-center gap-2 text-lg font-semibold md:text-base w-[130px]"
-                  >
-                    <Image src={Logo} alt="Logo Soft" />
-                  </Link>
+                  <Logo className="w-[169px]" />
 
                   <Menu />
                 </nav>

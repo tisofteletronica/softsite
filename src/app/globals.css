@@ -35,8 +35,13 @@ body {
   }
 }
 
-.MenuItem::after:hover {
+.MenuItem::after:hover,
+.menuActive::after {
   @apply bg-orange;
+}
+
+.menuActive {
+  @apply !text-orange lg:!text-gray;
 }
 
 .MenubarItem {
@@ -44,7 +49,7 @@ body {
 }
 
 .MenubarItemSub {
-  @apply py-[0px] px-8 outline-none transition-all;
+  @apply py-[0px] px-8 my-[2px] outline-none transition-all;
 }
 
 .MenubarItemSub:hover {
