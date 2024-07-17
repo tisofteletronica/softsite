@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
+import { Footer } from "./_components/Footer";
 import { Header } from "./_components/Header";
 import "./globals.css";
 
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   initialScale: 1,
   width: 'device-width, shrink-to-fit=no',
-  minimumScale: 1, 
+  minimumScale: 1,
 }
 
 export default function RootLayout({
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
