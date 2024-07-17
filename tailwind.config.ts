@@ -13,6 +13,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         'orange-gradient': 'linear-gradient(90deg, rgba(255,255,255,1) 50%, rgba(252,76,2,1) 50%)',
+        'footer-texture': "url('/bg-footer.png')"
       },
       colors: {
         'orange': '#FC4C02',

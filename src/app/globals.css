@@ -18,6 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  overflow-x: hidden;
 }
 
 .MenuItem {
@@ -62,6 +63,22 @@ body {
 
 .MenubarSubContent {
   @apply ml-[-230px] mt-[26px] lg:ml-0 lg:mt-0
+}
+
+.footer-sociais svg {
+  @apply transition-all;
+}
+
+.footer-sociais a:hover svg {
+  @apply fill-orange;
+}
+
+.menu-footer a {
+  @apply text-white text-[17px] lg:text-[20px] leading-6 lg:leading-7 transition-all block tracking-[1px];
+}
+
+.menu-footer a:hover {
+  @apply text-orange;
 }
 
 @layer utilities {
