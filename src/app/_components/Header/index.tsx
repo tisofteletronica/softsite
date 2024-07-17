@@ -7,12 +7,12 @@ import { Menu } from "./Menu";
 
 export function Header() {
   return (
-    <header className="w-full">
+    <header className="w-full sticky top-[-56px] lg:top-[-48px] z-[40]">
       <div className="w-full">
         <div className="bg-orange-gradient">
           <div className="w-full max-w-[1220px] m-auto h-full">
             <div
-                className="flex flex-wrap justify-center items-center w-full max-w-[865px] bg-orange rounded-tl-[40px] ml-auto min-h-[65px] lg:justify-end text-white py-3 lg:py-0 lg:pb-[10px]"
+              className="flex flex-wrap justify-center items-center w-[94%] lg:w-full max-w-[865px] bg-orange rounded-tl-[40px] ml-auto min-h-[60px] lg:min-h-[65px] lg:justify-end text-white py-2 lg:py-0 lg:pb-[10px]"
             >
               <span className="font-bold lg:mr-[103px] tracking-[1.6px] text-sm lg:text-base">BAIXE NOSSOS CATÁLOGOS</span>
               <div className="flex">

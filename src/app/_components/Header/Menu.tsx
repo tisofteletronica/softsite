@@ -24,12 +24,12 @@ export function Menu() {
             asChild
           >
             {menu.sub ? (
-              <Link href={menu.href} className='flex items-center'>
+              <div className='flex items-center cursor-pointer'>
                 {menu.label}
                 <div>
                   <GoChevronDown size={19} />
                 </div>
-              </Link>
+              </div>
             ) : (
               <Link href={menu.href}>
                 {menu.label}
@@ -39,7 +39,7 @@ export function Menu() {
 
             {menu.sub && (
               <Menubar.Portal>
-                <Menubar.Content className="MenubarContent bg-white shadow-[0px_3px_6px_#00000029] flex flex-col py-4 lg:pt-8 lg:pb-4 mt-[-3px] z-[51] lg:z-[0]" align="center" sideOffset={5} alignOffset={-3}>
+                <Menubar.Content className="MenubarContent bg-white shadow-[0px_3px_6px_#00000029] flex flex-col py-4 lg:pt-8 lg:pb-4 mt-[-5px] z-[51] lg:z-[30]" align="center" sideOffset={5} alignOffset={-3}>
                   {menu.sub?.map((submenu) => (
                     <React.Fragment key={submenu.label}>
                       {submenu.sub ? (
@@ -54,7 +54,7 @@ export function Menu() {
                           </Menubar.SubTrigger>
 
                           <Menubar.Portal>
-                            <Menubar.SubContent className="MenubarSubContent bg-orange lg:bg-white shadow-[0px_3px_6px_#00000029] pt-4 pb-3 z-[51] lg:z-[0]">
+                            <Menubar.SubContent className="MenubarSubContent bg-orange lg:bg-white shadow-[0px_3px_6px_#00000029] pt-4 pb-3 z-[51] lg:z-[30]">
                               {submenu.sub?.map((subsub) => (
                                 <Menubar.Item key={subsub.label} className="MenubarItem MenubarItemSub MenubarItemSubSub">
                                   <Link href={subsub.href}>
