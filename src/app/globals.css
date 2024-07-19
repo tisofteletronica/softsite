@@ -90,6 +90,35 @@ body {
   max-width: max-content;
 }
 
+.slider-about .swiper-slide {
+  @apply !h-[355px] overflow-y-auto;
+}
+
+.slider-about .swiper-pagination {
+  @apply static mt-8;
+}
+
+.slider-about .swiper-pagination-bullet {
+  @apply w-[11px] h-[11px] bg-lightGray opacity-100 transition-all;
+}
+
+.slider-about .swiper-pagination-bullet-active {
+  @apply bg-orange w-[22px] rounded-[6px];
+}
+
+.slider-about .swiper-button-prev,
+.slider-about .swiper-button-next {
+  @apply w-[42px] h-[42px] rounded-full bg-[#F7F6FB] shadow-[0px_3px_6px_#000000B3] hidden lg:flex;
+}
+
+.slider-about .swiper-button-prev:after,
+.slider-about .swiper-button-next:after {
+  @apply text-[25px] text-orange font-bold;
+}
+
+
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
