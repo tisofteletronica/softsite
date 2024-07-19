@@ -50,15 +50,15 @@ export const MENU = [
     ]
   },
   {
-    href: "#",
+    href: "/contato",
     label: "CONTATO"
   },
   {
-    href: "#",
+    href: "/unidades",
     label: "UNIDADES"
   },
   {
-    href: "#",
+    href: "/sobre-nos",
     label: "SOBRE NÓS"
   },
 
