@@ -81,6 +81,15 @@ body {
   @apply text-orange;
 }
 
+.img-about {
+  max-width: max-content;
+  @apply lg:ml-[-90px] mt-7 lg:mt-0;
+}
+
+.max-content {
+  max-width: max-content;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
