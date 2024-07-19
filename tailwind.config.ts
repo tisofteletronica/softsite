@@ -13,7 +13,10 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         'orange-gradient': 'linear-gradient(90deg, rgba(255,255,255,1) 50%, rgba(252,76,2,1) 50%)',
-        'footer-texture': "url('/bg-footer.png')"
+        'home-gradiente-about': 'linear-gradient(90deg, rgba(223,223,231,1) 50%, rgba(255,255,255,1) 50%)',
+        'home-gradiente-structure': 'linear-gradient(90deg, #484848 50%, transparent 50%)',
+        'footer-texture': "url('/bg-footer.png')",
+        'bgCategory': "url('/categorias.jpg')"
       },
       colors: {
         'orange': '#FC4C02',
