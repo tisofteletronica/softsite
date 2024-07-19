@@ -16,7 +16,8 @@ const config: Config = {
         'home-gradiente-about': 'linear-gradient(90deg, rgba(223,223,231,1) 50%, rgba(255,255,255,1) 50%)',
         'home-gradiente-structure': 'linear-gradient(90deg, #484848 50%, transparent 50%)',
         'footer-texture': "url('/bg-footer.png')",
-        'bgCategory': "url('/categorias.jpg')"
+        'bgCategory': "url('/categorias.jpg')",
+        'bgSlide': "url('/bg-slide.png')"
       },
       colors: {
         'orange': '#FC4C02',
