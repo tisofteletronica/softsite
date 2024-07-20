@@ -46,7 +46,7 @@ export default async function SobreNos() {
           </div>
         </div>
 
-        <article className="bg-orange rounded-tl-[30px] rounded-br-[30px] px-5 lg:px-[60px] py-4 lg:py-[50px] my-[115px] relative">
+        <article id="politica" className="bg-orange rounded-tl-[30px] rounded-br-[30px] px-5 lg:px-[60px] py-4 lg:py-[50px] my-[115px] relative">
           <Image src={imgAspas} alt="Aspas" className="hidden absolute right-[-25px] top-[85px] lg:block" />
 
           <div className="mb-9 lg:mb-16">

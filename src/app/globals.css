@@ -21,6 +21,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .MenuItem {
   @apply py-2 lg:py-9 relative outline-none;
 }
