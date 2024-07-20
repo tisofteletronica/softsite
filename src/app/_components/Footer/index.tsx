@@ -90,17 +90,17 @@ export function Footer() {
               <TitleFooter type="h3">UNIDADES</TitleFooter>
               <ul className="pl-6 mt-3 menu-footer">
                 <li>
-                  <Link href="#">
+                  <Link href="/unidades">
                     Matriz - Pato Branco
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="/unidades">
                     Filial I - Curitiba
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="/unidades">
                     Filial II - Penha
                   </Link>
                 </li>
@@ -109,12 +109,12 @@ export function Footer() {
               <TitleFooter type="h3" className="mt-[47px]">SOBRE NÓS</TitleFooter>
               <ul className="pl-6 mt-3 menu-footer">
                 <li>
-                  <Link href="#">
+                  <Link href="/sobre-nos">
                     História da empresa
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="/sobre-nos/#politica">
                     Política de Qualidade
                   </Link>
                 </li>
