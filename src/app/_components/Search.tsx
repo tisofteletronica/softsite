@@ -17,7 +17,7 @@ export async function Search() {
       <FormSearch
         automakersData={
           automakers.map(automaker => ({
-            value: automaker.id,
+            value: String(automaker.id),
             label: automaker.name
           }))
         }

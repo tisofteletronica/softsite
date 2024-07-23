@@ -4,7 +4,7 @@ import { YearsResponse } from "@/services/searchService/years";
 export function automakersMapper(items: AutomakersResponse[]) {
   const mapper = items.map((item) => {
     return {
-      value: item.id,
+      value: String(item.id),
       label: item.name,
     }
   })
