@@ -13,11 +13,12 @@ interface SelectProps {
     value: string;
     label: string;
   }[];
-  value?: string;
+  value?: string | null;
   onChange?(value: string): void;
+  disabled?: boolean;
 }
 
-export function Select({ className, error, options, placeholder, onChange, value }: SelectProps) {
+export function Select({ className, error, options, placeholder, onChange, value, disabled }: SelectProps) {
   const [selectedValue, setSelectedValue] = useState(value ?? '');
 
   function handleSelect(value: string) {
@@ -30,12 +31,13 @@ export function Select({ className, error, options, placeholder, onChange, value
       <div className="relative">
         <label className={cn(
           "absolute z-10 top-1/2 -translate-y-1/2 left-3 text-lightGray pointer-events-none mt-[-3px] text-[15px] tracking-[1.5px]",
-          selectedValue && "text-[10px] left-[13px] top-2 transition-all translate-y-0 text-lightGray"
+          selectedValue && "text-[10px] left-[13px] top-2 transition-all translate-y-0 text-lightGray",
+          disabled && "absolute z-10 top-1/2 -translate-y-1/2 left-3 text-lightGray pointer-events-none mt-[-3px] text-[15px] tracking-[1.5px]"
         )}>
           {placeholder}
         </label>
 
-        <RdxSelect.Root value={value} onValueChange={handleSelect}>
+        <RdxSelect.Root value={value!} onValueChange={handleSelect} disabled={disabled}>
           <RdxSelect.Trigger
             className={cn(
               'bg-white w-full rounded-bl-[10px] rounded-br-[10px] px-3 h-[40px] text-gray transition-all outline-none text-left relative pt-[12px] tracking-[1px] text-[14px]',
@@ -59,7 +61,7 @@ export function Select({ className, error, options, placeholder, onChange, value
               </RdxSelect.ScrollUpButton>
 
               <RdxSelect.Viewport className="p-2">
-                {options.map(option => (
+                {options && options?.map(option => (
                   <RdxSelect.Item
                     key={option.value}
                     className="p-2 text-gray-800 text-[15px] data-[state=checked]:font-bold outline-none data-[highlighted]:bg-lighterGray rounded-lg transition-colors cursor-pointer "

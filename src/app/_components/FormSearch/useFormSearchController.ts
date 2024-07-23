@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-
 interface SearchSelectOption {
   value: string;
   label: string;
@@ -13,7 +12,8 @@ interface SearchSelectOption {
 
 const schema = z.object({
   automaker: z.string().min(1),
-  // models: z.string().min(1),
+  models: z.string().min(1).nullable(),
+  years: z.string().nullable(),
 })
 
 type FormData = z.infer<typeof schema>
@@ -24,14 +24,16 @@ export function useFormSearchController() {
   const [modelsData, setModelsData] = useState<SearchSelectOption[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [yearsData, setYearsData] = useState<SearchSelectOption[]>([]);
+  const [disabledModel, setDisabledModel] = useState(true);
+  const [disabledYear, setDisabledYear] = useState(true);
 
   const {
     control,
     register,
     handleSubmit: hookFormSubmit,
     formState: {errors},
-    setValue
-  } = useForm({
+    setValue,
+  } = useForm<FormData>({
     resolver: zodResolver(schema)
   })
 
@@ -39,11 +41,14 @@ export function useFormSearchController() {
     const fetchModels = async () => {
       try {
         setIsLoading(true);
-        const response = await searchService.getModels(selectedAutomaker);
-        setModelsData(automakersMapper(response));
+        if (selectedAutomaker) {
+          const responseModelsById = await searchService.getModelsById(selectedAutomaker);
+          setModelsData(automakersMapper(responseModelsById));
+          setDisabledModel(false);
+        }
         setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching automakers:", error);
+        console.error("Error fetching models:", error);
       }
     };
 
@@ -54,11 +59,14 @@ export function useFormSearchController() {
     const fetchYears = async () => {
       try {
         setIsLoading(true);
-        const response = await searchService.getYears(selectedModel);
-        setYearsData(yearsMapper(response));
+        if (selectedModel.length > 0) {
+          const response = await searchService.getYears(selectedModel);
+          setYearsData(yearsMapper(response));
+          response.length > 0 ? setDisabledYear(false) : setDisabledYear(true);
+        }
         setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching automakers:", error);
+        console.error("Error fetching years:", error);
       }
     };
 
@@ -68,11 +76,15 @@ export function useFormSearchController() {
   function handleAutomakerChange(value: string) {
     setSelectedAutomaker(value);
     setSelectedModel("");
-    setModelsData([])
+    setValue("models", null);
+    setValue("years", null);
+    setDisabledModel(true);
+    setDisabledYear(true);
   };
 
   function handleModelChange(value: string) {
     setSelectedModel(value);
+    setValue("years", null);
   };
 
   const handleSubmit = hookFormSubmit(async data => {
@@ -95,6 +107,7 @@ export function useFormSearchController() {
     control,
     errors,
     register,
-    setValue
+    disabledModel,
+    disabledYear
   }
 }
