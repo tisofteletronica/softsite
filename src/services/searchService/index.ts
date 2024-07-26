@@ -1,9 +1,11 @@
 import { getAutomakers } from "./automakers";
-import { getModels } from "./models";
+import { getModelsById } from "./modelsById";
+import { getModelsByName } from "./modelsByName";
 import { getYears } from "./years";
 
 export const searchService = {
   getAutomakers,
-  getModels,
-  getYears
+  getModelsByName,
+  getYears,
+  getModelsById
 }
