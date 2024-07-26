@@ -46,7 +46,10 @@ export function Menu() {
                         <Menubar.Sub key={submenu.label}>
                           <Menubar.SubTrigger className="MenubarItem MenubarItemSub MenubarSubTrigger">
                             <div className='flex items-center cursor-pointer'>
-                              {submenu.label}
+                              {/* {submenu.label} */}
+                              <Link href={submenu.href}>
+                                {submenu.label}
+                              </Link>
                               <div>
                                 <GoChevronRight size={17} />
                               </div>
