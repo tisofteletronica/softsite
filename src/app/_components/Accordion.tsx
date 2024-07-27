@@ -76,7 +76,7 @@ const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerPro
       <div className='flex-1'>
         <IoChevronDownSharp
           size={33}
-          className="ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180 mt-[-8px]"
+          className="transition-transform duration-300 group-data-[state=open]:rotate-180 mt-[-8px]"
           aria-hidden
         />
       </div>
