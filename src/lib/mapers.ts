@@ -1,3 +1,4 @@
+import { STATES } from "@/config/constants";
 import { AutomakersResponse } from "@/services/searchService/automakers";
 import { YearsResponse } from "@/services/searchService/years";
 
@@ -21,4 +22,10 @@ export function yearsMapper(items: YearsResponse[]) {
   })
 
   return mapper;
+}
+
+export function titleRepresentativesMapper(value: string) {
+  const mapperStates = STATES.map((state) => value === state.valueApi && value.replace(state.valueApi, state.valueTratament));
+
+  return mapperStates;
 }
