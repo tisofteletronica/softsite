@@ -17,7 +17,9 @@ const config: Config = {
         'home-gradiente-structure': 'linear-gradient(90deg, #484848 50%, transparent 50%)',
         'footer-texture': "url('/bg-footer.png')",
         'bgCategory': "url('/categorias.jpg')",
-        'bgSlide': "url('/bg-slide.png')"
+        'bgSlide': "url('/bg-slide.png')",
+        'bgLeds': "url('/leds/bg-leds.jpg')",
+        'bgConectividade': "url('/conectividade/bg-conectividade.jpg')"
       },
       colors: {
         'orange': '#FC4C02',
@@ -25,6 +27,7 @@ const config: Config = {
         'gray': '#484848',
         'lightGray': '#DFDFE7',
         'lighterGray': '#F5F5F7',
+        'lighterGray2': '#F7F6FB',
       },
       keyframes: {
         slideDown: {
