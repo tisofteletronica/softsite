@@ -121,6 +121,31 @@ html {
 }
 
 
+/* ***************************************************** */
+.swiperProductContainer .swiper {
+  @apply w-full h-full;
+}
+
+.swiperProductContainer .swiper {
+  @apply w-full mx-auto;
+}
+
+.swiperProduct {
+  @apply w-full;
+}
+
+.swiperProductThumb {
+  @apply h-[165px] mt-[10px];
+}
+
+.swiperProductThumb .swiper-slide {
+  @apply w-[25%] h-full opacity-40 cursor-pointer;
+}
+
+.swiperProductThumb .swiper-slide-thumb-active {
+  @apply opacity-100;
+}
+
 
 
 @layer utilities {
