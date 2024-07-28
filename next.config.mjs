@@ -5,7 +5,7 @@ const nextConfig = {
       {
         protocol: 'http',
         hostname: 'instalesoft.com.br',
-      },
+      }
     ],
   },
 };
