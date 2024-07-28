@@ -56,7 +56,7 @@ export default async function Conectividades() {
           </div>
         </div>
 
-        <article className="mt-10 lg:mt-[-130px]" id="producao">
+        <article className="mt-10 lg:mt-[-130px]" id="conexaoble">
           <Title type="h2" className="mb-7 lg:mb-[55px]">
             SISTEMAS DE<br /> CONEXÃO BLE:
           </Title>
@@ -77,7 +77,9 @@ export default async function Conectividades() {
         </article>
       </Container>
 
-      <OurProducts />
+      <div id="produtos">
+        <OurProducts />
+      </div>
 
       <Container type="div" className="mt-[70px] mb-8">
         <div className="text-[18px] lg:text-[22px] font-medium text-gray leading-[25px] lg:leading-[30px] tracking-[1px] lg:tracking-[2px]">
