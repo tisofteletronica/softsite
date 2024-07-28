@@ -26,23 +26,55 @@ export const MENU = [
         ]
       },
       {
-        href: "#",
-        label: "MONTAGEM"
+        href: "/montagem",
+        label: "MONTAGEM",
+        sub: [
+          {
+            href: "/montagem#servicos",
+            label: "SERVIÇOS"
+          },
+          {
+            href: "/montagem#areas",
+            label: "ÁREAS DE ATUAÇÃO"
+          },
+          {
+            href: "/montagem#diferenciais",
+            label: "DIFERENCIAIS"
+          },
+          {
+            href: "/montagem#estrutura",
+            label: "CONHEÇA NOSSA ESTRUTURA"
+          }
+        ]
       },
       {
-        href: "#",
-        label: "LEDS"
+        href: "/leds",
+        label: "LEDS",
+        sub: [
+          {
+            href: "/leds#producao",
+            label: "PRODUÇÃO"
+          },
+          {
+            href: "/leds#projetos",
+            label: "PROJETOS"
+          },
+          {
+            href: "/leds#aplicacoes",
+            label: "APLICAÇÕES"
+          }
+        ]
       },
       {
-        href: "#",
+        href: "/conectividade",
         label: "CONECTIVIDADE",
         sub: [
           {
-            href: "#",
+            href: "/conectividade#conexaoble",
             label: "SISTEMAS DE CONEXÃO BLE"
           },
           {
-            href: "#",
+            href: "/conectividade#produtos",
             label: "CONHEÇA NOSSOS PRODUTOS"
           },
         ]
@@ -62,4 +94,39 @@ export const MENU = [
     label: "SOBRE NÓS"
   },
 
+]
+
+export const STATES = [
+  {
+    valueApi: "RS, PR, RR, AC, AM, RO, AM, PA, PI, CE, TO, MT, MS, RJ",
+    valueTratament: "Venda Direta"
+  },
+  {
+    valueApi: "ES, RJ (Interior)",
+    valueTratament: "ESPÍRITO SANTO / INTERIOR DO RIO DE JANEIRO"
+  },
+  {
+    valueApi: "SC",
+    valueTratament: "SANTA CATARINA"
+  },
+  {
+    valueApi: "BA, SE, AL",
+    valueTratament: "BAHIA / SERGIPE / ALAGOAS"
+  },
+  {
+    valueApi: "PE, PB, RN",
+    valueTratament: "PARAÍBA / PERNAMBUCO / RIO GRANDE DO NORTE"
+  },
+  {
+    valueApi: "GO, DF",
+    valueTratament: "GOIÁS/ DISTRITO FEDERAL"
+  },
+  {
+    valueApi: "SP (Interior)",
+    valueTratament: "INTERIOR DE SÃO PAULO"
+  },
+  {
+    valueApi: "SP (Capital)",
+    valueTratament: "SÃO PAULO (CAPITAL)"
+  }
 ]

@@ -146,6 +146,30 @@ html {
   @apply opacity-100;
 }
 
+.SliderMontagem .swiper-button-prev,
+.SliderMontagem .swiper-button-next {
+  @apply w-[42px] h-[42px] rounded-full bg-[#F7F6FB] shadow-[0px_3px_6px_#000000B3] hidden lg:flex;
+}
+
+.SliderMontagem .swiper-button-prev:after,
+.SliderMontagem .swiper-button-next:after {
+  @apply text-[25px] text-orange font-bold;
+}
+
+.SliderMontagem .swiper-pagination {
+  @apply static mt-4;
+}
+
+.SliderMontagem .swiper-pagination-bullet {
+  @apply w-[11px] h-[11px] bg-lightGray opacity-100 transition-all;
+}
+
+.SliderMontagem .swiper-pagination-bullet-active {
+  @apply bg-orange w-[22px] rounded-[6px];
+}
+
+
+
 
 
 @layer utilities {

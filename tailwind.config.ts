@@ -19,7 +19,8 @@ const config: Config = {
         'bgCategory': "url('/categorias.jpg')",
         'bgSlide': "url('/bg-slide.png')",
         'bgLeds': "url('/leds/bg-leds.jpg')",
-        'bgConectividade': "url('/conectividade/bg-conectividade.jpg')"
+        'bgConectividade': "url('/conectividade/bg-conectividade.jpg')",
+        'bgMontagem': "url('/montagem/bg-montagem.jpg')"
       },
       colors: {
         'orange': '#FC4C02',
