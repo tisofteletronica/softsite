@@ -8,7 +8,7 @@ export const MENU = [
     label: "DIVISÕES",
     sub: [
       {
-        href: "#",
+        href: "/automotivo",
         label: "AUTOMOTIVO",
         sub: [
           {
@@ -22,6 +22,26 @@ export const MENU = [
           {
             href: "#",
             label: "BEE LINK"
+          },
+          {
+            href: "#",
+            label: "CENTRAL DE LEVANTAMENTO DE VIDRO"
+          },
+          {
+            href: "#",
+            label: "CENTRAL DE TRAVA ELÉTRICA"
+          },
+          {
+            href: "#",
+            label: "MÓDULO DE VIDRO ELÉTRICO"
+          },
+          {
+            href: "#",
+            label: "TRAVAS ELÉTRICAS"
+          },
+          {
+            href: "#",
+            label: "UNIQUE"
           },
         ]
       },
