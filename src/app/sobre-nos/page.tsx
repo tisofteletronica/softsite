@@ -7,8 +7,16 @@ import { Title } from "../_components/Title";
 import { Slider } from "./_components/Slider";
 
 export default async function SobreNos() {
-  const response = await aboutService.getAbout();
-  const responseLine = await aboutService.getLineTime();
+  const responseData = aboutService.getAbout();
+  const responseLineData = aboutService.getLineTime();
+
+  const [
+    response,
+    responseLine
+  ] = await Promise.all([
+    responseData,
+    responseLineData
+  ])
 
   return (
     <main>

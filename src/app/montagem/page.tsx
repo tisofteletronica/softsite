@@ -21,11 +21,25 @@ import { SliderMontagem } from "./_components/SliderMontagem";
 import { Structure } from "./_components/Structure";
 
 export default async function Montagem() {
-  const services = await assemblyService.getServices();
-  const differences = await assemblyService.getDifferences();
-  const structurePage1 = await assemblyService.getStructure();
-  const structurePage2 = await assemblyService.getStructure("1");
-  const assembly = await assemblyService.getAssembly();
+  const servicesData = assemblyService.getServices();
+  const differencesData = assemblyService.getDifferences();
+  const structurePage1Data = assemblyService.getStructure();
+  const structurePage2Data = assemblyService.getStructure("1");
+  const assemblyData = assemblyService.getAssembly();
+
+  const [
+    services,
+    differences,
+    structurePage1,
+    structurePage2,
+    assembly
+  ] = await Promise.all([
+    servicesData,
+    differencesData,
+    structurePage1Data,
+    structurePage2Data,
+    assemblyData
+  ])
 
   return (
     <main>
