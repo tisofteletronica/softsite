@@ -32,7 +32,7 @@ export function SliderCardProduct({ images }: SliderCardProductProps) {
       >
         {images?.map((image) => (
           <SwiperSlide key={image}>
-            <Image  src={image} alt="" width={580} height={550} className='object-cover h-[300px] lg:h-[550px]' />
+            <Image  src={image} alt="" width={670} height={550} className='object-cover h-[300px] lg:h-[550px]' />
           </SwiperSlide>
         ))}
       </Swiper>
