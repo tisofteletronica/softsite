@@ -45,22 +45,22 @@ export function Footer() {
               <TitleFooter type="h3">DIVISÕES</TitleFooter>
               <ul className="pl-6 mt-3 menu-footer">
                 <li>
-                  <Link href="#">
+                  <Link href="/automotivo">
                     Automotiva
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="/montagem">
                     Montagem
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="/leds">
                     LEDs
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="/conectividade">
                     Conectividade
                   </Link>
                 </li>
@@ -69,17 +69,17 @@ export function Footer() {
               <TitleFooter type="h3" className="mt-[19px]">CONTATO</TitleFooter>
               <ul className="pl-6 mt-3 menu-footer">
                 <li>
-                  <Link href="#">
+                  <Link href="/contato">
                     WhatsApp
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="/contato">
                     Telefones
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="/contato">
                     E-mails
                   </Link>
                 </li>
