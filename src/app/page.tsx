@@ -32,18 +32,18 @@ export default function Home() {
 
       <div className="bg-bgCategory w-full min-h-[356px] bg-center mt-7 hidden lg:block">
         <Container type="div" className="flex">
-          <Link href="#" className="w-[292px] block min-h-[356px] ml-[-93px] skew-x-[332deg]"></Link>
-          <Link href="#" className="w-[292px] block min-h-[356px] ml-[18px] skew-x-[332deg]"></Link>
-          <Link href="#" className="w-[292px] block min-h-[356px] ml-[18px] skew-x-[332deg]"></Link>
-          <Link href="#" className="w-[292px] block min-h-[356px] ml-[18px] skew-x-[332deg]"></Link>
+          <Link href="/automotivo" className="w-[292px] block min-h-[356px] ml-[-93px] skew-x-[332deg]"></Link>
+          <Link href="/montagem" className="w-[292px] block min-h-[356px] ml-[18px] skew-x-[332deg]"></Link>
+          <Link href="/leds" className="w-[292px] block min-h-[356px] ml-[18px] skew-x-[332deg]"></Link>
+          <Link href="/conectividade" className="w-[292px] block min-h-[356px] ml-[18px] skew-x-[332deg]"></Link>
         </Container>
       </div>
 
       <Container type="div" className="mt-6 space-y-2 lg:hidden">
-        <ItemCategoryMobile text="AUTOMOTIVO" link="#" />
-        <ItemCategoryMobile text="MONTAGEM" link="#" />
-        <ItemCategoryMobile text="LEDS" link="#" />
-        <ItemCategoryMobile text="CONECTIVIDADE" link="#" />
+        <ItemCategoryMobile text="AUTOMOTIVO" link="/automotivo" />
+        <ItemCategoryMobile text="MONTAGEM" link="/montagem" />
+        <ItemCategoryMobile text="LEDS" link="/leds" />
+        <ItemCategoryMobile text="CONECTIVIDADE" link="/conectividade" />
       </Container>
 
       <div className="bg-home-gradiente-about mt-12">
