@@ -7,7 +7,7 @@ interface BreadcrumbProps {
 export function Breadcrumb({ children }: BreadcrumbProps) {
   return (
     <ul
-      className="flex text-gray text-sm gap-2 tracking-[1.4px]"
+      className="flex flex-wrap text-gray text-sm gap-2 tracking-[1.4px]"
     >
       {children}
     </ul>
