@@ -10,13 +10,19 @@ export function Form() {
     register,
     errors,
     handleSubmit,
-    isLoading
+    isLoading,
+    success
   } = useContactController();
 
   return (
     <form
       onSubmit={handleSubmit}
     >
+      {success && (
+        <div className="bg-green-100 border border-green-600 rounded-[0_10px] mb-4 py-3 px-5 text-green-600 text-sm">
+          E-mail enviado com sucesso!
+        </div>
+      )}
       <div className="grid lg:grid-cols-2 gap-4">
         <Input
           type="text"
