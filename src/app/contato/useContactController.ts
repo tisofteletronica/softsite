@@ -20,9 +20,10 @@ type FormData = z.infer<typeof schema>
 
 export function useContactController() {
   const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const {
-    control,
+    reset,
     register,
     handleSubmit: hookFormSubmit,
     formState: { errors },
@@ -33,10 +34,33 @@ export function useContactController() {
   const handleSubmit = hookFormSubmit(async data => {
     try {
       setIsLoading(true);
-      console.log(data);
+
+      const response = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        reset();
+        setSuccess(true);
+
+        setTimeout(() => {
+          setSuccess(false)
+        }, 2000)
+      }
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
+
+      const result = await response.json();
       setIsLoading(false);
     } catch (error) {
-      console.error("error send form contact.")
+      console.error("error send form contact.");
+      setIsLoading(false);
     }
   });
 
@@ -44,6 +68,7 @@ export function useContactController() {
     register,
     handleSubmit,
     errors,
-    isLoading
+    isLoading,
+    success
   }
 }
