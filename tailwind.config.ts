@@ -20,7 +20,8 @@ const config: Config = {
         'bgSlide': "url('/bg-slide.png')",
         'bgLeds': "url('/leds/bg-leds.jpg')",
         'bgConectividade': "url('/conectividade/bg-conectividade.jpg')",
-        'bgMontagem': "url('/montagem/bg-montagem.jpg')"
+        'bgMontagem': "url('/montagem/bg-montagem.jpg')",
+        'bgCategoryAutomotivo': "url('/automotivo/bg-category-automotivo.jpg')"
       },
       colors: {
         'orange': '#FC4C02',
@@ -29,6 +30,7 @@ const config: Config = {
         'lightGray': '#DFDFE7',
         'lighterGray': '#F5F5F7',
         'lighterGray2': '#F7F6FB',
+        'blue': '#1C61AC',
       },
       keyframes: {
         slideDown: {
