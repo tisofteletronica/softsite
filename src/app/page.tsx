@@ -55,7 +55,7 @@ export default function Home() {
                   HÁ MAIS DE 23 ANOS ATUANDO EM TECNOLOGIA E AUTOMAÇÃO VEICULAR.
                 </Title>
 
-                <Button link="#" className="mt-9">
+                <Button link="/sobre-nos" className="mt-9">
                   SAIBA MAIS SOBRE NÓS!
                 </Button>
               </div>
@@ -131,7 +131,7 @@ export default function Home() {
                   PROJETOS ELETRÔNICOS PERSONALIZADOS E MONTAGEM EM UNIDADE FABRIL PRÓPRIA.
                 </Title>
 
-                <Button link="#" className="mt-[65px]">
+                <Button link="/montagem#estrutura" className="mt-[65px]">
                   CONHEÇA NOSSA ESTRUTURA!
                 </Button>
               </div>
