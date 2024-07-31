@@ -20,7 +20,7 @@ const PaginationContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ul
     ref={ref}
-    className={cn('flex flex-row items-center gap-1', className)}
+    className={cn('flex flex-row items-center gap-1 flex-wrap justify-center', className)}
     {...props}
   />
 ));
@@ -47,6 +47,12 @@ const PaginationButton = ({
     variant={isActive ? 'outline' : 'ghost'}
     size="icon"
     {...props}
+    className={
+      cn(
+        "text-gray border border-slate-200 hover:text-orange hover:border-orange",
+        isActive && 'text-orange border-orange'
+      )
+    }
   />
 );
 PaginationButton.displayName = 'PaginationLink';
@@ -89,7 +95,7 @@ const PaginationEllipsis = ({
 }: React.ComponentProps<'span'>) => (
   <span
     aria-hidden
-    className={cn('flex h-9 w-9 items-center justify-center', className)}
+    className={cn('flex h-9 w-9 items-center justify-center text-gray border border-slate-200', className)}
     {...props}
   >
     <LuMoreHorizontal className="h-4 w-4" />
