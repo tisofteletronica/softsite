@@ -1,52 +1,52 @@
-import { useCallback, useEffect, useState } from "react";
+interface UsePaginationProps {
+  page: number;
+  limit: number;
+  total: number;
+}
+export const ELLIPSIS_LEFT = -10;
+export const ELLIPSIS_RIGHT = -20;
 
-export function usePagination(perPage: number, initialPage = 1) {
-  const [totalItems, setTotalItems] = useState(0);
-  const [currentPage, setCurrentPage] = useState(() => {
-    const searchParams = new URLSearchParams(window.location.search);
+const generatePages = (page: number, totalPages: number) => {
+  const current = Math.min(page, totalPages);
+  const total = Math.max(1, totalPages);
 
-    const page = searchParams.get('page');
+  const L = ELLIPSIS_LEFT;
+  const R = ELLIPSIS_RIGHT;
 
-    if (!page) {
-      return initialPage;
-    }
+  if (total <= 7) {
+    return Array.from({ length: total }).map((_, i) => i + 1)
+  }
 
-    return Number(page);
-  });
+  if (current < 3) {
+    return [1, 2, 3, L, total-1, total];
+  }
 
-  const totalPages = Math.ceil(totalItems / perPage);
-  const hasPreviousPage = currentPage > 1;
-  const hasNextPage = currentPage < totalPages;
+  if (current === 3) {
+    return [1, 2, 3, 4, L, total-1, total];
+  }
 
-  useEffect(() => {
-    const url = new URL(window.location.href);
+  if(current > total - 2) {
+    return [1, 2, R, total-2, total-1, total];
+  }
 
-    url.searchParams.set('page', String(currentPage));
-    const newUrl = url.origin + url.pathname + '?' + url.searchParams.toString();
+  if(current === total - 2) {
+    return [1, 2, R, total-3, total-2, total-1, total];
+  }
 
-    window.history.replaceState({}, '', newUrl);
-  }, [currentPage]);
+  return [1, L, current - 1, current, current + 1, R, total];
+}
 
-  const nextPage = useCallback(() => {
-    setCurrentPage(prevState => prevState + 1);
-  }, []);
-
-  const previousPage = useCallback(() => {
-    setCurrentPage(prevState => prevState - 1);
-  }, []);
-
-  const setPage = useCallback((page: number) => {
-    setCurrentPage(page);
-  }, []);
+export function usePagination({ page, limit, total }: UsePaginationProps) {
+  const totalPages = Math.ceil(total/limit);
+  const pages = generatePages(page, totalPages);
+  const isCurrentPage = (n: number) => n === page;
+  const isFirstPage = page === 1;
+  const isLastPage = page === totalPages;
 
   return {
-    currentPage,
-    nextPage,
-    previousPage,
-    setPage,
-    setTotalItems,
-    totalPages,
-    hasPreviousPage,
-    hasNextPage
+    pages,
+    isCurrentPage,
+    isFirstPage,
+    isLastPage
   }
 }
