@@ -1,6 +1,8 @@
 import { Breadcrumb } from "@/app/_components/Breadcrumb";
 import { Container } from "@/app/_components/Container";
 import { GetToKnow } from "@/app/_components/GetToKnow";
+import { Info } from "@/app/_components/Info";
+import { Rule } from "@/app/_components/Rule";
 import { Search } from "@/app/_components/Search";
 import { SliderCardProduct } from "@/app/_components/SliderCardProduct";
 import { Title } from "@/app/_components/Title";
@@ -9,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineDownload } from "react-icons/hi";
 import imgGarantia from "../../../../../public/icon-garantia2.png";
+import { Measure } from "./_components/Measure";
 
 interface ProductDetailsProps {
   params: {
@@ -100,6 +103,42 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
                 </p>
               </div>
             </div>
+
+            <div className="flex justify-center mt-10 mb-10 lg:mb-0">
+              <div className="w-fit flex flex-col gap-[7px]">
+                {response.height && (
+                  <Measure
+                    icon={<Rule />}
+                    label="Altura:"
+                    value={response.height}
+                  />
+                )}
+
+                {response.width && (
+                  <Measure
+                    icon={<Rule />}
+                    label="Largura:"
+                    value={response.width}
+                  />
+                )}
+
+                {response.length && (
+                  <Measure
+                    icon={<Rule />}
+                    label="Comprimento:"
+                    value={response.length}
+                  />
+                )}
+
+                {response.weight && (
+                  <Measure
+                    icon={<Info />}
+                    label="Peso:"
+                    value={response.weight}
+                  />
+                )}
+              </div>
+            </div>
           </div>
 
           <div className="bg-lighterGray2 px-5 lg:px-[45px] py-8 lg:py-[70px] rounded-br-[40px]">
@@ -114,7 +153,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
           </div>
         </div>
 
-        <div className="lg:flex justify-center mt-10">
+        <div className="flex justify-center mt-10">
           <Link
             href={response?.urlManual ? response?.urlManual : "#"}
             className="bg-blue text-white text-[14px] lg:text-[22px] font-medium lg:leading-[31px] rounded-tl-[10px] rounded-br-[10px] px-4 lg:px-8 inline-flex tracking-[2.4px] gap-2 lg:gap-4 py-2 lg:py-4 hover:bg-blue/70 transition-all items-center mb-3 lg:mb-0"
