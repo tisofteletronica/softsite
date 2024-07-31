@@ -12,35 +12,35 @@ export const MENU = [
         label: "AUTOMOTIVO",
         sub: [
           {
-            href: "#",
+            href: "/automotivo/5",
             label: "ACESSÓRIOS"
           },
           {
-            href: "#",
+            href: "/automotivo/7",
             label: "ALARMES"
           },
           {
-            href: "#",
+            href: "/automotivo/8",
             label: "BEE LINK"
           },
           {
-            href: "#",
+            href: "/automotivo/2",
             label: "CENTRAL DE LEVANTAMENTO DE VIDRO"
           },
           {
-            href: "#",
+            href: "/automotivo/4",
             label: "CENTRAL DE TRAVA ELÉTRICA"
           },
           {
-            href: "#",
+            href: "automotivo/1",
             label: "MÓDULO DE VIDRO ELÉTRICO"
           },
           {
-            href: "#",
+            href: "/automotivo/6",
             label: "TRAVAS ELÉTRICAS"
           },
           {
-            href: "#",
+            href: "/automotivo/3",
             label: "UNIQUE"
           },
         ]
