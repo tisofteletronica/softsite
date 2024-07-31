@@ -73,7 +73,9 @@ export default async function AutomotivoCategories({ params, searchParams }: Aut
       </Container>
 
       <Container type="div" className="my-[50px]">
-        <Pagination page={page} limit={limit} total={totalElements} />
+        {totalElements > products.length && (
+          <Pagination page={page} limit={limit} total={totalElements} />
+        )}
       </Container>
     </main>
   )
