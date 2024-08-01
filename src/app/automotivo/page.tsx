@@ -23,7 +23,7 @@ export default async function Automotivo() {
       </Container>
 
       <div
-        className="bg-bgMontagem w-full lg:min-h-[391px] bg-cover lg:bg-center"
+        className="bg-bgAutomotivo w-full lg:min-h-[391px] bg-cover lg:bg-center"
       >
         <Container type="div">
           <Title type="h1" className="text-white pt-9 pb-14" classNameLine="bg-white">

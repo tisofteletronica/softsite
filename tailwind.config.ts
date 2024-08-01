@@ -21,6 +21,7 @@ const config: Config = {
         'bgLeds': "url('/leds/bg-leds.jpg')",
         'bgConectividade': "url('/conectividade/bg-conectividade.jpg')",
         'bgMontagem': "url('/montagem/bg-montagem.jpg')",
+        'bgAutomotivo': "url('/automotivo/bg-automotivo.png')",
         'bgCategoryAutomotivo': "url('/automotivo/bg-category-automotivo.jpg')"
       },
       colors: {
