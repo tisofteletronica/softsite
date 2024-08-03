@@ -63,13 +63,13 @@ const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerPro
   <AccordionDemo.Header className="flex">
     <AccordionDemo.Trigger
       className={cn(
-        'text-[18px] lg:text-[24px] font-semibold text-gray hover:bg-[#F7F6FB] group flex flex-1 items-center gap-5 bg-white leading-[20px] lg:leading-[29px] outline-none cursor-pointer px-5 lg:px-[110px] py-10 border border-gray border-t-0 rounded-bl-[45px] rounded-br-[45px] ml-[-1px] mr-[-1px] uppercase focus:outline-none data-[state=open]:bg-gray data-[state=open]:text-white data-[state=open]:rounded-bl-[0] data-[state=open]:rounded-br-[0] data-[state=open]:rounded-tl-[45px] text-left',
+        'text-[18px] lg:text-[24px] font-semibold text-gray hover:bg-[#F7F6FB] group flex flex-1 items-center gap-5 bg-white leading-[20px] lg:leading-[29px] outline-none cursor-pointer border border-gray border-t-0 rounded-bl-[45px] rounded-br-[45px] ml-[-1px] mr-[-1px] uppercase focus:outline-none data-[state=open]:bg-gray data-[state=open]:text-white data-[state=open]:rounded-bl-[0] data-[state=open]:rounded-br-[0] data-[state=open]:rounded-tl-[45px] text-left',
         className
       )}
       {...props}
       ref={forwardedRef}
     >
-      <div>
+      <div className='px-5 lg:px-[110px] py-10'>
         {children}
         <hr className='h-[3px] w-[40px] bg-orange border-0 mt-[6px]' />
       </div>
@@ -88,13 +88,13 @@ AccordionTrigger.displayName = 'AccordionTrigger'
 const AccordionContent = React.forwardRef<HTMLDivElement, AccordionItemProps>(({ children, className, ...props }, forwardedRef) => (
   <AccordionDemo.Content
     className={cn(
-      'data-[state=open]:bg-gray data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px] data-[state=open]:rounded-br-[45px] px-0 lg:px-[90px] transition-all',
+      'data-[state=open]:bg-gray data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px] data-[state=open]:rounded-br-[45px] transition-all',
       className
     )}
     {...props}
     ref={forwardedRef}
   >
-    <div className="py-[15px] px-5">{children}</div>
+    <div className="py-[15px] px-0 lg:px-[110px]">{children}</div>
   </AccordionDemo.Content>
 ));
 

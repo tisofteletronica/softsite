@@ -4,6 +4,7 @@ import { MdOutlineMail, MdWhatsapp } from "react-icons/md";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { Container } from "../_components/Container";
 import { Form } from "./_components/Form";
+import { MapContainer } from "./_components/MapContainer";
 import { Representatives } from "./_components/Representatives";
 
 export default async function Contato() {
@@ -92,6 +93,25 @@ export default async function Contato() {
           </div>
         </Container>
       </div>
+
+      <Container type="div" className="mt-[85px]">
+        <div className="mb-9">
+          <h2
+            className="text-[31px] lg:text-[43px] font-extrabold text-gray tracking-[1px] lg:tracking-[2.15px] leading-[40px] lg:leading-[51px]"
+          >
+            DISTRIBUIDORES
+          </h2>
+          <hr className="border-0 w-[69px] h-[5px] bg-orange mt-2" />
+        </div>
+
+        <p
+          className="text-[17px] lg:text-[22px] font-medium leading-[23px] lg:leading-[30px] tracking-[2px] text-gray"
+        >
+          Saiba onde comprar os produtos Soft:
+        </p>
+
+        <MapContainer />
+      </Container>
 
       <div className="mt-[160px] mb-[200px]">
         <Representatives representatives={representatives.content} />
