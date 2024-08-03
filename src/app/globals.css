@@ -168,7 +168,115 @@ html {
   @apply bg-orange w-[22px] rounded-[6px];
 }
 
+#mapBrasil {
+  display: none;
+}
 
+#mapBrasil .state {
+  cursor: pointer;
+}
+
+#mapBrasil .state .shape {
+  cursor: pointer;
+  -width: 0;
+}
+
+#mapBrasil .state .label_icon_state {
+  fill: #484848;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: normal;
+}
+
+#mapBrasil .state .label_state {
+    display: none;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: bold;
+}
+
+#mapBrasil .state:hover .label_state,
+#mapBrasil .state.hover .label_state {
+    display: block;
+}
+
+#mapBrasil .model-green .state .shape {
+    fill: #dfdfe7;
+}
+
+#mapBrasil .model-green .state .icon_state {
+    fill: #a8a8a8;
+}
+
+#mapBrasil .model-green .state .label_icon_state {
+    fill: #484848;
+}
+
+#mapBrasil .model-green .state .label_state {
+    fill: #666;
+}
+
+#mapBrasil .model-green .state:hover .shape,
+#mapBrasil .model-green .state.hover .shape {
+    fill: #fc4c02;
+}
+
+#mapBrasil .model-green .state:hover .icon_state,
+#mapBrasil .model-green .state.hover .icon_state {
+    fill: #fc4c02;
+}
+
+#mapBrasil .model-orange .state .shape {
+    fill: #fd7132;
+}
+
+#mapBrasil .model-orange .state .icon_state {
+    fill: #6cb361;
+}
+
+#mapBrasil .model-orange .state .label_icon_state {
+    fill: #fff;
+}
+
+#mapBrasil .model-orange .state .label_state {
+    fill: #666;
+}
+
+#mapBrasil .model-orange .state:hover .shape,
+#mapBrasil .model-orange .state.hover .shape {
+    fill: #c93f04;
+}
+
+#mapBrasil .model-orange .state:hover .icon_state,
+#mapBrasil .model-orange .state.hover .icon_state {
+    fill: #10592f;
+}
+
+#mapBrasil .model-darkgreen .state .shape {
+    fill: #366823;
+}
+
+#mapBrasil .model-darkgreen .state .icon_state {
+    fill: #2779c6;
+}
+
+#mapBrasil .model-darkgreen .state .label_icon_state {
+    fill: #fff;
+}
+
+#mapBrasil .model-darkgreen .state .label_state {
+    fill: #666;
+}
+
+#mapBrasil .model-darkgreen .state:hover .shape,
+#mapBrasil .model-darkgreen .state.hover .shape {
+    fill: #4a8c31;
+}
+
+#mapBrasil .model-darkgreen .state:hover .icon_state,
+#mapBrasil .model-darkgreen .state.hover .icon_state {
+    fill: #5a95ce;
+}
 
 
 

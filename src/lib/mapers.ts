@@ -1,4 +1,4 @@
-import { STATES } from "@/config/constants";
+import { STATES, UF } from "@/config/constants";
 import { AutomakersResponse } from "@/services/searchService/automakers";
 import { YearsResponse } from "@/services/searchService/years";
 
@@ -28,4 +28,10 @@ export function titleRepresentativesMapper(value: string) {
   const mapperStates = STATES.map((state) => value === state.valueApi && value.replace(state.valueApi, state.valueTratament));
 
   return mapperStates;
+}
+
+export function ufMapper(value: string) {
+  const mapper = UF.map(u => value === u.label && u.value);
+
+  return mapper;
 }
