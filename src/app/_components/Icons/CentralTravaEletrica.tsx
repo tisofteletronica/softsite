@@ -1,6 +1,10 @@
-export function CentralTravaEletrica() {
+interface IconProps {
+  className?: string;
+}
+
+export function CentralTravaEletrica({ className }: IconProps) {
   return (
-    <svg id="Grupo_1963" data-name="Grupo 1963" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="91.705" height="120.738" viewBox="0 0 91.705 120.738">
+    <svg id="Grupo_1963" data-name="Grupo 1963" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="91.705" height="120.738" viewBox="0 0 91.705 120.738" className={className}>
       <defs>
         <clipPath id="clip-path">
           <rect id="Retângulo_1438" data-name="Retângulo 1438" width="91.705" height="120.738" fill="#484848" />

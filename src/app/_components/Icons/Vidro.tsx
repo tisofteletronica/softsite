@@ -1,6 +1,12 @@
-export function Vidro() {
+interface IconProps {
+  className?: string;
+}
+
+export function Vidro({ className }: IconProps) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="76.975" height="130.864" viewBox="0 0 76.975 130.864">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="76.975" height="130.864" viewBox="0 0 76.975 130.864"
+      className={className}
+    >
       <defs>
         <clipPath id="clip-path">
           <rect id="Retângulo_1435" data-name="Retângulo 1435" width="76.975" height="130.864" fill="#484848" />

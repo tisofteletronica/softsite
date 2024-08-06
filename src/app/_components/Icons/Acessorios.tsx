@@ -1,6 +1,10 @@
-export function Acessorios() {
+interface IconProps {
+  size: string;
+}
+
+export function Acessorios({ size }: IconProps) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="134" height="86" viewBox="0 0 134 86">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width={size} viewBox="0 0 134 86">
       <defs>
         <clipPath id="clipPath">
           <rect id="Retângulo_1462" width="134" height="86" transform="translate(-0.139 -0.142)" fill="none" />
