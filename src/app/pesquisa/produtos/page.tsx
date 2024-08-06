@@ -43,7 +43,7 @@ export default async function Produtos({ searchParams }: ProdutosProps) {
         <div className="grid lg:grid-cols-3 gap-x-5 gap-y-[30px] lg:gap-y-[80px]">
           {products.map((product) => (
             <CardProduct
-              key={product.productId}
+              key={product.id}
               name={product.productName}
               code={product.codigo}
               descriptionInstalesoft={product.descricaoInstaleSoft}
