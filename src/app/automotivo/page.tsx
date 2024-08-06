@@ -1,4 +1,3 @@
-import { automotiveService } from "@/services/automotiveService";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { CardLine } from "../_components/CardLine";
 import { Container } from "../_components/Container";
@@ -14,7 +13,6 @@ import { Search } from "../_components/Search";
 import { Title } from "../_components/Title";
 
 export default async function Automotivo() {
-  const categories = await automotiveService.getCategories();
 
   return (
     <main>
@@ -54,7 +52,7 @@ export default async function Automotivo() {
         <div className="grid lg:grid-cols-4 gap-[27px] mb-[100px]">
           <CardLine
             link="/automotivo/5"
-            icon={<Acessorios />}
+            icon={<Acessorios size="134" />}
             title="ACESSÓRIOS"
           />
           <CardLine
@@ -80,12 +78,12 @@ export default async function Automotivo() {
           />
           <CardLine
             link="/automotivo/1"
-            icon={<ModuloVidro />}
+            icon={<ModuloVidro className="text-gray" />}
             title="MÓDULO DE VIDRO ELÉTRICO"
           />
           <CardLine
             link="/automotivo/6"
-            icon={<TravaEletrica />}
+            icon={<TravaEletrica className="text-gray" />}
             title="TRAVAS ELÉTRICAS"
           />
           <CardLine

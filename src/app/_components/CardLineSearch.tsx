@@ -9,12 +9,12 @@ interface CardLineSearchProps {
   link: string;
 }
 
-export function CardLineSearch({ category, title, icon, link }: CardLineSearchProps) {
+export function CardLineSearch({ category, title, icon, link}: CardLineSearchProps) {
   return (
     <article className="bg-white group shadow-[0px_3px_6px_#00000029] rounded-[0_40px] w-full block">
       <div className="rounded-[0_40px] h-[90px] flex items-center justify-center bg-lightGray group-hover:bg-blue transition-all">
         <div className="flex items-center">
-          <div >
+          <div>
             {icon}
           </div>
 
@@ -37,7 +37,7 @@ export function CardLineSearch({ category, title, icon, link }: CardLineSearchPr
       ">
         <Link
           href={link}
-          className="m-auto py-[7px] px-[20px] bg-blue rounded-[10px_0] text-white font-medium tracking-[1.6px] max-w-[130px] flex items-center justify-center text-[14px]"
+          className="m-auto py-[7px] px-[20px] bg-blue rounded-[10px_0] text-white font-medium tracking-[1.6px] max-w-[130px] flex items-center justify-center text-[14px] hover:bg-blue/70 transition-all"
         >
           VER MAIS
         </Link>

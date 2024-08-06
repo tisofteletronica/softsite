@@ -10,12 +10,12 @@ interface CardProductProps {
   imgUrl1: string;
   code: string;
   descriptionInstalesoft: string;
-  idProduct: string;
+  link: string;
+  portas2?: boolean;
+  porta4?: boolean;
 }
 
-export function CardProduct({ name, imgUrl1, code, descriptionInstalesoft, idProduct }: CardProductProps) {
-
-
+export function CardProduct({ name, imgUrl1, code, descriptionInstalesoft, link, portas2, porta4 }: CardProductProps) {
   return (
     <article className="group w-full bg-white hover:bg-blue shadow-[0px_3px_6px_#00000029] rounded-tr-[40px] rounded-bl-[40px] overflow-hidden pb-8 transition-all min-h-[515px] relative">
       <figure className="w-full h-[260px] rounded-tr-[40px] rounded-bl-[40px] overflow-hidden bg-lighterGray2 flex items-center justify-center">
@@ -40,8 +40,20 @@ export function CardProduct({ name, imgUrl1, code, descriptionInstalesoft, idPro
         {createExcerpt(descriptionInstalesoft ?? '', 33)}
       </p>
 
+      {portas2 && (
+        <p className="text-blue font-bold uppercase text-[17px] text-center mb-9 group-hover:text-white">
+          2 Vidros
+        </p>
+      )}
+
+      {porta4 && (
+        <p className="text-blue font-bold uppercase text-[17px] text-center mb-9 group-hover:text-white">
+          4 Vidros
+        </p>
+      )}
+
       <Link
-        href={`/automotivo/produto/${idProduct}`}
+        href={link ?? ""}
         className="m-auto py-[9px] px-[22px] h-[38px] group-hover:bg-white group-hover:text-gray bg-blue rounded-[10px_0] text-white font-medium tracking-[1.6px] w-[130px] flex items-center justify-center"
       >
         VER MAIS

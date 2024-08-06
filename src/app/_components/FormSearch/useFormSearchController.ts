@@ -1,6 +1,7 @@
 import { automakersMapper, yearsMapper } from "@/lib/mapers";
 import { searchService } from "@/services/searchService";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -26,6 +27,7 @@ export function useFormSearchController() {
   const [yearsData, setYearsData] = useState<SearchSelectOption[]>([]);
   const [disabledModel, setDisabledModel] = useState(true);
   const [disabledYear, setDisabledYear] = useState(true);
+  const router = useRouter()
 
   const {
     control,
@@ -89,7 +91,7 @@ export function useFormSearchController() {
 
   const handleSubmit = hookFormSubmit(async data => {
     try {
-      console.log(data);
+      router.push(`/pesquisa?models=${data.models}&year=${data.years}`);
     } catch (error) {
       console.error("error search.")
     }

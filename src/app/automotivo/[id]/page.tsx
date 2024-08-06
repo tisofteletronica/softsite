@@ -62,11 +62,11 @@ export default async function AutomotivoCategories({ params, searchParams }: Aut
           {products.map((product) => (
             <CardProduct
               key={product.id}
-              idProduct={product.id}
               name={product.name}
               code={product.code}
               descriptionInstalesoft={product.descriptionInstalesoft}
               imgUrl1={product.imgUrl1}
+              link={`/automotivo/produto/${product.id}`}
             />
           ))}
         </div>
