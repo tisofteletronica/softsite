@@ -278,7 +278,22 @@ html {
     fill: #5a95ce;
 }
 
+.classSvg {
+  max-width: 55px;
+  max-height: 60px;
+}
 
+.subOrigi {
+  max-width: 45px;
+}
+
+.travaEle {
+  max-height: 45px;
+}
+
+.desligaRad {
+  max-height: 70px;
+}
 
 @layer utilities {
   .text-balance {

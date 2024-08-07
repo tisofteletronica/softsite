@@ -16,55 +16,55 @@ import { SlLock } from "react-icons/sl";
 const ICONS = [
   {
     label: 'LEVANTAMENTO DE VIDRO',
-    value: <GiCarDoor size={50} className="text-gray group-hover:text-white transition-all" />
+    value: <GiCarDoor size={50} className="text-gray group-hover:text-white transition-all classSvg" />
   },
   {
     label: 'AUTODOWN',
-    value: <ModuloVidro className="w-[40px] text-gray group-hover:text-white transition-all" />
+    value: <ModuloVidro className="w-[40px] text-gray group-hover:text-white transition-all classSvg" />
   },
   {
     label: 'SUBSTITUIÇÃO ORIGINAL',
-    value: <SubstituicaoOriginal className="w-[50px] text-gray group-hover:text-white transition-all" />
+    value: <SubstituicaoOriginal className="w-[50px] text-gray group-hover:text-white transition-all classSvg subOrigi" />
   },
   {
     label: 'TRAVA ELÉTRICA',
-    value: <TravaEletrica className="w-full max-w-[50px] text-gray group-hover:text-white transition-all" />
+    value: <TravaEletrica className="w-full max-w-[55px] text-gray group-hover:text-white transition-all classSvg travaEle" />
   },
   {
     label: 'CENTRAL DE ENGATE',
-    value: <CentralEngate className="w-[50px] mt-2.5 block text-gray group-hover:text-white transition-all" />
+    value: <CentralEngate className="w-[50px] mt-2.5 block text-gray group-hover:text-white transition-all classSvg" />
   },
   {
     label: 'RETROVISOR',
-    value: <Retrovisor className="w-[60px] pr-[10px] text-gray group-hover:text-white transition-all" />
+    value: <Retrovisor className="pr-[10px] text-gray group-hover:text-white transition-all classSvg" />
   },
   {
     label: 'DESLIGA RÁDIO',
-    value: <DesligaRadio className="w-[60px] text-gray group-hover:text-white transition-all" />
+    value: <DesligaRadio className="text-gray group-hover:text-white transition-all classSvg desligaRad" />
   },
   {
     label: 'ALARME',
-    value: <TravaEletricaV2 className="w-[50px] mt-3 text-gray group-hover:text-white transition-all" />
+    value: <TravaEletricaV2 className="!w-[65px] mt-3 text-gray group-hover:text-white transition-all classSvg" />
   },
   {
     label: 'INTERFACE DE VOLANTE',
-    value: <Volante className="w-[45px] mt-3 text-gray group-hover:text-white transition-all" />
+    value: <Volante className="w-[45px] h-[50px] mt-3 text-gray group-hover:text-white transition-all classSvg" />
   },
   {
     label: 'TRAVAMENTO POR VELOCIDADE',
-    value: <Velocidade className="w-[45px] mt-2 text-gray group-hover:text-white transition-all" />
+    value: <Velocidade className="w-[45px] mt-2 text-gray group-hover:text-white transition-all classSvg" />
   },
   {
     label: 'SUBSTITUIÇÃO CENTRAL DE TRAVA ORIGINAL',
-    value: <SlLock size={45} className=" text-gray group-hover:text-white transition-all" />
+    value: <SlLock size={45} className=" text-gray group-hover:text-white transition-all classSvg" />
   },
   {
     label: 'TETO SOLAR',
-    value: <TetoSolar className="w-[75px] mb-[-15px] text-gray group-hover:text-white transition-all" />
+    value: <TetoSolar className="w-[75px] mb-[-15px] text-gray group-hover:text-white transition-all classSvg" />
   },
   {
     label: 'DESBLOQUEIO DE TELA',
-    value: <DesbloqueioTela className="w-[50px] mb-[-15px] text-gray group-hover:text-white transition-all" />
+    value: <DesbloqueioTela className="w-[50px] mb-[-15px] text-gray group-hover:text-white transition-all classSvg" />
   }
 ]
 
