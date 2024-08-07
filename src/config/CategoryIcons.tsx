@@ -28,7 +28,7 @@ const ICONS = [
   },
   {
     label: 'TRAVA ELÉTRICA',
-    value: <TravaEletrica className="w-[50px] text-gray group-hover:text-white transition-all" />
+    value: <TravaEletrica className="w-full max-w-[50px] text-gray group-hover:text-white transition-all" />
   },
   {
     label: 'CENTRAL DE ENGATE',
