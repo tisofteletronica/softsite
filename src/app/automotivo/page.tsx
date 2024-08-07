@@ -51,42 +51,58 @@ export default async function Automotivo() {
       <Container type="div">
         <div className="grid lg:grid-cols-4 gap-[27px] mb-[100px]">
           <CardLine
+            className="group-hover:bg-[#473165]"
+            classNameText="group-hover:text-[#473165]"
             link="/automotivo/5"
             icon={<Acessorios size="134" />}
             title="ACESSÓRIOS"
           />
           <CardLine
+            className="group-hover:bg-[#044460]"
+            classNameText="group-hover:text-[#044460]"
             link="/automotivo/7"
             icon={<Alarmes />}
             title="ALARMES"
           />
           <CardLine
+            className="group-hover:bg-[#F9B73A]"
+            classNameText="group-hover:text-[#F9B73A]"
             link="/automotivo/8"
             icon={<BeeLink />}
             title="BEE LINK"
           />
           <CardLine
+            className="group-hover:bg-[#1C61AC]"
+            classNameText="group-hover:text-[#1C61AC]"
             link="/automotivo/2"
             icon={<Vidro />}
             title="CENTRAL DE LEVANTAMENTO DE VIDRO"
           />
 
           <CardLine
+            className="group-hover:bg-[#E50914]"
+            classNameText="group-hover:text-[#E50914]"
             link="/automotivo/4"
             icon={<CentralTravaEletrica />}
             title="CENTRAL DE TRAVA ELÉTRICA"
           />
           <CardLine
+            className="group-hover:bg-[#99CC33]"
+            classNameText="group-hover:text-[#99CC33]"
             link="/automotivo/1"
             icon={<ModuloVidro className="text-gray" />}
             title="MÓDULO DE VIDRO ELÉTRICO"
           />
           <CardLine
+            className="group-hover:bg-[#FC4C02]"
+            classNameText="group-hover:text-[#FC4C02]"
             link="/automotivo/6"
             icon={<TravaEletrica className="text-gray" />}
             title="TRAVAS ELÉTRICAS"
           />
           <CardLine
+            className="group-hover:bg-[#44D62C]"
+            classNameText="group-hover:text-[#44D62C]"
             link="/automotivo/3"
             icon={<Unique />}
             title="UNIQUE"
