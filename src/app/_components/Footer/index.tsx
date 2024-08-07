@@ -17,22 +17,22 @@ export function Footer() {
 
           <ul className="text-white flex items-center gap-5 footer-sociais">
             <li>
-              <Link href="#">
+              <Link href="#" target="_blank">
                 <ImFacebook size={23} />
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="https://www.instagram.com/softeletronica/" target="_blank">
                 <SiInstagram size={23} />
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="https://www.youtube.com/c/SOFTELETRONICA2000" target="_blank">
                 <AiOutlineYoutube size={33} />
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="#" target="_blank">
                 <FaLinkedinIn size={23} />
               </Link>
             </li>

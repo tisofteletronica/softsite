@@ -36,11 +36,11 @@ const ICONS = [
   },
   {
     label: 'RETROVISOR',
-    value: <Retrovisor className="w-[60px] !ml-[-10px] pr-[10px] text-gray group-hover:text-white transition-all" />
+    value: <Retrovisor className="w-[60px] pr-[10px] text-gray group-hover:text-white transition-all" />
   },
   {
     label: 'DESLIGA RÁDIO',
-    value: <DesligaRadio className="w-[60px] !ml-[-10px] text-gray group-hover:text-white transition-all" />
+    value: <DesligaRadio className="w-[60px] text-gray group-hover:text-white transition-all" />
   },
   {
     label: 'ALARME',
@@ -48,11 +48,11 @@ const ICONS = [
   },
   {
     label: 'INTERFACE DE VOLANTE',
-    value: <Volante className="w-[45px] mb-[-15px] text-gray group-hover:text-white transition-all" />
+    value: <Volante className="w-[45px] mt-3 text-gray group-hover:text-white transition-all" />
   },
   {
     label: 'TRAVAMENTO POR VELOCIDADE',
-    value: <Velocidade className="w-[45px] text-gray group-hover:text-white transition-all" />
+    value: <Velocidade className="w-[45px] mt-2 text-gray group-hover:text-white transition-all" />
   },
   {
     label: 'SUBSTITUIÇÃO CENTRAL DE TRAVA ORIGINAL',

@@ -13,8 +13,8 @@ export function CardLineSearch({ category, title, icon, link}: CardLineSearchPro
   return (
     <article className="bg-white group shadow-[0px_3px_6px_#00000029] rounded-[0_40px] w-full block">
       <div className="rounded-[0_40px] h-[90px] flex items-center justify-center bg-lightGray group-hover:bg-blue transition-all">
-        <div className="flex items-center">
-          <div>
+        <div className="flex items-center gap-1">
+          <div className="w-[55px] relative h-full">
             {icon}
           </div>
 
