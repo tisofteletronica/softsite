@@ -17,7 +17,7 @@ export function Header() {
               <span className="font-bold lg:mr-[103px] tracking-[1.6px] text-sm lg:text-base">BAIXE NOSSOS CATÁLOGOS</span>
               <div className="flex">
                   <Link
-                      href="#"
+                      href="https://drive.google.com/file/d/1xym6W-fwsOvyT4pwUsI53HS_o4k8qXd8/view"
                       target="_blank"
                       className="mr-5 font-medium text-sm lg:text-base lg:mr-[52px] flex items-center tracking-[1.6px] gap-1"
                   >
