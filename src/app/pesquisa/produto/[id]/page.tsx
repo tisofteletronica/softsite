@@ -1,3 +1,4 @@
+import { getProductsByModelAndCategoryCachedData } from "@/app/_actions/getActionSearch";
 import { Breadcrumb } from "@/app/_components/Breadcrumb";
 import { Container } from "@/app/_components/Container";
 import { GetToKnow } from "@/app/_components/GetToKnow";
@@ -5,7 +6,7 @@ import { NotFound } from "@/app/_components/NotFound";
 import { Search } from "@/app/_components/Search";
 import { SliderCardProduct } from "@/app/_components/SliderCardProduct";
 import { Title } from "@/app/_components/Title";
-import { searchService } from "@/services/searchService";
+import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import { GiCarDoor } from "react-icons/gi";
@@ -28,11 +29,13 @@ export default async function ProductDetails({ params, searchParams }: ProductDe
 
   let response;
   try {
-    const { content: products } = await searchService.getProductsByModelAndCategory(model, year, category, 0, 1000);
-    response = await products.filter((product) => Number(product.productId) === Number(params.id));
+    const { content: products } = await getProductsByModelAndCategoryCachedData(model, year, category, 0, 1000);
+    response = products.filter((product) => Number(product.productId) === Number(params.id));
   } catch (error) {
     return <NotFound />
   }
+
+  revalidatePath(`/pesquisa/produto/${params.id}?year=${year}&category=${category}&model=${model}&portas=${portas}`);
 
   return (
     <main>

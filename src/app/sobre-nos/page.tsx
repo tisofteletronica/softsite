@@ -1,14 +1,15 @@
-import { aboutService } from "@/services/aboutService";
+import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import imgAspas from "../../../public/aspas.png";
+import { getAboutCachedData, getLineTimeCachedData } from "../_actions/getActionAbout";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { Container } from "../_components/Container";
 import { Title } from "../_components/Title";
 import { Slider } from "./_components/Slider";
 
 export default async function SobreNos() {
-  const responseData = aboutService.getAbout();
-  const responseLineData = aboutService.getLineTime();
+  const responseData = getAboutCachedData();
+  const responseLineData = getLineTimeCachedData();
 
   const [
     response,
@@ -17,6 +18,8 @@ export default async function SobreNos() {
     responseData,
     responseLineData
   ])
+
+  revalidatePath('/sobre-nos');
 
   return (
     <main>

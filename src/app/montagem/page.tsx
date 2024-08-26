@@ -1,3 +1,4 @@
+import { revalidatePath } from 'next/cache';
 import { getAssemblyCachedData, getDifferencesCachedData, getServicesCachedData, getStructureCachedData } from "../_actions/getActionAssembly";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { Container } from "../_components/Container";
@@ -41,6 +42,8 @@ export default async function Montagem() {
     structurePage2Data,
     assemblyData
   ])
+
+  revalidatePath('/montagem');
 
   return (
     <main>

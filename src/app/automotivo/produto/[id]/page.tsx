@@ -1,3 +1,4 @@
+import { getProductsByIdAutomotiveCachedData } from "@/app/_actions/getActionAutomotive";
 import { Breadcrumb } from "@/app/_components/Breadcrumb";
 import { Container } from "@/app/_components/Container";
 import { GetToKnow } from "@/app/_components/GetToKnow";
@@ -6,7 +7,7 @@ import { Rule } from "@/app/_components/Rule";
 import { Search } from "@/app/_components/Search";
 import { SliderCardProduct } from "@/app/_components/SliderCardProduct";
 import { Title } from "@/app/_components/Title";
-import { automotiveService } from "@/services/automotiveService";
+import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineDownload } from "react-icons/hi";
@@ -20,7 +21,9 @@ interface ProductDetailsProps {
 }
 
 export default async function ProductDetails({ params }: ProductDetailsProps) {
-  const response = await automotiveService.getProductsById(params.id);
+  const response = await getProductsByIdAutomotiveCachedData(params.id);
+
+  revalidatePath(`/automotivo/produto/${params.id}`);
 
   return (
     <main>
@@ -110,7 +113,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
                   <Measure
                     icon={<Rule />}
                     label="Altura:"
-                    value={response.height}
+                    value={`${response.height}cm`}
                   />
                 )}
 
@@ -118,7 +121,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
                   <Measure
                     icon={<Rule />}
                     label="Largura:"
-                    value={response.width}
+                    value={`${response.width}cm`}
                   />
                 )}
 
@@ -126,7 +129,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
                   <Measure
                     icon={<Rule />}
                     label="Comprimento:"
-                    value={response.length}
+                    value={`${response.length}cm`}
                   />
                 )}
 
@@ -134,7 +137,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
                   <Measure
                     icon={<Info />}
                     label="Peso:"
-                    value={response.weight}
+                    value={`${response.weight}g`}
                   />
                 )}
               </div>

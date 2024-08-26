@@ -1,9 +1,10 @@
+import { getProductsByCategoryIdCachedData } from "@/app/_actions/getActionAutomotive";
 import { Breadcrumb } from "@/app/_components/Breadcrumb";
 import { CardProduct } from "@/app/_components/CardProduct";
 import { Container } from "@/app/_components/Container";
 import { Search } from "@/app/_components/Search";
 import { Title } from "@/app/_components/Title";
-import { automotiveService } from "@/services/automotiveService";
+import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import { Pagination } from "../../_components/Pagination";
 
@@ -15,7 +16,9 @@ interface AutomotivoCategoriesProps {
 export default async function AutomotivoCategories({ params, searchParams }: AutomotivoCategoriesProps) {
   const page = Number(searchParams?.page) || 1;
   const limit = Number(searchParams?.limit) || 9;
-  const { content: products, totalElements } = await automotiveService.getProductsByCategoryId(params.id, page-1, limit);
+  const { content: products, totalElements } = await getProductsByCategoryIdCachedData(params.id, page-1, limit);
+
+  revalidatePath(`/automotivo/${params.id}`);
 
   return (
     <main>

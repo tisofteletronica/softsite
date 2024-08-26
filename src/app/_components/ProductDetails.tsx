@@ -1,10 +1,10 @@
-import { conectivityService } from "@/services/conectivityService";
 import { ProductByIdResponse } from "@/services/conectivityService/productById";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HiOutlineDownload } from "react-icons/hi";
 import imgGarantia from "../../../public/icon-garantia.png";
+import { getProductByIdCachedData } from "../_actions/getActionConectivity";
 import { SliderCardProduct } from "./SliderCardProduct";
 import { Spinner } from "./Spinner";
 import { Title } from "./Title";
@@ -21,7 +21,7 @@ export function ProductDetails({ productId }: ProductDetailsProps) {
     const fetch = async () => {
       setIsLoading(true);
       if (productId) {
-        const response = await conectivityService.getProductById(productId);
+        const response = await getProductByIdCachedData(productId);
         setProduct(response);
       }
       setIsLoading(false);

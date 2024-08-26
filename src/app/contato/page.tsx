@@ -1,6 +1,7 @@
-import { contactService } from "@/services/contactService";
+import { revalidatePath } from "next/cache";
 import { LuPhone } from "react-icons/lu";
 import { MdOutlineMail, MdWhatsapp } from "react-icons/md";
+import { getCentralCachedData, getRepresentativesCachedData } from "../_actions/getActionContact";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { Container } from "../_components/Container";
 import { Form } from "./_components/Form";
@@ -8,8 +9,10 @@ import { MapContainer } from "./_components/MapContainer";
 import { Representatives } from "./_components/Representatives";
 
 export default async function Contato() {
-  const response = await contactService.getCentral();
-  const representatives = await contactService.getRepresentatives();
+  const response = await getCentralCachedData();
+  const representatives = await getRepresentativesCachedData();
+
+  revalidatePath('/contato');
 
   return (
     <main>

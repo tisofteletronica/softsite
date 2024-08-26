@@ -1,5 +1,6 @@
 import { CategoryIcons } from "@/config/CategoryIcons";
-import { searchService } from "@/services/searchService";
+import { revalidatePath } from "next/cache";
+import { getCategoryByModelAndYearCachedData } from "../_actions/getActionSearch";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { CardLineSearch } from "../_components/CardLineSearch";
 import { Container } from "../_components/Container";
@@ -13,7 +14,9 @@ interface PesquisaProps {
 export default async function Pesquisa({ searchParams }: PesquisaProps) {
   const model = searchParams.models!;
   const year = searchParams.year!;
-  const categories = await searchService.getCategoryByModelAndYear(model, year)
+  const categories = await getCategoryByModelAndYearCachedData(model, year);
+
+  revalidatePath(`/pesquisa?models=${model}&year=${year}`);
 
   if (categories.content.length <= 0) {
     return <NotFound />;

@@ -1,9 +1,10 @@
+import { getProductsByModelAndCategoryCachedData } from "@/app/_actions/getActionSearch";
 import { Breadcrumb } from "@/app/_components/Breadcrumb";
 import { CardProduct } from "@/app/_components/CardProduct";
 import { Container } from "@/app/_components/Container";
 import { Pagination } from "@/app/_components/Pagination";
 import { Search } from "@/app/_components/Search";
-import { searchService } from "@/services/searchService";
+import { revalidatePath } from "next/cache";
 import Link from "next/link";
 
 interface ProdutosProps {
@@ -17,7 +18,9 @@ export default async function Produtos({ searchParams }: ProdutosProps) {
   const page = Number(searchParams?.page) || 1;
   const limit = Number(searchParams?.limit) || 9;
 
-  const { content: products, totalElements } = await searchService.getProductsByModelAndCategory(model, year, category, page - 1, limit);
+  const { content: products, totalElements } = await getProductsByModelAndCategoryCachedData(model, year, category, page - 1, limit);
+
+  revalidatePath(`/pesquisa/produtos?year=${year}&category=${category}&model=${model}`);
 
   return (
     <main>

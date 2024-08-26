@@ -1,7 +1,7 @@
 'use client'
 
+import { getProductByIdCachedData } from "@/app/_actions/getActionConectivity";
 import { Spinner } from "@/app/_components/Spinner";
-import { conectivityService } from "@/services/conectivityService";
 import { ProductByIdResponse } from "@/services/conectivityService/productById";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -19,7 +19,7 @@ export function CardProduct({ idProduct, onClick }: CardProductProps) {
   useEffect(() => {
     const fetch = async () => {
       setIsLoading(true);
-      const response = await conectivityService.getProductById(idProduct);
+      const response = await getProductByIdCachedData(idProduct);
       setProduct(response);
       setIsLoading(false);
     }

@@ -1,12 +1,15 @@
-import { unitsService } from "@/services/unitsService";
+import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import imgMapa from "../../../public/mapa.png";
+import { getUnitsCachedData } from "../_actions/getActionUnits";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { CardUnits } from "../_components/CardUnits";
 import { Container } from "../_components/Container";
 
 export default async function Unidades() {
-  const response = await unitsService.getUnits();
+  const response = await getUnitsCachedData();
+
+  revalidatePath('/unidades');
 
   return (
     <main>

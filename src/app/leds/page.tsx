@@ -1,15 +1,18 @@
-import { ledsService } from "@/services/ledsService";
+import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import imgDescricao from "../../../public/leds/descricao.png";
 import imgProducao from "../../../public/leds/producao.png";
 import imgProjetos from "../../../public/leds/projetos.png";
+import { getLedsCachedData } from "../_actions/getActionLeds";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { Container } from "../_components/Container";
 import { Search } from "../_components/Search";
 import { Title } from "../_components/Title";
 
 export default async function Leds() {
-  const response = await ledsService.getLeds();
+  const response = await getLedsCachedData();
+
+  revalidatePath('/leds');
 
   return (
     <main>

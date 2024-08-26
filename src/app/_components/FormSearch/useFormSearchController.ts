@@ -1,5 +1,5 @@
+import { getModelsByIdCachedData, getYearsCachedData } from "@/app/_actions/getActionSearch";
 import { automakersMapper, yearsMapper } from "@/lib/mapers";
-import { searchService } from "@/services/searchService";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -44,7 +44,7 @@ export function useFormSearchController() {
       try {
         setIsLoading(true);
         if (selectedAutomaker) {
-          const responseModelsById = await searchService.getModelsById(selectedAutomaker);
+          const responseModelsById = await getModelsByIdCachedData(selectedAutomaker);
           setModelsData(automakersMapper(responseModelsById));
           setDisabledModel(false);
         }
@@ -62,7 +62,7 @@ export function useFormSearchController() {
       try {
         setIsLoading(true);
         if (selectedModel.length > 0) {
-          const response = await searchService.getYears(selectedModel);
+          const response = await getYearsCachedData(selectedModel);
           setYearsData(yearsMapper(response));
           response.length > 0 ? setDisabledYear(false) : setDisabledYear(true);
         }

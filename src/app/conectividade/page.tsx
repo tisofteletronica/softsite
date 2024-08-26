@@ -1,6 +1,7 @@
-import { conectivityService } from "@/services/conectivityService";
+import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import { default as imgConexao, default as imgDescricao } from "../../../public/conectividade/descricao.png";
+import { getConectivityCachedData } from "../_actions/getActionConectivity";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { Container } from "../_components/Container";
 import { Search } from "../_components/Search";
@@ -8,7 +9,9 @@ import { Title } from "../_components/Title";
 import { OurProducts } from "./_components/OurProducts";
 
 export default async function Conectividades() {
-  const response = await conectivityService.getConectivity();
+  const response = await getConectivityCachedData();
+
+  revalidatePath('/conectividade');
 
   return (
     <main>

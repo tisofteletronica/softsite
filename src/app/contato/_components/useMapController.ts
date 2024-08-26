@@ -1,4 +1,4 @@
-import { contactService } from "@/services/contactService";
+import { getStatesCachedData } from "@/app/_actions/getActionContact";
 import { StatesResponse } from "@/services/contactService/maps";
 import { useEffect, useState } from "react";
 
@@ -17,7 +17,7 @@ export function useMapController() {
       try {
         setIsLoading(true);
         if (selectedState) {
-          const states = await contactService.getStates(selectedState);
+          const states = await getStatesCachedData(selectedState);
           setStatesData(states);
           setUniqueCities(listUniqueCities(states))
         }
