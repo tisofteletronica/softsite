@@ -1,4 +1,5 @@
 import { assemblyService } from "@/services/assemblyService";
+import { revalidatePath, unstable_cache } from 'next/cache';
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { Container } from "../_components/Container";
 import { Icon } from "../_components/Icon";
@@ -20,10 +21,15 @@ import { SliderImages } from "./_components/SliderImages";
 import { SliderMontagem } from "./_components/SliderMontagem";
 import { Structure } from "./_components/Structure";
 
+const getCachedData = unstable_cache(async () => {
+  const data = await assemblyService.getStructure();
+  return data;
+}, ['my-app-data'], { revalidate: 1 }); // revalida a cada hora
+
 export default async function Montagem() {
   const servicesData = assemblyService.getServices();
   const differencesData = assemblyService.getDifferences();
-  const structurePage1Data = assemblyService.getStructure();
+  const structurePage1Data = await getCachedData();
   const structurePage2Data = assemblyService.getStructure("1");
   const assemblyData = assemblyService.getAssembly();
 
@@ -41,11 +47,17 @@ export default async function Montagem() {
     assemblyData
   ])
 
+  revalidatePath('/montagem');
+
   return (
     <main>
       <Container type="div" className="my-6">
         <Search />
       </Container>
+
+      <div>
+        {JSON.stringify(structurePage1Data)}
+      </div>
 
       <div
         className="bg-bgMontagem w-full lg:min-h-[391px] bg-cover lg:bg-center"
