@@ -55,10 +55,6 @@ export default async function Montagem() {
         <Search />
       </Container>
 
-      <div>
-        {JSON.stringify(structurePage1Data)}
-      </div>
-
       <div
         className="bg-bgMontagem w-full lg:min-h-[391px] bg-cover lg:bg-center"
       >
