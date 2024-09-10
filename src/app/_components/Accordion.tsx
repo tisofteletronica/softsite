@@ -40,7 +40,7 @@ interface AccordionItemProps {
   value: string;
   [key: string]: any;
 }
-const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(({ children, className, ...props }, forwardedRef) => (
+const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(({ children, className, value, ...props }, forwardedRef) => (
   <AccordionDemo.Item
     className={cn(
       'mt-px overflow-hidden first:mt-0 first:rounded-t last:rounded-b focus-within:relative focus-within:z-10 ',
@@ -48,6 +48,7 @@ const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(({ ch
     )}
     {...props}
     ref={forwardedRef}
+    value={value}
   >
     {children}
   </AccordionDemo.Item>
