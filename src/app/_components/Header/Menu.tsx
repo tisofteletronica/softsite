@@ -59,7 +59,7 @@ export function Menu() {
                           <Menubar.Portal>
                             <Menubar.SubContent className="MenubarSubContent bg-orange lg:bg-white shadow-[0px_3px_6px_#00000029] pt-4 pb-3 z-[51] lg:z-[30]">
                               {submenu.sub?.map((subsub) => (
-                                <Menubar.Item key={subsub.label} className="MenubarItem MenubarItemSub MenubarItemSubSub">
+                                <Menubar.Item key={subsub.label} className="MenubarItem MenubarItemSub MenubarItemSubSub" asChild>
                                   <Link href={subsub.href}>
                                     {subsub.label}
                                   </Link>

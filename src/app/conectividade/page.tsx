@@ -4,7 +4,6 @@ import { default as imgConexao, default as imgDescricao } from "../../../public/
 import { getConectivityCachedData } from "../_actions/getActionConectivity";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { Container } from "../_components/Container";
-import { Search } from "../_components/Search";
 import { Title } from "../_components/Title";
 import { OurProducts } from "./_components/OurProducts";
 
@@ -15,12 +14,8 @@ export default async function Conectividades() {
 
   return (
     <main>
-      <Container type="div" className="my-6">
-        <Search />
-      </Container>
-
       <div
-        className="bg-bgConectividade w-full lg:min-h-[391px] bg-cover lg:bg-center"
+        className="bg-bgConectividade w-full lg:min-h-[391px] bg-cover lg:bg-center mt-5"
       >
         <Container type="div">
           <Title type="h1" className="text-white pt-9 pb-14" classNameLine="bg-white">

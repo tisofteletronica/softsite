@@ -6,7 +6,6 @@ import imgProjetos from "../../../public/leds/projetos.png";
 import { getLedsCachedData } from "../_actions/getActionLeds";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { Container } from "../_components/Container";
-import { Search } from "../_components/Search";
 import { Title } from "../_components/Title";
 
 export default async function Leds() {
@@ -16,12 +15,8 @@ export default async function Leds() {
 
   return (
     <main>
-      <Container type="div" className="my-6">
-        <Search />
-      </Container>
-
       <div
-        className="bg-bgLeds w-full lg:min-h-[391px] bg-cover lg:bg-center"
+        className="bg-bgLeds w-full lg:min-h-[391px] bg-cover lg:bg-center mt-5"
       >
         <Container type="div">
           <Title type="h1" className="text-white pt-9 pb-14" classNameLine="bg-white">

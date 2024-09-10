@@ -1,7 +1,7 @@
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { CardLine } from "../_components/CardLine";
 import { Container } from "../_components/Container";
-import { Acessorios } from "../_components/Icons/Acessorios";
+import { AcessoriosV2 } from "../_components/Icons/AcessoriosV2";
 import { Alarmes } from "../_components/Icons/Alarmes";
 import { BeeLink } from "../_components/Icons/BeeLink";
 import { CentralTravaEletrica } from "../_components/Icons/CentralTravaEletrica";
@@ -54,7 +54,7 @@ export default async function Automotivo() {
             className="group-hover:bg-[#473165]"
             classNameText="group-hover:text-[#473165]"
             link="/automotivo/5"
-            icon={<Acessorios size="134" />}
+            icon={<AcessoriosV2 size="134" />}
             title="ACESSÓRIOS"
           />
           <CardLine

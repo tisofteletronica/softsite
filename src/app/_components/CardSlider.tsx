@@ -1,11 +1,17 @@
+import { cn } from "@/lib/utils";
+
 export interface CardSliderProps {
   servicos: string;
   descricao: string;
+  className?: string;
 }
 
-export function CardSlider({ servicos, descricao }: CardSliderProps) {
+export function CardSlider({ servicos, descricao, className }: CardSliderProps) {
   return (
-    <article className="w-full bg-white rounded-[0_40px] shadow-[0px_3px_6px_#00000029] min-h-[548px]">
+    <article className={cn(
+      'w-full bg-white rounded-[0_40px] shadow-[0px_3px_6px_#00000029] min-h-[548px]',
+      className
+    )}>
       <figure className="bg-[#F1F1FA] rounded-[0_40px] w-full h-[242px] overflow-hidden" />
 
       <div className="w-full p-6 pb-[50px]">

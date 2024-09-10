@@ -7,10 +7,11 @@ import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface SliderMontagemProps {
-  items: CardSliderProps[]
+  items: CardSliderProps[];
+  className?: string;
 }
 
-export function SliderMontagem({ items }: SliderMontagemProps) {
+export function SliderMontagem({ items, className }: SliderMontagemProps) {
   const pagination = {
     clickable: true
   };
@@ -34,17 +35,17 @@ export function SliderMontagem({ items }: SliderMontagemProps) {
           pagination: false,
         },
         1024: {
-          slidesPerView: 3.1,
+          slidesPerView: 3,
           spaceBetween: 20,
           pagination: false,
         },
       }}
       modules={[Navigation, Pagination]}
-      className="SliderMontagem"
+      className="SliderMontagem lg:!ml-[-40px]"
     >
       {items?.map((item, index) => (
         <SwiperSlide key={index}>
-          <CardSlider servicos={item.servicos} descricao={item.descricao} />
+          <CardSlider servicos={item.servicos} descricao={item.descricao} className={className} />
         </SwiperSlide>
       ))}
     </Swiper>

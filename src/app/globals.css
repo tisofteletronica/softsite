@@ -66,7 +66,7 @@ html {
 }
 
 .MenubarSubContent {
-  @apply ml-[-230px] mt-[26px] lg:ml-0 lg:mt-0
+  @apply ml-[-230px] mt-[26px] lg:ml-0 lg:mt-0 flex flex-col
 }
 
 .footer-sociais svg {
@@ -144,6 +144,10 @@ html {
 
 .swiperProductThumb .swiper-slide-thumb-active {
   @apply opacity-100;
+}
+
+.SliderMontagem {
+  @apply lg:!px-[80px];
 }
 
 .SliderMontagem .swiper-button-prev,

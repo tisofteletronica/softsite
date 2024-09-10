@@ -15,7 +15,6 @@ import { Portoes } from "../_components/Icons/Portoes";
 import { Projetor } from "../_components/Icons/Projetor";
 import { Rastreador } from "../_components/Icons/Rastreador";
 import { Telefonia } from "../_components/Icons/Telefonia";
-import { Search } from "../_components/Search";
 import { Title } from "../_components/Title";
 import { SliderImages } from "./_components/SliderImages";
 import { SliderMontagem } from "./_components/SliderMontagem";
@@ -47,12 +46,8 @@ export default async function Montagem() {
 
   return (
     <main>
-      <Container type="div" className="my-6">
-        <Search />
-      </Container>
-
       <div
-        className="bg-bgMontagem w-full lg:min-h-[391px] bg-cover lg:bg-center"
+        className="bg-bgMontagem w-full lg:min-h-[391px] bg-cover lg:bg-center mt-5"
       >
         <Container type="div">
           <Title type="h1" className="text-white pt-9 pb-14" classNameLine="bg-white">
@@ -91,7 +86,7 @@ export default async function Montagem() {
                 Conheça todos os serviços que oferecemos em nossa área de montagem.
               </p>
 
-              <SliderMontagem items={services.content} />
+              <SliderMontagem items={services.content} className='min-h-[567px]' />
             </div>
           </Container>
         </div>
@@ -163,7 +158,7 @@ export default async function Montagem() {
                 DIFERENCIAIS:
               </Title>
 
-              <SliderMontagem items={differences.content.map((difference) => {
+              <SliderMontagem className='min-h-[643px]' items={differences.content.map((difference) => {
                 return {
                   id: difference.id,
                   servicos: difference.diferencial,
