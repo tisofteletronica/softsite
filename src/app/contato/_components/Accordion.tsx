@@ -29,7 +29,7 @@ interface AccordionItemProps {
   value: string;
   [key: string]: any;
 }
-export const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(({ children, className, ...props }, forwardedRef) => (
+export const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(({ children, className, value, ...props }, forwardedRef) => (
   <AccordionDemo.Item
     className={cn(
       'mt-px overflow-hidden first:mt-0 first:rounded-t last:rounded-b focus-within:relative focus-within:z-10',
@@ -37,6 +37,7 @@ export const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps
     )}
     {...props}
     ref={forwardedRef}
+    value={value}
   >
     {children}
   </AccordionDemo.Item>
@@ -74,7 +75,13 @@ export const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTri
 ));
 AccordionTrigger.displayName = 'AccordionTrigger'
 
-export const AccordionContent = React.forwardRef<HTMLDivElement, AccordionItemProps>(({ children, className, ...props }, forwardedRef) => (
+interface AccordionContentProps {
+  children: React.ReactNode;
+  className?: string;
+  [key: string]: any; // Aceitar outras props
+}
+
+export const AccordionContent = React.forwardRef<HTMLDivElement, AccordionContentProps>(({ children, className, ...props }, forwardedRef) => (
   <AccordionDemo.Content
     className={cn(
       'data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px] data-[state=open]:rounded-b-[45px] px-0 transition-all',
