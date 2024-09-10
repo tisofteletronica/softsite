@@ -86,7 +86,13 @@ const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerPro
 ));
 AccordionTrigger.displayName = 'AccordionTrigger'
 
-const AccordionContent = React.forwardRef<HTMLDivElement, AccordionItemProps>(({ children, className, ...props }, forwardedRef) => (
+interface AccordionContentProps {
+  children: React.ReactNode;
+  className?: string;
+  [key: string]: any; // Aceitar outras props
+}
+
+const AccordionContent = React.forwardRef<HTMLDivElement, AccordionContentProps>(({ children, className, ...props }, forwardedRef) => (
   <AccordionDemo.Content
     className={cn(
       'data-[state=open]:bg-gray data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px] data-[state=open]:rounded-br-[45px] transition-all',
