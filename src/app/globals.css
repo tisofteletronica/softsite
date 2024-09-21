@@ -78,7 +78,7 @@ html {
 }
 
 .menu-footer a {
-  @apply text-white text-[17px] lg:text-[20px] leading-6 lg:leading-7 transition-all block tracking-[1px];
+  @apply text-white text-[16px] leading-6 lg:leading-6 transition-all block tracking-[1px];
 }
 
 .menu-footer a:hover {

@@ -12,7 +12,7 @@ export function TitleFooter({ children, className, type }: TitleFooterProps) {
   return (
     <Component
       className={cn(
-        "text-white text-[24px] font-semibold",
+        "text-white text-[21px] font-semibold",
         className
       )}
     >

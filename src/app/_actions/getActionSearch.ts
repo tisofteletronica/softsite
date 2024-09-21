@@ -24,3 +24,8 @@ export const getYearsCachedData = unstable_cache(async (idModel: string) => {
   return data;
 }, ['search-getYears'], { revalidate: 60 });
 
+export const getAutomakersLockCachedData = unstable_cache(async () => {
+  const data = await searchService.getautomakersLock();
+  return data;
+}, ['search-automakersLock'], { revalidate: 60 });
+

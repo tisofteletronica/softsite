@@ -18,22 +18,22 @@ export function Footer() {
           <ul className="text-white flex items-center gap-5 footer-sociais">
             <li>
               <Link href="#" target="_blank">
-                <ImFacebook size={23} />
+                <ImFacebook size={21} />
               </Link>
             </li>
             <li>
               <Link href="https://www.instagram.com/softeletronica/" target="_blank">
-                <SiInstagram size={23} />
+                <SiInstagram size={21} />
               </Link>
             </li>
             <li>
               <Link href="https://www.youtube.com/c/SOFTELETRONICA2000" target="_blank">
-                <AiOutlineYoutube size={33} />
+                <AiOutlineYoutube size={30} />
               </Link>
             </li>
             <li>
               <Link href="#" target="_blank">
-                <FaLinkedinIn size={23} />
+                <FaLinkedinIn size={21} />
               </Link>
             </li>
           </ul>
@@ -128,11 +128,11 @@ export function Footer() {
         </div>
       </Container>
 
-      <div className="border-t-orange border-t-[1px] py-5 lg:py-14 mt-[55px]">
+      <div className="border-t-orange border-t-[1px] py-5 lg:py-10 mt-[55px]">
         <Container type="div" className="flex flex-wrap flex-col lg:flex-row text-center lg:text-left items-center lg:gap-[170px]">
-          <span className="text-white">© Soft Eletrônica 2024</span>
+          <span className="text-white text-[15px]">© Soft Eletrônica 2024</span>
 
-          <p className="text-white">
+          <p className="text-white text-[15px]">
             Desenvolvido por &nbsp;
             <Link href="//www.dev2.com.br" target="_blank" className="transition-all hover:text-orange">
               Dev2 - Comunicação Integrada

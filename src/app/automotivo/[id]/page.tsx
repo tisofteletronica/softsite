@@ -1,4 +1,5 @@
 import { getProductsByCategoryIdCachedData } from "@/app/_actions/getActionAutomotive";
+import { getAutomakersLockCachedData } from "@/app/_actions/getActionSearch";
 import { Breadcrumb } from "@/app/_components/Breadcrumb";
 import { CardProduct } from "@/app/_components/CardProduct";
 import { Container } from "@/app/_components/Container";
@@ -8,6 +9,7 @@ import { colorsMapper, mapperBg } from "@/lib/mapers";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import { Pagination } from "../../_components/Pagination";
+import { FilterLock } from "./_components/FilterLock";
 
 interface AutomotivoCategoriesProps {
   params: { id: string; };
@@ -20,6 +22,7 @@ export default async function AutomotivoCategories({ params, searchParams }: Aut
   const { content: products, totalElements } = await getProductsByCategoryIdCachedData(params.id, page-1, limit);
   const color = colorsMapper(params.id);
   const bgs = mapperBg(params.id);
+  const automakersData = await getAutomakersLockCachedData();
 
   revalidatePath(`/automotivo/${params.id}`);
 
@@ -61,10 +64,23 @@ export default async function AutomotivoCategories({ params, searchParams }: Aut
       </Container>
 
       <Container type="div">
-        <Title type="h2" className="mb-7 lg:mb-[90px]" color={color}>
+        <Title type="h2" className="mb-7 lg:mb-[60px]" color={color}>
           {products[0].nameCategoryCommercial}
         </Title>
       </Container>
+
+      {params.id === "6" && (
+        <Container type="div" className="mb-8">
+          <FilterLock
+            automakersData={
+              automakersData.map(automaker => ({
+                value: String(automaker.id),
+                label: automaker.montadora
+              }))
+            }
+          />
+        </Container>
+      )}
 
       <Container type="section">
         <div className="grid lg:grid-cols-3 gap-x-5 gap-y-[30px] lg:gap-y-[80px]">
