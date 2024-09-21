@@ -19,8 +19,6 @@ interface FormSearchProps {
 export function FilterLock({ automakersData }: FormSearchProps) {
   const {
     handleAutomakerChange,
-    handleModelChange,
-    isLoading,
     handleSubmit,
     control
   } = useFilterLockController();
@@ -58,11 +56,8 @@ export function FilterLock({ automakersData }: FormSearchProps) {
           render={({ field: { onChange, value } }) => (
             <Select
               className="lg:w-[200px]"
-              placeholder={isLoading ? "Carregando..." : "Tipo..."}
-              onChange={(selectedValue: string) => {
-                onChange(selectedValue);
-                handleModelChange(selectedValue);
-              }}
+              placeholder="Tipo..."
+              onChange={onChange}
               value={value}
               options={[
                   {
