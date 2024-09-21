@@ -7,7 +7,7 @@ export function ModuloVidro({ className }: IconProps) {
     <svg id="Grupo_2073" data-name="Grupo 2073" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="107.601" height="115.022" viewBox="0 0 107.601 115.022" className={className}>
       <defs>
         <clipPath id="clip-path">
-          <rect id="Retângulo_1459" data-name="Retângulo 1459" width="107.601" height="115.022" fill="#484848" />
+          <rect id="Retângulo_1459" data-name="Retângulo 1459" width="107.601" height="115.022" fill="currentColor" />
         </clipPath>
       </defs>
       <g id="Grupo_2073-2" data-name="Grupo 2073" clipPath="url(#clip-path)">
