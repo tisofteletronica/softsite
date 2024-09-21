@@ -42,7 +42,7 @@ export default async function Conectividades() {
 
         <div className="lg:flex gap-[55px]">
           <div>
-            <div className="text-[18px] lg:text-[22px] font-medium text-gray leading-[25px] lg:leading-[30px] tracking-[1px] lg:tracking-[2px]">
+            <div className="text-[18px] lg:text-[20px] font-medium text-gray leading-[25px] lg:leading-[28px] tracking-[1px] lg:tracking-[2px]">
               <p
                 dangerouslySetInnerHTML={{ __html: response?.content[0].descricao }}
               />
@@ -65,7 +65,7 @@ export default async function Conectividades() {
             </div>
 
             <div className="lg:flex-[0_0_660px] mt-5 lg:mt-8">
-              <div className="text-[18px] lg:text-[22px] font-medium text-gray leading-[25px] lg:leading-[30px] tracking-[1px] lg:tracking-[2px]">
+              <div className="text-[18px] lg:text-[20px] font-medium text-gray leading-[25px] lg:leading-[28px] tracking-[1px] lg:tracking-[2px]">
                 <p
                   dangerouslySetInnerHTML={{ __html: response?.content[0].sistemasConexaoBle }}
                 />
@@ -80,7 +80,7 @@ export default async function Conectividades() {
       </div>
 
       <Container type="div" className="mt-[70px] mb-8">
-        <div className="text-[18px] lg:text-[22px] font-medium text-gray leading-[25px] lg:leading-[30px] tracking-[1px] lg:tracking-[2px]">
+        <div className="text-[18px] lg:text-[20px] font-medium text-gray leading-[25px] lg:leading-[28px] tracking-[1px] lg:tracking-[2px]">
           <strong className="mb-5 block">HOMOLOGAÇÃO ANATEL:</strong>
           <p
             dangerouslySetInnerHTML={{ __html: response?.content[0].anatel.replaceAll('\\n', "<br />") }}

@@ -98,6 +98,27 @@ html {
   @apply !h-[355px] overflow-y-auto;
 }
 
+/* width */
+.slider-about .swiper-slide::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.slider-about .swiper-slide::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.slider-about .swiper-slide::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+.slider-about .swiper-slide::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .slider-about .swiper-pagination {
   @apply static mt-8;
 }

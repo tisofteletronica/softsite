@@ -1,3 +1,12 @@
+import imgAcessorios from "../../public/automotivo/bg/acessorios.png";
+import imgAlarmes from "../../public/automotivo/bg/alarmes.png";
+import imgAutomotivo from "../../public/automotivo/bg/automotivo.png";
+import imgBeelink from "../../public/automotivo/bg/beelink.png";
+import imgCentralTrava from "../../public/automotivo/bg/central-trava.png";
+import imgVidro from "../../public/automotivo/bg/modulo-vidro.png";
+import imgTrava from "../../public/automotivo/bg/trava.png";
+import imgUnique from "../../public/automotivo/bg/unique.png";
+
 export const MENU = [
   {
     href: "/",
@@ -259,5 +268,56 @@ export const UF = [
   {
     label: "DF",
     value: "Distrito Federal"
+  }
+]
+
+export const CATEGORIES_AUTOMOTIVE = [
+  {
+    color: "#473165",
+    label: "Acessórios",
+    id: "5",
+    img: imgAcessorios.src
+  },
+  {
+    color: "#044460",
+    label: "Alarmes",
+    id: "7",
+    img: imgAlarmes.src
+  },
+  {
+    color: "#F9B73A",
+    label: "Bee Link",
+    id: "8",
+    img: imgBeelink.src
+  },
+  {
+    color: "#1C61AC",
+    label: "Central de Levantamento de Vidro",
+    id: "2",
+    img: imgAutomotivo.src
+  },
+  {
+    color: "#E50914",
+    label: "Central de Trava Elétrica",
+    id: "4",
+    img: imgCentralTrava.src
+  },
+  {
+    color: "#99CC33",
+    label: "Módulo de Vidro Elétrico",
+    id: "1",
+    img: imgVidro.src
+  },
+  {
+    color: "#FC4C02",
+    label: "Travas Elétricas",
+    id: "6",
+    img: imgTrava.src
+  },
+  {
+    color: "#44D62C",
+    label: "Unique",
+    id: "3",
+    img: imgUnique.src
   }
 ]

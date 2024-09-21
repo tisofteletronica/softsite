@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import imgCircuito from "../../public/circuito.png";
@@ -5,25 +6,26 @@ import imgDrive from "../../public/img-drive.png";
 import imgEstrutura from "../../public/img-estrutura.png";
 import imgIso from "../../public/iso.png";
 import imgSelo from "../../public/selo.png";
+import { getHomeSectorsCachedData } from "./_actions/getActionHome";
 import { Container } from "./_components/Container";
 import { Button } from "./_components/Home/Button";
 import { ItemCategoryMobile } from "./_components/Home/ItemCategoryMobile";
 import { Icon } from "./_components/Icon";
-import { Aeroporto } from "./_components/Icons/Aeroporto";
-import { Entrega } from "./_components/Icons/Entrega";
-import { Fabricante } from "./_components/Icons/Fabricante";
-import { Hospitalar } from "./_components/Icons/Hospitalar";
-import { Industrias } from "./_components/Icons/Industrias";
-import { Mineradoras } from "./_components/Icons/Mineradoras";
-import { Montadoras } from "./_components/Icons/Montadoras";
-import { Prefeituras } from "./_components/Icons/Prefeituras";
-import { Produtores } from "./_components/Icons/Produtores";
-import { Tecnologia } from "./_components/Icons/Tecnologia";
 import { Search } from "./_components/Search";
 import { Title } from "./_components/Title";
 
 
-export default function Home() {
+export default async function Home() {
+  const homeSectorsData = getHomeSectorsCachedData();
+
+  const [
+    sectors
+  ] = await Promise.all([
+    homeSectorsData
+  ]);
+
+  revalidatePath('/');
+
   return (
     <main>
       <Container type="div" className="mt-6">
@@ -74,51 +76,33 @@ export default function Home() {
 
       <Container type="article" className="mt-[60px] lg:mt-[130px]">
         <div className="lg:flex justify-between">
-          <Title type="h2" className="mb-5">
+          <Title type="h2" className="mb-9">
             SETORES QUE ATENDEMOS
           </Title>
 
-          <Icon label="Distribuidores de Acessórios Automotivos">
+          {/* <Icon label="Distribuidores de Acessórios Automotivos">
             <Entrega />
-          </Icon>
+          </Icon> */}
         </div>
 
-        <div>
-          <div className="flex flex-wrap justify-between gap-5 mt-5 lg:mt-9">
-            <Icon label="Fabricantes de Vidros Elétricos">
-              <Fabricante />
-            </Icon>
-            <Icon label="Montadoras de Automóveis">
-              <Montadoras />
-            </Icon>
-            <Icon label="Produtores do Segmento do Agronegócio">
-              <Produtores />
-            </Icon>
-          </div>
+        <div className="grid lg:grid-cols-3 justify-between gap-9">
+          {sectors.content.map((sector) => {
+            const urlApi = sector.img_url.replace('http://', '');
+            const url = `http://${urlApi}`
 
-          <div className="flex flex-wrap justify-between gap-5 mt-5 lg:mt-9">
-            <Icon label="Prefeituras e Órgãos Públicos de Urbanismo">
-              <Prefeituras />
-            </Icon>
-            <Icon label="Indústrias">
-              <Industrias />
-            </Icon>
-            <Icon label="Aeroportos">
-              <Aeroporto />
-            </Icon>
-          </div>
-
-          <div className="flex flex-wrap justify-between gap-5 mt-5 lg:mt-9">
-            <Icon label="Mineradoras">
-              <Mineradoras />
-            </Icon>
-            <Icon label="Segmento Hospitalar">
-              <Hospitalar />
-            </Icon>
-            <Icon label="Segmento de Tecnologia">
-              <Tecnologia />
-            </Icon>
-          </div>
+            return (
+              <div className="relative" key={sector.id}>
+                <Icon label={sector.descricao} >
+                  <Image
+                    src={url}
+                    alt={sector.descricao}
+                    fill
+                    className="lg:!w-auto !h-auto !static lg:max-h-[64px] max-w-[60px] lg:max-w-[76px]"
+                  />
+                </Icon>
+              </div>
+            )
+          })}
         </div>
       </Container>
 

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface SliderMontagemProps {
@@ -22,6 +22,10 @@ export function SliderImages({ items }: SliderMontagemProps) {
       spaceBetween={20}
       pagination={pagination}
       centeredSlides={true}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
       breakpoints={{
         640: {
           slidesPerView: 2,
@@ -39,7 +43,7 @@ export function SliderImages({ items }: SliderMontagemProps) {
           pagination: false,
         },
       }}
-      modules={[Navigation, Pagination]}
+      modules={[Navigation, Pagination, Autoplay]}
       className="SliderMontagem"
     >
       {items?.map((item, index) => (

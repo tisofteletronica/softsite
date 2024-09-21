@@ -54,14 +54,14 @@ export default async function Automotivo() {
             className="group-hover:bg-[#473165]"
             classNameText="group-hover:text-[#473165]"
             link="/automotivo/5"
-            icon={<AcessoriosV2 size="134" />}
+            icon={<AcessoriosV2 size="134" className="text-[#484848] group-hover:text-white" />}
             title="ACESSÓRIOS"
           />
           <CardLine
             className="group-hover:bg-[#044460]"
             classNameText="group-hover:text-[#044460]"
             link="/automotivo/7"
-            icon={<Alarmes />}
+            icon={<Alarmes className="text-[#054460] group-hover:text-[#c2c2c2]" secColor="#a2a2a2" />}
             title="ALARMES"
           />
           <CardLine
@@ -75,7 +75,7 @@ export default async function Automotivo() {
             className="group-hover:bg-[#1C61AC]"
             classNameText="group-hover:text-[#1C61AC]"
             link="/automotivo/2"
-            icon={<Vidro />}
+            icon={<Vidro className="text-[#484848] group-hover:text-white" />}
             title="CENTRAL DE LEVANTAMENTO DE VIDRO"
           />
 
@@ -83,28 +83,28 @@ export default async function Automotivo() {
             className="group-hover:bg-[#E50914]"
             classNameText="group-hover:text-[#E50914]"
             link="/automotivo/4"
-            icon={<CentralTravaEletrica />}
+            icon={<CentralTravaEletrica className="text-[#484848] group-hover:text-white" />}
             title="CENTRAL DE TRAVA ELÉTRICA"
           />
           <CardLine
             className="group-hover:bg-[#99CC33]"
             classNameText="group-hover:text-[#99CC33]"
             link="/automotivo/1"
-            icon={<ModuloVidro className="text-gray" />}
+            icon={<ModuloVidro className="text-[#484848] group-hover:text-white" />}
             title="MÓDULO DE VIDRO ELÉTRICO"
           />
           <CardLine
             className="group-hover:bg-[#FC4C02]"
             classNameText="group-hover:text-[#FC4C02]"
             link="/automotivo/6"
-            icon={<TravaEletrica className="text-gray" />}
+            icon={<TravaEletrica className="text-[#484848] group-hover:text-white" />}
             title="TRAVAS ELÉTRICAS"
           />
           <CardLine
             className="group-hover:bg-[#44D62C]"
             classNameText="group-hover:text-[#44D62C]"
             link="/automotivo/3"
-            icon={<Unique />}
+            icon={<Unique className="text-[#484848] group-hover:text-white w-[220px] h-[140px]" />}
             title="UNIQUE"
           />
         </div>

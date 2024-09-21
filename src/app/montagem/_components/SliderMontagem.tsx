@@ -3,7 +3,7 @@ import { CardSlider, CardSliderProps } from '@/app/_components/CardSlider';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface SliderMontagemProps {
@@ -23,6 +23,10 @@ export function SliderMontagem({ items, className }: SliderMontagemProps) {
       spaceBetween={20}
       navigation={true}
       pagination={pagination}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
       breakpoints={{
         640: {
           slidesPerView: 2,
@@ -40,7 +44,7 @@ export function SliderMontagem({ items, className }: SliderMontagemProps) {
           pagination: false,
         },
       }}
-      modules={[Navigation, Pagination]}
+      modules={[Navigation, Pagination, Autoplay]}
       className="SliderMontagem lg:!ml-[-40px]"
     >
       {items?.map((item, index) => (

@@ -1,20 +1,9 @@
 import { revalidatePath } from 'next/cache';
-import { getAssemblyCachedData, getDifferencesCachedData, getServicesCachedData, getStructureCachedData } from "../_actions/getActionAssembly";
+import Image from 'next/image';
+import { getAreasAssemblyCachedData, getAssemblyCachedData, getDifferencesCachedData, getServicesCachedData, getStructureCachedData } from "../_actions/getActionAssembly";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { Container } from "../_components/Container";
 import { Icon } from "../_components/Icon";
-import { Balanca } from "../_components/Icons/Balanca";
-import { Controle } from "../_components/Icons/Controle";
-import { ControleTrafego } from "../_components/Icons/ControleTrafego";
-import { EquipamentoHospitalar } from "../_components/Icons/EquipamentoHospitalar";
-import { Impressoras } from "../_components/Icons/Impressoras";
-import { Ionizador } from "../_components/Icons/Ionizador";
-import { MaquinaLavar } from "../_components/Icons/MaquinaLavar";
-import { Monitor } from "../_components/Icons/Monitor";
-import { Portoes } from "../_components/Icons/Portoes";
-import { Projetor } from "../_components/Icons/Projetor";
-import { Rastreador } from "../_components/Icons/Rastreador";
-import { Telefonia } from "../_components/Icons/Telefonia";
 import { Title } from "../_components/Title";
 import { SliderImages } from "./_components/SliderImages";
 import { SliderMontagem } from "./_components/SliderMontagem";
@@ -27,19 +16,22 @@ export default async function Montagem() {
   const structurePage1Data = await getStructureCachedData();
   const structurePage2Data = await getStructureCachedData("1");
   const assemblyData = await getAssemblyCachedData();
+  const assemblyAreasData = await getAreasAssemblyCachedData();
 
   const [
     services,
     differences,
     structurePage1,
     structurePage2,
-    assembly
+    assembly,
+    areas
   ] = await Promise.all([
     servicesData,
     differencesData,
     structurePage1Data,
     structurePage2Data,
-    assemblyData
+    assemblyData,
+    assemblyAreasData
   ])
 
   revalidatePath('/montagem');
@@ -97,7 +89,27 @@ export default async function Montagem() {
           ÁREAS DE ATUAÇÃO:
         </Title>
 
-        <div>
+        <div className="grid lg:grid-cols-3 justify-between gap-9">
+          {areas.content.map((area) => {
+            const urlApi = area.img_url.replace('http://', '');
+            const url = `http://${urlApi}`
+
+            return (
+              <div className="relative" key={area.id}>
+                <Icon label={area.descricao} >
+                  <Image
+                    src={url}
+                    alt={area.descricao}
+                    fill
+                    className="lg:!w-auto !h-auto !static lg:max-h-[64px] max-w-[60px] lg:max-w-[76px]"
+                  />
+                </Icon>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* <div>
           <div className="flex flex-wrap justify-between gap-5 mb-5 lg:mb-9">
             <Icon label="Balanças industriais e rodoviárias">
               <Balanca />
@@ -145,7 +157,7 @@ export default async function Montagem() {
               <Telefonia />
             </Icon>
           </div>
-        </div>
+        </div> */}
       </Container>
 
       <div className="relative w-full mt-11" id="diferenciais">

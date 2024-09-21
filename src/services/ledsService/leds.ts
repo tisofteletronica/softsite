@@ -14,6 +14,11 @@ export interface LedsResponse {
     urlImg_4: string;
     urlImg_5: string;
     urlImg_6: string;
+    imgSiteLed_1: string;
+    imgSiteLed_2: string;
+    imgSiteLed_3: string;
+    imgSiteLed_4: string;
+    imgSiteLed_5: string;
   }[]
 }
 

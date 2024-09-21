@@ -1,3 +1,4 @@
+import { getAreas } from "./areas";
 import { getAssembly } from "./assembly";
 import { getDifferences } from "./differences";
 import { getServices } from "./service";
@@ -7,5 +8,6 @@ export const assemblyService = {
   getServices,
   getDifferences,
   getStructure,
-  getAssembly
+  getAssembly,
+  getAreas
 }

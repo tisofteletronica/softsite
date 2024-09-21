@@ -23,3 +23,8 @@ export const getAssemblyCachedData = unstable_cache(async () => {
   const data = await assemblyService.getAssembly();
   return data;
 }, ['assembly'], { revalidate: 60 });
+
+export const getAreasAssemblyCachedData = unstable_cache(async () => {
+  const data = await assemblyService.getAreas();
+  return data;
+}, ['assembly-areas'], { revalidate: 60 });

@@ -2,26 +2,27 @@ import { getProductsByIdAutomotiveCachedData } from "@/app/_actions/getActionAut
 import { Breadcrumb } from "@/app/_components/Breadcrumb";
 import { Container } from "@/app/_components/Container";
 import { GetToKnow } from "@/app/_components/GetToKnow";
+import { Icon } from "@/app/_components/Icon";
+import { Garantia } from "@/app/_components/Icons/Garantia";
 import { Info } from "@/app/_components/Info";
 import { Rule } from "@/app/_components/Rule";
 import { Search } from "@/app/_components/Search";
 import { SliderCardProduct } from "@/app/_components/SliderCardProduct";
 import { Title } from "@/app/_components/Title";
+import { colorsMapper, mapperBg } from "@/lib/mapers";
 import { revalidatePath } from "next/cache";
-import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineDownload } from "react-icons/hi";
-import imgGarantia from "../../../../../public/icon-garantia2.png";
 import { Measure } from "./_components/Measure";
 
 interface ProductDetailsProps {
-  params: {
-    id: string;
-  };
+  params: { id: string; };
 }
 
 export default async function ProductDetails({ params }: ProductDetailsProps) {
   const response = await getProductsByIdAutomotiveCachedData(params.id);
+  const color = colorsMapper(String(response.categoryCommercialId));
+  const bgs = mapperBg(String(response.categoryCommercialId));
 
   revalidatePath(`/automotivo/produto/${params.id}`);
 
@@ -32,7 +33,8 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
       </Container>
 
       <div
-        className="bg-bgCategoryAutomotivo w-full lg:min-h-[391px] bg-cover lg:bg-center"
+        style={{ backgroundImage: `url(${bgs})` }}
+        className="w-full lg:min-h-[391px] bg-cover lg:bg-center"
       >
         <Container type="div">
           <Title type="h1" className="text-white pt-9 pb-14" classNameLine="bg-white">
@@ -41,7 +43,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
         </Container>
       </div>
 
-      <Container type="div" className="mb-7">
+      <Container type="div" className="mb-7 mt-3">
         <Breadcrumb>
           <li>Soft Eletrônica</li>
           <li>{'>'}</li>
@@ -68,7 +70,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
       </Container>
 
       <Container type="div" className="mb-[70px]">
-        <Title type="h2" className="mb-7 lg:mb-[40px]" classNameLine="bg-blue">
+        <Title type="h2" className="mb-7 lg:mb-[40px]" classNameLine="bg-blue" color={color}>
           {response.name}
           <span className="block text-[14px] font-normal leading-[17px] tracking-[1.4px]">
             {response.code}
@@ -94,11 +96,18 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
 
             <div className="flex flex-col lg:flex-row gap-5 items-center mt-[75px] mb-8 lg:mb-0">
               <div>
-                <Image src={imgGarantia} alt="Garantia" />
+                <Icon color={color}>
+                  <div style={{ color: color }}>
+                    <Garantia />
+                  </div>
+                </Icon>
               </div>
 
               <div className="flex-1">
-                <h4 className="text-[26px] lg:text-[35px] font-semibold leading-[28px] tracking-[1px] lg:tracking-[3px] text-blue mb-2">
+                <h4
+                  style={{ color: color }}
+                  className="text-[26px] lg:text-[35px] font-semibold leading-[28px] tracking-[1px] lg:tracking-[3px] text-blue mb-2"
+                >
                   GARANTIA DE 2 ANOS
                 </h4>
                 <p className="text-gray text-[17px] font-medium leading-[24px] tracking-[1.7px]">
@@ -114,6 +123,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
                     icon={<Rule />}
                     label="Altura:"
                     value={`${response.height}cm`}
+                    color={color}
                   />
                 )}
 
@@ -122,6 +132,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
                     icon={<Rule />}
                     label="Largura:"
                     value={`${response.width}cm`}
+                    color={color}
                   />
                 )}
 
@@ -130,6 +141,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
                     icon={<Rule />}
                     label="Comprimento:"
                     value={`${response.length}cm`}
+                    color={color}
                   />
                 )}
 
@@ -138,6 +150,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
                     icon={<Info />}
                     label="Peso:"
                     value={`${response.weight}g`}
+                    color={color}
                   />
                 )}
               </div>
@@ -158,8 +171,9 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
 
         <div className="flex justify-center mt-10">
           <Link
+            style={{ background: color }}
             href={response?.urlManual ? response?.urlManual : "#"}
-            className="bg-blue text-white text-[14px] lg:text-[22px] font-medium lg:leading-[31px] rounded-tl-[10px] rounded-br-[10px] px-4 lg:px-8 inline-flex tracking-[2.4px] gap-2 lg:gap-4 py-2 lg:py-4 hover:bg-blue/70 transition-all items-center mb-3 lg:mb-0"
+            className="bg-blue text-white text-[14px] lg:text-[22px] font-medium lg:leading-[31px] rounded-tl-[10px] rounded-br-[10px] px-4 lg:px-8 inline-flex tracking-[2.4px] gap-2 lg:gap-4 py-2 lg:py-4 hover:opacity-70 transition-all items-center mb-3 lg:mb-0"
             target="_blank"
           >
             BAIXAR MANUAL
@@ -168,7 +182,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
         </div>
       </Container>
 
-      <GetToKnow currentId={params.id} id={response.categoryCommercialId} />
+      <GetToKnow currentId={params.id} id={response.categoryCommercialId} color={color} />
     </main>
   )
 }

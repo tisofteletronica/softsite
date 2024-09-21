@@ -11,6 +11,7 @@ export interface ProductsByCategoryIdResponse {
     length: string,
     width: string,
     height: string,
+    capaImagem: string;
     imgUrl1: string;
     imgUrl2: string;
     imgUrl3: string;

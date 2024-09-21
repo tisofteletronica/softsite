@@ -46,8 +46,7 @@ export function Menu() {
                         <Menubar.Sub key={submenu.label}>
                           <Menubar.SubTrigger className="MenubarItem MenubarItemSub MenubarSubTrigger">
                             <div className='flex items-center cursor-pointer'>
-                              {/* {submenu.label} */}
-                              <Link href={submenu.href}>
+                              <Link href={submenu.href} >
                                 {submenu.label}
                               </Link>
                               <div>
@@ -67,7 +66,7 @@ export function Menu() {
                               ))}
                             </Menubar.SubContent>
                           </Menubar.Portal>
-                        </Menubar.Sub >
+                        </Menubar.Sub>
                       ) : (
                           <Menubar.Item key={submenu.label} className="MenubarItem MenubarItemSub" asChild>
                             <Link href={submenu.href}>

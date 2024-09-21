@@ -1,8 +1,5 @@
 import { revalidatePath } from "next/cache";
 import Image from "next/image";
-import imgDescricao from "../../../public/leds/descricao.png";
-import imgProducao from "../../../public/leds/producao.png";
-import imgProjetos from "../../../public/leds/projetos.png";
 import { getLedsCachedData } from "../_actions/getActionLeds";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { Container } from "../_components/Container";
@@ -12,6 +9,9 @@ export default async function Leds() {
   const response = await getLedsCachedData();
 
   revalidatePath('/leds');
+
+  console.log(response);
+
 
   return (
     <main>
@@ -42,15 +42,20 @@ export default async function Leds() {
 
         <div className="lg:flex gap-[55px]">
           <div>
-            <div className="text-[18px] lg:text-[22px] font-medium text-gray leading-[25px] lg:leading-[30px] tracking-[1px] lg:tracking-[2px]">
+            <div className="text-[18px] lg:text-[20px] font-medium text-gray leading-[25px] lg:leading-[28px] tracking-[1px] lg:tracking-[2px]">
               <p
                 dangerouslySetInnerHTML={{ __html: response.content[0].descricao }}
               />
             </div>
           </div>
 
-          <div className="lg:flex-[0_0_660px] mt-5 lg:mt-0">
-            <Image src={imgDescricao} alt="Descrição" className="rounded-tr-[45px] rounded-bl-[45px]" />
+          <div className="lg:flex-[0_0_660px] mt-5 lg:mt-0 relative">
+            <Image
+              src={response.content[0].imgSiteLed_1}
+              alt="Descrição"
+              fill
+              className="rounded-tr-[45px] rounded-bl-[45px] !w-auto !h-auto !static"
+            />
           </div>
         </div>
 
@@ -61,11 +66,16 @@ export default async function Leds() {
 
           <div className="lg:flex gap-[55px]">
             <div>
-              <Image src={imgProducao} alt="Produção" className="rounded-tr-[45px] rounded-bl-[45px]" />
+              <Image
+                src={response.content[0].imgSiteLed_2}
+                alt="Produção"
+                fill
+                className="rounded-tr-[45px] rounded-bl-[45px] !w-auto !h-auto !static"
+              />
             </div>
 
             <div className="lg:flex-[0_0_660px] mt-5 lg:mt-0">
-              <div className="text-[18px] lg:text-[22px] font-medium text-gray leading-[25px] lg:leading-[30px] tracking-[1px] lg:tracking-[2px]">
+              <div className="text-[18px] lg:text-[20px] font-medium text-gray leading-[25px] lg:leading-[28px] tracking-[1px] lg:tracking-[2px]">
                 <p
                   dangerouslySetInnerHTML={{ __html: response.content[0].producao }}
                 />
@@ -81,7 +91,7 @@ export default async function Leds() {
                 PROJETOS
               </Title>
 
-              <div className="text-[18px] lg:text-[22px] font-medium text-gray leading-[25px] lg:leading-[30px] tracking-[1px] lg:tracking-[2px]">
+              <div className="text-[18px] lg:text-[20px] font-medium text-gray leading-[25px] lg:leading-[28px] tracking-[1px] lg:tracking-[2px]">
                 <p
                   dangerouslySetInnerHTML={{ __html: response.content[0].projetos }}
                 />
@@ -89,7 +99,12 @@ export default async function Leds() {
             </div>
 
             <div className="lg:flex-[0_0_660px] mt-5 lg:mt-0">
-              <Image src={imgProjetos} alt="Produção" className="rounded-tr-[45px] rounded-bl-[45px]" />
+              <Image
+                src={response.content[0].imgSiteLed_3}
+                alt="Produção"
+                fill
+                className="rounded-tr-[45px] rounded-bl-[45px] !w-auto !h-auto !static"
+              />
             </div>
           </div>
         </article>
@@ -99,7 +114,7 @@ export default async function Leds() {
             APLICAÇÕES
           </Title>
 
-          <div className="text-[18px] lg:text-[22px] font-medium text-gray leading-[25px] lg:leading-[30px] tracking-[1px] lg:tracking-[2px]">
+          <div className="text-[18px] lg:text-[20px] font-medium text-gray leading-[25px] lg:leading-[28px] tracking-[1px] lg:tracking-[2px]">
             <p
               dangerouslySetInnerHTML={{ __html: response.content[0].aplicacoes.replaceAll('\\n', '<br/>') }}
             />

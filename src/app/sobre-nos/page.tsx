@@ -42,7 +42,7 @@ export default async function SobreNos() {
         </div>
 
         <div
-          className="text-[18px] lg:text-[22px] text-gray font-medium leading-[25px] lg:leading-[30px] tracking-[1px] lg:tracking-[2px]"
+          className="text-[18px] lg:text-[20px] text-gray font-medium leading-[25px] lg:leading-[28px] tracking-[1px] lg:tracking-[2px]"
         >
           <p dangerouslySetInnerHTML={{ __html: response.content[0].historico.replaceAll('\n', '<br/>') }} />
         </div>
