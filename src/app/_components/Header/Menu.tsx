@@ -1,5 +1,5 @@
 'use client'
-import { MENU } from '@/config/constants';
+import { menu } from '@/config/menu';
 import { cn } from '@/lib/utils';
 import * as Menubar from '@radix-ui/react-menubar';
 import Link from 'next/link';
@@ -12,7 +12,7 @@ export function Menu() {
 
   return (
     <Menubar.Root className='flex flex-wrap flex-col lg:flex-row lg:gap-[50px] lg:mr-5'>
-      {MENU.map((menu) => (
+      {menu.map((menu) => (
         <Menubar.Menu key={menu.label}>
           <Menubar.Trigger
             className={
@@ -23,7 +23,7 @@ export function Menu() {
             }
             asChild
           >
-            {menu.sub ? (
+            {menu.submenu ? (
               <div className='flex items-center cursor-pointer'>
                 {menu.label}
                 <div>
@@ -37,12 +37,12 @@ export function Menu() {
             )}
           </Menubar.Trigger>
 
-            {menu.sub && (
+            {menu.submenu && (
               <Menubar.Portal>
                 <Menubar.Content className="MenubarContent bg-white shadow-[0px_3px_6px_#00000029] flex flex-col py-4 lg:pt-8 lg:pb-4 mt-[-5px] z-[51] lg:z-[30]" align="center" sideOffset={5} alignOffset={-3}>
-                  {menu.sub?.map((submenu) => (
+                  {menu.submenu?.map((submenu) => (
                     <React.Fragment key={submenu.label}>
-                      {submenu.sub ? (
+                      {submenu.submenu ? (
                         <Menubar.Sub key={submenu.label}>
                           <Menubar.SubTrigger className="MenubarItem MenubarItemSub MenubarSubTrigger">
                             <div className='flex items-center cursor-pointer'>
@@ -57,7 +57,7 @@ export function Menu() {
 
                           <Menubar.Portal>
                             <Menubar.SubContent className="MenubarSubContent bg-orange lg:bg-white shadow-[0px_3px_6px_#00000029] pt-4 pb-3 z-[51] lg:z-[30]">
-                              {submenu.sub?.map((subsub) => (
+                              {submenu.submenu?.map((subsub) => (
                                 <Menubar.Item key={subsub.label} className="MenubarItem MenubarItemSub MenubarItemSubSub" asChild>
                                   <Link href={subsub.href}>
                                     {subsub.label}
