@@ -1,45 +1,27 @@
+import { getCatalogsCachedData } from "@/app/_actions/getActionHome";
 import { menu } from "@/config/menu";
-import Link from "next/link";
 import { LuMenu } from "react-icons/lu";
-import { TbDownload } from "react-icons/tb";
 import { Sheet, SheetContent, SheetTrigger } from "../Sheet";
+import { Catalogs } from "./Catalogs";
 import { Logo } from "./Logo";
 import { Menu } from "./Menu";
 import MenuItems from "./MenuItems";
 
-export function Header() {
+export async function Header() {
+  const homeCatalogsData = getCatalogsCachedData();
+
+  const [
+    catalogs
+  ] = await Promise.all([
+    homeCatalogsData
+  ]);
+
   const depthLevel = 0;
 
   return (
-    <header className="w-full sticky top-[-56px] lg:top-[-48px] z-[40]">
+    <header className="w-full sticky top-[-86px] lg:top-[-48px] z-[40]">
       <div className="w-full">
-        <div className="bg-orange-gradient">
-          <div className="w-full max-w-[1220px] m-auto h-full">
-            <div
-              className="flex flex-wrap justify-center items-center w-[94%] lg:w-full max-w-[865px] bg-orange rounded-tl-[40px] ml-auto min-h-[60px] lg:min-h-[65px] lg:justify-end text-white py-2 lg:py-0 lg:pb-[10px]"
-            >
-              <span className="font-bold lg:mr-[103px] tracking-[1.6px] text-sm lg:text-base">BAIXE NOSSOS CATÁLOGOS</span>
-              <div className="flex">
-                  <Link
-                      href="https://drive.google.com/file/d/1xym6W-fwsOvyT4pwUsI53HS_o4k8qXd8/view"
-                      target="_blank"
-                      className="mr-5 font-medium text-sm lg:text-base lg:mr-[52px] flex items-center tracking-[1.6px] gap-1"
-                  >
-                    AUTOMOTIVO
-                    <TbDownload className="w-[20px] h-[20px] lg:w-[27px] lg:h-[27px]" />
-                  </Link>
-                  <Link
-                    href="https://drive.google.com/file/d/1YPExzbjTt5CjOba1mvEWdHqv2FjOs3ER/view"
-                    target="_blank"
-                    className="font-medium text-sm lg:text-base lg:mr-[52px] flex items-center tracking-[1.6px] gap-1"
-                  >
-                    MONTAGEM
-                    <TbDownload className="w-[20px] h-[20px] lg:w-[27px] lg:h-[27px]" />
-                  </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Catalogs catalogs={catalogs.content} />
 
         <nav
           className="bg-white shadow-[0_3px_6px_#00000029] w-full max-w-[1220px] m-auto px-7 flex justify-between
