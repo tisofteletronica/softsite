@@ -1,5 +1,5 @@
 import { getProductsByCategoryIdCachedData } from "@/app/_actions/getActionAutomotive";
-import { getAutomakersLockCachedData } from "@/app/_actions/getActionSearch";
+import { getAutomakersLockCachedData, getAutomakersUniqueCachedData } from "@/app/_actions/getActionSearch";
 import { Breadcrumb } from "@/app/_components/Breadcrumb";
 import { CardProduct } from "@/app/_components/CardProduct";
 import { Container } from "@/app/_components/Container";
@@ -10,6 +10,7 @@ import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import { Pagination } from "../../_components/Pagination";
 import { FilterLock } from "./_components/FilterLock";
+import { FilterUnique } from "./_components/FilterUnique";
 
 interface AutomotivoCategoriesProps {
   params: { id: string; };
@@ -23,6 +24,7 @@ export default async function AutomotivoCategories({ params, searchParams }: Aut
   const color = colorsMapper(params.id);
   const bgs = mapperBg(params.id);
   const automakersData = await getAutomakersLockCachedData();
+  const automakersUniqueData = await getAutomakersUniqueCachedData();
 
   revalidatePath(`/automotivo/${params.id}`);
 
@@ -75,6 +77,19 @@ export default async function AutomotivoCategories({ params, searchParams }: Aut
             automakersData={
               automakersData.map(automaker => ({
                 value: String(automaker.id),
+                label: automaker.montadora
+              }))
+            }
+          />
+        </Container>
+      )}
+
+      {params.id === "3" && (
+        <Container type="div" className="mb-8">
+          <FilterUnique
+            automakersData={
+              automakersUniqueData.map(automaker => ({
+                value: String(automaker.montadora),
                 label: automaker.montadora
               }))
             }
