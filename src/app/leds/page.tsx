@@ -10,9 +10,6 @@ export default async function Leds() {
 
   revalidatePath('/leds');
 
-  console.log(response);
-
-
   return (
     <main>
       <div
@@ -54,7 +51,7 @@ export default async function Leds() {
               src={response.content[0].imgSiteLed_1}
               alt="Descrição"
               fill
-              className="rounded-tr-[45px] rounded-bl-[45px] !w-auto !h-auto !static"
+              className="rounded-tr-[45px] rounded-bl-[45px] !w-full !h-full lg:!w-auto lg:!h-auto !static"
             />
           </div>
         </div>
@@ -70,7 +67,7 @@ export default async function Leds() {
                 src={response.content[0].imgSiteLed_2}
                 alt="Produção"
                 fill
-                className="rounded-tr-[45px] rounded-bl-[45px] !w-auto !h-auto !static"
+                className="rounded-tr-[45px] rounded-bl-[45px] !w-full !h-full lg:!w-auto lg:!h-auto !static"
               />
             </div>
 
@@ -103,7 +100,7 @@ export default async function Leds() {
                 src={response.content[0].imgSiteLed_3}
                 alt="Produção"
                 fill
-                className="rounded-tr-[45px] rounded-bl-[45px] !w-auto !h-auto !static"
+                className="rounded-tr-[45px] rounded-bl-[45px] !w-full !h-full lg:!w-auto lg:!h-auto !static"
               />
             </div>
           </div>
