@@ -29,3 +29,8 @@ export const getAutomakersLockCachedData = unstable_cache(async () => {
   return data;
 }, ['search-automakersLock'], { revalidate: 60 });
 
+export const getAutomakersUniqueCachedData = unstable_cache(async () => {
+  const data = await searchService.getAutomakersUnique();
+  return data;
+}, ['search-automakersUnique'], { revalidate: 60 });
+

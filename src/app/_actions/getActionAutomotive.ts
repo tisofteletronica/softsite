@@ -13,3 +13,8 @@ export const getProductsByIdAutomotiveCachedData = unstable_cache(async (id: str
   const data = await automotiveService.getProductsById(id);
   return data;
 }, ['automotive-getProductsById'], { revalidate: 60 });
+
+export const getProductsUniqueByAutomakerCachedData = unstable_cache(async (slug: string) => {
+  const data = await automotiveService.getProductsUniqueByAutomaker(slug);
+  return data;
+}, ['automotive-getProductsUniqueByAutomaker'], { revalidate: 60 });
