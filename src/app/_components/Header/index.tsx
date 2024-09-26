@@ -1,11 +1,15 @@
+import { menu } from "@/config/menu";
 import Link from "next/link";
 import { LuMenu } from "react-icons/lu";
 import { TbDownload } from "react-icons/tb";
 import { Sheet, SheetContent, SheetTrigger } from "../Sheet";
 import { Logo } from "./Logo";
 import { Menu } from "./Menu";
+import MenuItems from "./MenuItems";
 
 export function Header() {
+  const depthLevel = 0;
+
   return (
     <header className="w-full sticky top-[-56px] lg:top-[-48px] z-[40]">
       <div className="w-full">
@@ -25,7 +29,7 @@ export function Header() {
                     <TbDownload className="w-[20px] h-[20px] lg:w-[27px] lg:h-[27px]" />
                   </Link>
                   <Link
-                    href="#"
+                    href="https://drive.google.com/file/d/1YPExzbjTt5CjOba1mvEWdHqv2FjOs3ER/view"
                     target="_blank"
                     className="font-medium text-sm lg:text-base lg:mr-[52px] flex items-center tracking-[1.6px] gap-1"
                   >
@@ -47,7 +51,13 @@ export function Header() {
 
           <div>
             <div className="hidden lg:block">
-              <Menu />
+              <nav className="desktop-nav">
+                <ul className="menus">
+                  {menu.map((menu, index) => {
+                    return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;
+                  })}
+                </ul>
+              </nav>
             </div>
 
             <Sheet>

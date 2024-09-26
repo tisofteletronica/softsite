@@ -15,7 +15,7 @@ export function CardUnits({ image, title, address, phone }: CardUnitsProps) {
   return (
     <article className="group w-full rounded-tr-[40px] rounded-bl-[40px] shadow-[0px_3px_6px_#00000029] bg-white">
       <figure className="relative h-[242px] rounded-tr-[40px] rounded-bl-[40px] overflow-hidden">
-        <Image src={image ? image : imgUnidade} alt="" className="max-h-[242px] w-full h-full object-cover" />
+        <Image src={image ? image : imgUnidade} alt="" className="max-h-[242px] w-full h-full object-cover" width={393} height={242} />
 
         <div className="group-hover:opacity-100 absolute w-full h-full bg-orange left-0 top-0 flex items-center justify-center transition-all opacity-0">
           <Link
