@@ -32,14 +32,6 @@ export function Catalogs({ catalogs }: CatalogsProps) {
                 <TbDownload className="w-[20px] h-[20px] lg:w-[20px] lg:h-[20px]" />
               </Link>
             ))}
-            {/* <Link
-              href="https://drive.google.com/file/d/1YPExzbjTt5CjOba1mvEWdHqv2FjOs3ER/view"
-              target="_blank"
-              className="font-medium text-sm lg:text-base lg:mr-[52px] flex items-center tracking-[1.6px] gap-1"
-            >
-              MONTAGEM
-              <TbDownload className="w-[20px] h-[20px] lg:w-[27px] lg:h-[27px]" />
-            </Link> */}
           </div>
         </div>
       </div>

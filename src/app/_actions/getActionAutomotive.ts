@@ -18,3 +18,13 @@ export const getProductsUniqueByAutomakerCachedData = unstable_cache(async (slug
   const data = await automotiveService.getProductsUniqueByAutomaker(slug);
   return data;
 }, ['automotive-getProductsUniqueByAutomaker'], { revalidate: 60 });
+
+export const getProductsLockByLockCachedData = unstable_cache(async (slug: string) => {
+  const data = await automotiveService.getProductsLockByLock(slug);
+  return data;
+}, ['automotive-getProductsLockByLock'], { revalidate: 60 });
+
+export const getProductsLockByActuatorCachedData = unstable_cache(async (slug: string) => {
+  const data = await automotiveService.getProductsLockByActuator(slug);
+  return data;
+}, ['automotive-getProductsLockByActuator'], { revalidate: 60 });

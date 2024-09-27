@@ -5,6 +5,7 @@ import { IoSearch } from "react-icons/io5";
 
 import { Button } from "@/app/_components/Button";
 import { Select } from "@/app/_components/Select";
+import { Spinner } from "@/app/_components/Spinner";
 import { useFilterUniqueController } from "./useFilterUniqueController";
 
 interface SearchSelectOption {
@@ -21,7 +22,8 @@ export function FilterUnique({ automakersData, defaulValue }: FormSearchProps) {
   const {
     handleAutomakerChange,
     handleSubmit,
-    control
+    control,
+    isLoading
   } = useFilterUniqueController();
 
   return (
@@ -51,8 +53,12 @@ export function FilterUnique({ automakersData, defaulValue }: FormSearchProps) {
         />
 
         <Button type="submit" className="w-full gap-[5px] justify-center">
-          BUSCAR
-          <IoSearch size={20} />
+          {isLoading ? <Spinner className="w-4 h-4 m-0 ml-1.5" /> : (
+            <>
+              BUSCAR
+              <IoSearch size={20} />
+            </>
+          )}
         </Button>
       </form>
     </div>

@@ -65,6 +65,18 @@
   background: #FC4C02;
 }
 
+.dropdown-submenu .menuActive.menu-items > a {
+  background: #FC4C02;
+  color: #FFF;
+}
+
+.desktop-nav .dropdown li.menuActive > a,
+.desktop-nav .dropdown li.menuActive > button {
+  background: #FC4C02;
+  color: #FFF;
+}
+
+
 .desktop-nav .arrow::after {
   content: "";
   display: inline-block;

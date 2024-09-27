@@ -4,11 +4,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-interface SearchSelectOption {
-  value: string;
-  label: string;
-}
-
 const schema = z.object({
   automaker: z.string().min(1)
 })
@@ -26,7 +21,6 @@ export function useFilterUniqueController() {
     register,
     handleSubmit: hookFormSubmit,
     formState: {errors},
-    setValue,
   } = useForm<FormData>({
     resolver: zodResolver(schema)
   })
@@ -37,10 +31,11 @@ export function useFilterUniqueController() {
 
   const handleSubmit = hookFormSubmit(async data => {
     try {
+      setIsLoading(true);
       const response = data.automaker.toLowerCase()
-      // console.log(response);
 
       router.push(`/automotivo/unique/${response}`);
+      setIsLoading(false);
     } catch (error) {
       console.error("error search.")
     }

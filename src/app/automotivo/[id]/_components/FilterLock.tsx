@@ -1,27 +1,26 @@
 'use client'
-
-import { Controller } from "react-hook-form";
-import { IoSearch } from "react-icons/io5";
-
 import { Button } from "@/app/_components/Button";
 import { Select } from "@/app/_components/Select";
+import { Spinner } from "@/app/_components/Spinner";
+import { Controller } from "react-hook-form";
+import { IoSearch } from "react-icons/io5";
 import { useFilterLockController } from "./useFilterLockController";
 
-interface SearchSelectOption {
-  value: string;
-  label: string;
+interface FilterLockProps {
+  type?: string;
+  automaker?: string;
 }
 
-interface FormSearchProps {
-  automakersData: SearchSelectOption[]
-}
-
-export function FilterLock({ automakersData }: FormSearchProps) {
+export function FilterLock({ type, automaker }: FilterLockProps) {
   const {
     handleAutomakerChange,
+    handleTypeChange,
     handleSubmit,
-    control
-  } = useFilterLockController();
+    control,
+    isLoading,
+    disabledModel,
+    automakersData
+  } = useFilterLockController(type);
 
   return (
     <div
@@ -33,49 +32,57 @@ export function FilterLock({ automakersData }: FormSearchProps) {
       >
         <Controller
           control={control}
-          name="automaker"
-          defaultValue=""
+          name="types"
+          defaultValue={type}
           render={({ field: { onChange, value } }) => (
             <Select
               className="lg:w-[200px]"
-              placeholder="Montadora..."
+              placeholder="Tipo..."
               onChange={(selectedValue: string) => {
                 onChange(selectedValue);
-                handleAutomakerChange(selectedValue);
+                handleTypeChange(selectedValue);
               }}
               value={value}
-              options={automakersData}
+              options={[
+                {
+                  value: "trava",
+                  label: "TRAVA"
+                },
+                {
+                  value: "atuador",
+                  label: "ATUADOR"
+                }
+              ]}
             />
           )}
         />
 
         <Controller
           control={control}
-          name="types"
-          defaultValue=""
+          name="automaker"
+          defaultValue={automaker?.toUpperCase()}
           render={({ field: { onChange, value } }) => (
             <Select
               className="lg:w-[200px]"
-              placeholder="Tipo..."
-              onChange={onChange}
+              placeholder={isLoading ? "Carregando..." : "Montadora..."}
+              onChange={(selectedValue: string) => {
+                onChange(selectedValue);
+                handleAutomakerChange(selectedValue);
+              }}
               value={value}
-              options={[
-                  {
-                    value: "trava",
-                    label: "Trava"
-                  },
-                  {
-                    value: "atuador",
-                    label: "Atuador"
-                  }
-              ]}
+              options={automakersData}
+              disabled={disabledModel}
             />
           )}
         />
 
         <Button type="submit" className="w-full gap-[5px] justify-center">
-          BUSCAR
-          <IoSearch size={20} />
+          {isLoading ? <Spinner className="w-4 h-4 m-0 ml-1.5" /> : (
+            <>
+              BUSCAR
+              <IoSearch size={20} />
+            </>
+          )}
         </Button>
       </form>
     </div>

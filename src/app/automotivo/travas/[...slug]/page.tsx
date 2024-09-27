@@ -1,35 +1,35 @@
-import { getProductsByCategoryIdCachedData } from "@/app/_actions/getActionAutomotive";
-import { getAutomakersLockCachedData, getAutomakersUniqueCachedData } from "@/app/_actions/getActionSearch";
+import { getProductsLockByActuatorCachedData, getProductsLockByLockCachedData } from "@/app/_actions/getActionAutomotive";
 import { Breadcrumb } from "@/app/_components/Breadcrumb";
 import { CardProduct } from "@/app/_components/CardProduct";
 import { Container } from "@/app/_components/Container";
 import { Search } from "@/app/_components/Search";
 import { Title } from "@/app/_components/Title";
+import { FilterLock } from "@/app/automotivo/[id]/_components/FilterLock";
 import { colorsMapper, mapperBg } from "@/lib/mapers";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
-import { Pagination } from "../../_components/Pagination";
-import { FilterLock } from "./_components/FilterLock";
-import { FilterUnique } from "./_components/FilterUnique";
 
-interface AutomotivoCategoriesProps {
-  params: { id: string; };
-  searchParams: { page?: string; limit?: string;  };
+interface AutomotivoCategoryUniqueProps {
+  params: { slug: string; };
+  searchParams: { page?: string; limit?: string; };
 }
 
-export default async function AutomotivoCategories({ params, searchParams }: AutomotivoCategoriesProps) {
-  const page = Number(searchParams?.page) || 1;
-  const limit = Number(searchParams?.limit) || 15;
-  const { content: products, totalElements } = await getProductsByCategoryIdCachedData(params.id, page-1, limit);
-  const color = colorsMapper(params.id);
-  const bgs = mapperBg(params.id);
-  const automakersData = await getAutomakersLockCachedData();
-  const automakersUniqueData = await getAutomakersUniqueCachedData();
+export default async function AutomotivoCategoryLock({ params }: AutomotivoCategoryUniqueProps) {
+  let products;
 
-  revalidatePath(`/automotivo/${params.id}`);
+  if (params.slug[1] === 'trava') {
+    products = await getProductsLockByLockCachedData(params.slug[0]);
+  } else {
+    products = await getProductsLockByActuatorCachedData(params.slug[0]);
+  }
+
+  const color = colorsMapper("6");
+  const bgs = mapperBg("6");
+
+  revalidatePath(`/automotivo/unique/${params.slug}`);
 
   return (
-    <main>
+    <main className="mb-[50px]">
       <Container type="div" className="my-6">
         <Search />
       </Container>
@@ -41,8 +41,6 @@ export default async function AutomotivoCategories({ params, searchParams }: Aut
         <Container type="div">
           <Title type="h1" className="text-white pt-9 pb-14" classNameLine="bg-white">
             AUTOMOTIVO
-
-
           </Title>
         </Container>
       </div>
@@ -61,7 +59,13 @@ export default async function AutomotivoCategories({ params, searchParams }: Aut
           <li>{'>'}</li>
           <li>Linhas</li>
           <li>{'>'}</li>
-          <li>{products[0].nameCategoryCommercial}</li>
+          <li>
+            <Link href={`/automotivo/${products[0].categoryCommercialId}`} className="hover:underline">
+              {products[0].nameCategoryCommercial}
+            </Link>
+          </li>
+          <li>{'>'}</li>
+          <li>{params.slug[1].toUpperCase()}</li>
         </Breadcrumb>
       </Container>
 
@@ -71,30 +75,15 @@ export default async function AutomotivoCategories({ params, searchParams }: Aut
         </Title>
       </Container>
 
-      {params.id === "6" && (
-        <Container type="div" className="mb-8">
-          <FilterLock />
-        </Container>
-      )}
-
-      {params.id === "3" && (
-        <Container type="div" className="mb-8">
-          <FilterUnique
-            automakersData={
-              automakersUniqueData.map(automaker => ({
-                value: String(automaker.montadora),
-                label: automaker.montadora
-              }))
-            }
-          />
-        </Container>
-      )}
+      <Container type="div" className="mb-8">
+        <FilterLock type={params.slug[1]} automaker={params.slug[0]} />
+      </Container>
 
       <Container type="section">
         <div className="grid lg:grid-cols-3 gap-x-5 gap-y-[30px] lg:gap-y-[80px]">
-          {products.map((product) => (
+          {products.map((product, index) => (
             <CardProduct
-              key={product.id}
+              key={index}
               name={product.name}
               code={product.code}
               descriptionInstalesoft={product.descriptionInstalesoft}
@@ -104,12 +93,6 @@ export default async function AutomotivoCategories({ params, searchParams }: Aut
             />
           ))}
         </div>
-      </Container>
-
-      <Container type="div" className="my-[50px]">
-        {totalElements > products.length && (
-          <Pagination page={page} limit={limit} total={totalElements} />
-        )}
       </Container>
     </main>
   )

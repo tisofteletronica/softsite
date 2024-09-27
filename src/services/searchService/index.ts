@@ -1,5 +1,6 @@
 import { getAutomakers } from "./automakers";
 import { getautomakersLock } from "./automakersLock";
+import { getAutomakersLockActuator } from "./automakersLockActuator";
 import { getAutomakersUnique } from "./automakersUnique";
 import { getModelsById } from "./modelsById";
 import { getModelsByName } from "./modelsByName";
@@ -15,5 +16,6 @@ export const searchService = {
   getCategoryByModelAndYear,
   getProductsByModelAndCategory,
   getautomakersLock,
-  getAutomakersUnique
+  getAutomakersUnique,
+  getAutomakersLockActuator
 }
