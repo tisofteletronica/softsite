@@ -15,16 +15,16 @@ interface AutomotivoCategoryUniqueProps {
 }
 
 export default async function AutomotivoCategoryLock({ params }: AutomotivoCategoryUniqueProps) {
-  let products;
-
-  if (params.slug[1] === 'trava') {
-    products = await getProductsLockByLockCachedData(params.slug[0]);
-  } else {
-    products = await getProductsLockByActuatorCachedData(params.slug[0]);
-  }
-
+  const automaker = params.slug[0] === 'trava' || params.slug[0] === 'atuador' ? '' : params.slug[0];
   const color = colorsMapper("6");
   const bgs = mapperBg("6");
+  let products;
+
+  if (params.slug[1] || params.slug[0] === 'trava') {
+    products = await getProductsLockByLockCachedData(automaker);
+  } else {
+    products = await getProductsLockByActuatorCachedData(automaker);
+  }
 
   revalidatePath(`/automotivo/unique/${params.slug}`);
 
@@ -64,8 +64,12 @@ export default async function AutomotivoCategoryLock({ params }: AutomotivoCateg
               {products[0].nameCategoryCommercial}
             </Link>
           </li>
-          <li>{'>'}</li>
-          <li>{params.slug[1].toUpperCase()}</li>
+          {params.slug[1] && (
+            <>
+              <li>{'>'}</li>
+              <li>{params.slug[1].toUpperCase()}</li>
+            </>
+          )}
         </Breadcrumb>
       </Container>
 
@@ -76,7 +80,7 @@ export default async function AutomotivoCategoryLock({ params }: AutomotivoCateg
       </Container>
 
       <Container type="div" className="mb-8">
-        <FilterLock type={params.slug[1]} automaker={params.slug[0]} />
+        <FilterLock type={params.slug[1] ?? params.slug[0]} automaker={automaker} />
       </Container>
 
       <Container type="section">
