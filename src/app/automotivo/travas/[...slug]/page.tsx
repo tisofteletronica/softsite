@@ -20,7 +20,7 @@ export default async function AutomotivoCategoryLock({ params }: AutomotivoCateg
   const bgs = mapperBg("6");
   let products;
 
-  if (params.slug[1] || params.slug[0] === 'trava') {
+  if (params.slug[1] === 'trava' || params.slug[0] === 'trava') {
     products = await getProductsLockByLockCachedData(automaker);
   } else {
     products = await getProductsLockByActuatorCachedData(automaker);
