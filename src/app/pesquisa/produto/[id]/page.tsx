@@ -172,7 +172,7 @@ export default async function ProductDetails({ params, searchParams }: ProductDe
         </div>
       </Container>
 
-      <GetToKnow currentId={params.id} id={response[0]?.categoryInstaleSoftId} />
+      <GetToKnow currentId={params.id} id={response[0]?.categoryInstaleSoftId} color="#1c61ac" />
     </main>
   )
 }

@@ -54,6 +54,7 @@ export default async function Produtos({ searchParams }: ProdutosProps) {
               link={`/pesquisa/produto/${product.productId}?year=${product.ano}&category=${product.categoryInstaleSoftId}&model=${product.modeloInstalesoftId}${product.portas2 ? '&portas=2' : (product.porta4 ? '&portas=4' : '')}`}
               portas2={product.portas2}
               porta4={product.porta4}
+              color="#1c61ac"
             />
           ))}
         </div>
