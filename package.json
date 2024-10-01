@@ -15,10 +15,14 @@
     "@radix-ui/react-menubar": "^1.1.1",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@react-input/mask": "^1.2.10",
+    "@zip.js/zip.js": "^2.7.52",
     "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
     "next": "14.2.5",
     "nodemailer": "^6.9.14",
     "react": "^18",
@@ -31,6 +35,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/file-saver": "^2",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.15",
     "@types/react": "^18",

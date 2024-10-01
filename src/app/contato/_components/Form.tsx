@@ -1,8 +1,10 @@
 'use client'
 import { Button } from "@/app/_components/Button";
 import { Input } from "@/app/_components/Input";
+import { InputMask } from "@/app/_components/InputMask";
 import { Spinner } from "@/app/_components/Spinner";
 import { Textarea } from "@/app/_components/Textarea";
+import { Controller } from "react-hook-form";
 import { useContactController } from "../useContactController";
 
 export function Form() {
@@ -11,7 +13,8 @@ export function Form() {
     errors,
     handleSubmit,
     isLoading,
-    success
+    success,
+    control
   } = useContactController();
 
   return (
@@ -54,11 +57,21 @@ export function Form() {
           error={errors.empresa?.message}
           {...register('empresa')}
         />
-        <Input
-          type="tel"
-          placeholder="Telefone*"
-          error={errors.telefone?.message}
-          {...register('telefone')}
+
+        <Controller
+          control={control}
+          name="telefone"
+          defaultValue=""
+          render={({ field: { onChange, value } }) => (
+            <InputMask
+              mask="(__) _____-____"
+              name="telefone"
+              value={value}
+              onChange={onChange}
+              error={errors.telefone?.message}
+              placeholder="Telefone*"
+            />
+          )}
         />
       </div>
 

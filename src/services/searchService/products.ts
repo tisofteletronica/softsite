@@ -24,6 +24,7 @@ export interface ProductsByModelAndCategoryResponse {
     portas2: boolean;
     porta4: boolean;
     urlManual: string;
+    urlVideo: string;
     observacao: string;
     urlEsquema: string;
     imgUrl1: string;

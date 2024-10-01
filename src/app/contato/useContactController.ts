@@ -25,6 +25,7 @@ export function useContactController() {
   const {
     reset,
     register,
+    control,
     handleSubmit: hookFormSubmit,
     formState: { errors },
   } = useForm<FormData>({
@@ -69,6 +70,7 @@ export function useContactController() {
     handleSubmit,
     errors,
     isLoading,
-    success
+    success,
+    control
   }
 }

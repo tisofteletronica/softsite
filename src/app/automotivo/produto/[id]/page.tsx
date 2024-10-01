@@ -15,6 +15,8 @@ import Link from "next/link";
 import { HiOutlineDownload } from "react-icons/hi";
 import { Measure } from "./_components/Measure";
 
+
+
 interface ProductDetailsProps {
   params: { id: string; };
 }
@@ -23,6 +25,15 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
   const response = await getProductsByIdAutomotiveCachedData(params.id);
   const color = colorsMapper(String(response.categoryCommercialId));
   const bgs = mapperBg(String(response.categoryCommercialId));
+
+  const images = [
+    response?.capaImagem ?? '',
+    response?.imgUrl1 ?? '',
+    response?.imgUrl2 ?? '',
+    response?.imgUrl3 ?? '',
+    response?.imgUrl4 ?? '',
+    response?.imgUrl5 ?? ''
+  ].filter(Boolean)
 
   revalidatePath(`/automotivo/produto/${params.id}`);
 
@@ -86,14 +97,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
       <Container type="article" className="border-[3px] border-lighterGray2 rounded-b-[51px] lg:!px-4 pb-11">
         <div className="grid lg:grid-cols-[1fr_500px] gap-[11px] mt-[-30px]">
           <div className="max-w-[300px] lg:max-w-[670px]">
-            <SliderCardProduct images={[
-              response?.capaImagem ?? '',
-              response?.imgUrl1 ?? '',
-              response?.imgUrl2 ?? '',
-              response?.imgUrl3 ?? '',
-              response?.imgUrl4 ?? '',
-              response?.imgUrl5 ?? ''
-            ].filter(Boolean)} />
+            <SliderCardProduct images={images} />
 
             <div className="flex flex-col lg:flex-row gap-5 items-center mt-[75px] mb-8 lg:mb-0">
               <div>
@@ -159,20 +163,48 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
           </div>
 
           <div className="bg-lighterGray2 px-5 lg:px-[45px] py-8 lg:py-[70px] rounded-br-[40px]">
-            <h4 className="text-center text-gray text-[22px] font-bold leading-[31px] tracking-[2.2px] mb-2">
-              CARACTERÍSTICAS:
-            </h4>
-
             {response?.descriptionCharacteristicsCommercial && (
-              <p
-                className="text-gray text-[16px] lg:text-[18px] leading-[21px] lg:leading-[24px] tracking-[2.2px]"
-                dangerouslySetInnerHTML={{ __html: response?.descriptionCharacteristicsCommercial?.replaceAll('\n', "<br /><br />")! }}
-              />
+              <div>
+                <h4 className="text-center text-gray text-[22px] font-bold leading-[31px] tracking-[2.2px] mb-2">
+                  CARACTERÍSTICAS:
+                </h4>
+
+                <p
+                  className="text-gray text-[16px] lg:text-[18px] leading-[21px] lg:leading-[24px] tracking-[2.2px]"
+                  dangerouslySetInnerHTML={{ __html: response?.descriptionCharacteristicsCommercial?.replaceAll('\n', "<br /><br />")! }}
+                />
+              </div>
+            )}
+
+            {response?.applicationCommercial && (
+              <div>
+                <h4 className="text-center text-gray text-[22px] font-bold leading-[31px] tracking-[2.2px] mb-2">
+                  APLICAÇÃO:
+                </h4>
+
+                <p
+                  className="text-gray text-[16px] lg:text-[18px] leading-[21px] lg:leading-[24px] tracking-[2.2px]"
+                  dangerouslySetInnerHTML={{ __html: response?.applicationCommercial?.replaceAll('\n', "<br /><br />")! }}
+                />
+              </div>
+            )}
+
+            {response?.descriptionInstalesoft && (
+              <div>
+                <h4 className="text-center text-gray text-[22px] font-bold leading-[31px] tracking-[2.2px] mb-2">
+                  DESCRIÇÃO:
+                </h4>
+
+                <p
+                  className="text-gray text-[16px] lg:text-[18px] leading-[21px] lg:leading-[24px] tracking-[2.2px]"
+                  dangerouslySetInnerHTML={{ __html: response?.descriptionInstalesoft?.replaceAll('\n', "<br /><br />")! }}
+                />
+              </div>
             )}
           </div>
         </div>
 
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-10 gap-10">
           <Link
             style={{ background: color }}
             href={response?.urlManual ? response?.urlManual : "#"}
@@ -182,6 +214,9 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
             BAIXAR MANUAL
             <HiOutlineDownload className="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px]" />
           </Link>
+
+          {/* <DownloadImages imageUrls={images} color={color} /> */}
+          {/* <DownloadImages imageUrls={['https://raw.githubusercontent.com/diegoricardosouza/pokedex/main/.github/pokedex.jpg', 'https://raw.githubusercontent.com/diegoricardosouza/semana-javascript-expert05/main/resources/demo.gif', 'https://raw.githubusercontent.com/devcontainers/spec/main/images/dev-container-stages.png']} color={color} /> */}
         </div>
       </Container>
 
