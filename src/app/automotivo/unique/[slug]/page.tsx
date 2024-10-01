@@ -87,7 +87,7 @@ export default async function AutomotivoCategoryUnique({ params }: AutomotivoCat
               key={product.id}
               name={product.name}
               code={product.code}
-              descriptionInstalesoft={product.descriptionInstalesoft}
+              resume={product.descriptionCommercialResume}
               imgUrl1={product.capaImagem}
               link={`/automotivo/produto/${product.id}`}
               color={color}

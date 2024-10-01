@@ -4,12 +4,17 @@ export interface ProductsByIdResponse {
   id: string;
   code: string;
   name: string;
+  descriptionCommercialResume: string;
   descriptionCommercial: string;
+  descriptionCharacteristicsCommercial: string;
+  applicationCommercial: string;
+  epilogueCommercial: string;
   descriptionInstalesoft: string;
   weight: string,
   length: string,
   width: string,
   height: string,
+  capaImagem: string,
   imgUrl1: string;
   imgUrl2: string;
   imgUrl3: string;

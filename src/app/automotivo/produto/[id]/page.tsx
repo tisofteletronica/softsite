@@ -78,7 +78,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
         </Title>
 
         <p
-          className="text-gray text-[18px] lg:text-[22px] leading-[23px] lg:leading-[30px] tracking-[2.2px]"
+          className="text-gray text-[18px] lg:text-[18px] leading-[23px] lg:leading-[25px] tracking-[2.2px]"
           dangerouslySetInnerHTML={{ __html: response?.descriptionCommercial }}
         />
       </Container>
@@ -87,6 +87,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
         <div className="grid lg:grid-cols-[1fr_500px] gap-[11px] mt-[-30px]">
           <div className="max-w-[300px] lg:max-w-[670px]">
             <SliderCardProduct images={[
+              response?.capaImagem ?? '',
               response?.imgUrl1 ?? '',
               response?.imgUrl2 ?? '',
               response?.imgUrl3 ?? '',
@@ -162,10 +163,12 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
               CARACTERÍSTICAS:
             </h4>
 
-            <p
-              className="text-gray text-[18px] lg:text-[22px] leading-[23px] lg:leading-[26px] tracking-[2.2px]"
-              dangerouslySetInnerHTML={{ __html: response?.descriptionInstalesoft.replaceAll('\\n', "<br /><br />")! }}
-            />
+            {response?.descriptionCharacteristicsCommercial && (
+              <p
+                className="text-gray text-[16px] lg:text-[18px] leading-[21px] lg:leading-[24px] tracking-[2.2px]"
+                dangerouslySetInnerHTML={{ __html: response?.descriptionCharacteristicsCommercial?.replaceAll('\n', "<br /><br />")! }}
+              />
+            )}
           </div>
         </div>
 
@@ -180,6 +183,13 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
             <HiOutlineDownload className="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px]" />
           </Link>
         </div>
+      </Container>
+
+      <Container type="div" className="mt-8">
+        <p
+          className="text-gray text-[16px] lg:text-[18px] leading-[21px] lg:leading-[24px] tracking-[2.2px]"
+          dangerouslySetInnerHTML={{ __html: response?.epilogueCommercial }}
+        />
       </Container>
 
       <GetToKnow currentId={params.id} id={response.categoryCommercialId} color={color} />

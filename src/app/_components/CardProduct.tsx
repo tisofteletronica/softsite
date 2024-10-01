@@ -9,14 +9,14 @@ interface CardProductProps {
   name: string;
   imgUrl1: string;
   code: string;
-  descriptionInstalesoft: string;
+  resume: string;
   link: string;
   portas2?: boolean;
   porta4?: boolean;
   color?: string;
 }
 
-export function CardProduct({ name, imgUrl1, code, descriptionInstalesoft, link, portas2, porta4, color }: CardProductProps) {
+export function CardProduct({ name, imgUrl1, code, resume, link, portas2, porta4, color }: CardProductProps) {
   return (
     <article
       style={{
@@ -49,7 +49,7 @@ export function CardProduct({ name, imgUrl1, code, descriptionInstalesoft, link,
       <p className="group-hover:text-white text-[17px] lg:text-[19px] text-gray leading-[23px] text-center mt-3 mb-9 tracking-[1.9px] max-w-[260px] mx-auto">
         {/* Módulo Bluetooth <br />
             de baixo consumo */}
-        {createExcerpt(descriptionInstalesoft ?? '', 33)}
+        {createExcerpt(resume ?? '', 33)}
       </p>
 
       {portas2 && (

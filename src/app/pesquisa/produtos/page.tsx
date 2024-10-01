@@ -49,7 +49,7 @@ export default async function Produtos({ searchParams }: ProdutosProps) {
               key={product.id}
               name={product.productName}
               code={product.codigo}
-              descriptionInstalesoft={product.descricaoInstaleSoft}
+              resume={product.descricaoInstaleSoft}
               imgUrl1={product.imgUrl1}
               link={`/pesquisa/produto/${product.productId}?year=${product.ano}&category=${product.categoryInstaleSoftId}&model=${product.modeloInstalesoftId}${product.portas2 ? '&portas=2' : (product.porta4 ? '&portas=4' : '')}`}
               portas2={product.portas2}

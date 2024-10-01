@@ -108,56 +108,6 @@ export default async function Montagem() {
             )
           })}
         </div>
-
-        {/* <div>
-          <div className="flex flex-wrap justify-between gap-5 mb-5 lg:mb-9">
-            <Icon label="Balanças industriais e rodoviárias">
-              <Balanca />
-            </Icon>
-            <Icon label="Controle de tráfego">
-              <ControleTrafego />
-            </Icon>
-            <Icon label="Controle de abastecimento de frota">
-              <Controle />
-            </Icon>
-          </div>
-
-          <div className="flex flex-wrap justify-between gap-5 mb-5 lg:mb-9">
-            <Icon label="Ionizador de água potável">
-              <Ionizador />
-            </Icon>
-            <Icon label="Impressoras fiscais">
-              <Impressoras />
-            </Icon>
-            <Icon label="Monitores de computadores">
-              <Monitor />
-            </Icon>
-          </div>
-
-          <div className="flex flex-wrap justify-between gap-5 mb-5 lg:mb-9">
-            <Icon label="Rastreadores de veículos e cargas">
-              <Rastreador />
-            </Icon>
-            <Icon label="Equipamentos para ensino">
-              <Projetor />
-            </Icon>
-            <Icon label="Equipamentos hospitalares">
-              <EquipamentoHospitalar />
-            </Icon>
-          </div>
-
-          <div className="flex flex-wrap justify-between gap-5">
-            <Icon label="Centrais para motores (portões e esteiras)">
-              <Portoes />
-            </Icon>
-            <Icon label="Controladoras de lava-roupa e fogões">
-              <MaquinaLavar />
-            </Icon>
-            <Icon label="Sistemas de controle de telefonia">
-              <Telefonia />
-            </Icon>
-          </div>
-        </div> */}
       </Container>
 
       <div className="relative w-full mt-11" id="diferenciais">
@@ -173,6 +123,7 @@ export default async function Montagem() {
               <SliderMontagem className='min-h-[643px]' items={differences.content.map((difference) => {
                 return {
                   id: difference.id,
+                  urlImg1: difference.urlImg1,
                   servicos: difference.diferencial,
                   descricao: difference.descricao,
                 }

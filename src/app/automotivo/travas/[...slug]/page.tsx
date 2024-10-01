@@ -90,7 +90,7 @@ export default async function AutomotivoCategoryLock({ params }: AutomotivoCateg
               key={index}
               name={product.name}
               code={product.code}
-              descriptionInstalesoft={product.descriptionInstalesoft}
+              resume={product.descriptionCommercialResume}
               imgUrl1={product.capaImagem}
               link={`/automotivo/produto/${product.id}`}
               color={color}

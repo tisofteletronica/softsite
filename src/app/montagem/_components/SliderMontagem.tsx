@@ -49,7 +49,7 @@ export function SliderMontagem({ items, className }: SliderMontagemProps) {
     >
       {items?.map((item, index) => (
         <SwiperSlide key={index}>
-          <CardSlider servicos={item.servicos} descricao={item.descricao} className={className} />
+          <CardSlider urlImg1={item.urlImg1} servicos={item.servicos} descricao={item.descricao} className={className} />
         </SwiperSlide>
       ))}
     </Swiper>

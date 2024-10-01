@@ -5,7 +5,11 @@ export interface ProductsByCategoryIdResponse {
     id: string;
     code: string;
     name: string;
+    descriptionCommercialResume: string;
     descriptionCommercial: string;
+    descriptionCharacteristicsCommercial: string;
+    applicationCommercial: string;
+    epilogueCommercial: string;
     descriptionInstalesoft: string;
     weight: string,
     length: string,
@@ -18,6 +22,7 @@ export interface ProductsByCategoryIdResponse {
     imgUrl4: string;
     imgUrl5: string;
     urlManual: string;
+    categoryCommercialId: string;
     nameCategoryCommercial: string;
   }[]
   size: number;

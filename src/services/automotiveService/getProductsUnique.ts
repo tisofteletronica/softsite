@@ -4,7 +4,11 @@ export interface ProductsUniqueByAutomakerResponse {
   id: string;
   code: string;
   name: string;
+  descriptionCommercialResume: string;
   descriptionCommercial: string;
+  descriptionCharacteristicsCommercial: string;
+  applicationCommercial: string;
+  epilogueCommercial: string;
   descriptionInstalesoft: string;
   weight: string,
   length: string,

@@ -1,6 +1,5 @@
 import { revalidatePath } from "next/cache";
 import Image from "next/image";
-import { default as imgConexao, default as imgDescricao } from "../../../public/conectividade/descricao.png";
 import { getConectivityCachedData } from "../_actions/getActionConectivity";
 import { Breadcrumb } from "../_components/Breadcrumb";
 import { Container } from "../_components/Container";
@@ -50,7 +49,15 @@ export default async function Conectividades() {
           </div>
 
           <div className="lg:flex-[0_0_660px] mt-5 lg:mt-0">
-            <Image src={imgDescricao} alt="Descrição" className="rounded-tr-[45px] rounded-bl-[45px]" />
+            {response?.content[0].urlImg1 && (
+              <Image
+                src={response?.content[0].urlImg1}
+                alt="Descrição"
+                className="rounded-tr-[45px] rounded-bl-[45px]"
+                width={660}
+                height={458}
+              />
+            )}
           </div>
         </div>
 
@@ -61,7 +68,15 @@ export default async function Conectividades() {
 
           <div className="lg:flex gap-[55px]">
             <div>
-              <Image src={imgConexao} alt="Produção" className="rounded-tr-[45px] rounded-bl-[45px]" />
+              {response?.content[0].urlImg2 && (
+                <Image
+                  src={response?.content[0].urlImg2}
+                  alt="Produção"
+                  className="rounded-tr-[45px] rounded-bl-[45px]"
+                  width={505}
+                  height={351}
+                />
+              )}
             </div>
 
             <div className="lg:flex-[0_0_660px] mt-5 lg:mt-8">

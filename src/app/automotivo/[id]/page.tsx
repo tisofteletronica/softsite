@@ -41,8 +41,6 @@ export default async function AutomotivoCategories({ params, searchParams }: Aut
         <Container type="div">
           <Title type="h1" className="text-white pt-9 pb-14" classNameLine="bg-white">
             AUTOMOTIVO
-
-
           </Title>
         </Container>
       </div>
@@ -97,7 +95,7 @@ export default async function AutomotivoCategories({ params, searchParams }: Aut
               key={product.id}
               name={product.name}
               code={product.code}
-              descriptionInstalesoft={product.descriptionInstalesoft}
+              resume={product.descriptionCommercialResume}
               imgUrl1={product.capaImagem}
               link={`/automotivo/produto/${product.id}`}
               color={color}

@@ -32,7 +32,7 @@ export async function GetToKnow({ id, currentId, color }: GetToKnowProps) {
                   key={product.id}
                   name={product.name}
                   code={product.code}
-                  descriptionInstalesoft={product.descriptionInstalesoft}
+                  resume={product.descriptionCommercialResume}
                   imgUrl1={product.imgUrl1}
                   link={`/automotivo/produto/${product.id}`}
                   color={color}

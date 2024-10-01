@@ -5,6 +5,9 @@ export interface AssemblyResponse {
     id: string;
     servicos: string;
     descricao: string;
+    urlImg1: string;
+    urlImg2: string;
+    urlImg3: string;
   }[]
 }
 

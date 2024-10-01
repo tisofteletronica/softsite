@@ -7,6 +7,9 @@ export interface ConectivityResponse {
     sistemasConexaoBle: string;
     aplicacoes: string;
     anatel: string;
+    urlImg1?: string;
+    urlImg2?: string;
+    urlImg3?: string;
   }[]
 }
 
