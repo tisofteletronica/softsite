@@ -1,7 +1,7 @@
 'use client'
 import { Button } from "@/app/_components/Button";
 import { Input } from "@/app/_components/Input";
-import { InputMask } from "@/app/_components/InputMask";
+import { InputMaskCustom } from "@/app/_components/InputMaskCustom";
 import { Spinner } from "@/app/_components/Spinner";
 import { Textarea } from "@/app/_components/Textarea";
 import { Controller } from "react-hook-form";
@@ -62,16 +62,17 @@ export function Form() {
           control={control}
           name="telefone"
           defaultValue=""
-          render={({ field: { onChange, value } }) => (
-            <InputMask
-              mask="(__) _____-____"
-              name="telefone"
-              value={value}
-              onChange={onChange}
-              error={errors.telefone?.message}
-              placeholder="Telefone*"
-            />
-          )}
+          render={({ field: { onChange, value } }) => {
+            return (
+              <InputMaskCustom
+                name="Telefone"
+                value={value}
+                onChange={onChange}
+                placeholder="Telefone*"
+                error={errors.telefone?.message}
+              />
+            )
+          }}
         />
       </div>
 

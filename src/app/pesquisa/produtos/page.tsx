@@ -1,11 +1,11 @@
 import { getProductsByModelAndCategoryCachedData } from "@/app/_actions/getActionSearch";
 import { Breadcrumb } from "@/app/_components/Breadcrumb";
-import { CardProduct } from "@/app/_components/CardProduct";
 import { Container } from "@/app/_components/Container";
 import { Pagination } from "@/app/_components/Pagination";
 import { Search } from "@/app/_components/Search";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
+import { CardProductSearch } from "./_components/CardProductSearch";
 
 interface ProdutosProps {
   searchParams: { model?: string; year?: string; category?: string; page?: string; limit?: string; };
@@ -45,7 +45,7 @@ export default async function Produtos({ searchParams }: ProdutosProps) {
       <Container type="section">
         <div className="grid lg:grid-cols-3 gap-x-5 gap-y-[30px] lg:gap-y-[80px]">
           {products.map((product) => (
-            <CardProduct
+            <CardProductSearch
               key={product.id}
               name={product.productName}
               code={product.codigo}
@@ -55,6 +55,8 @@ export default async function Produtos({ searchParams }: ProdutosProps) {
               portas2={product.portas2}
               porta4={product.porta4}
               color="#1c61ac"
+              vidroConvencional={product.vidroConvencional}
+              vidroInteligente={product.vidroInteligente}
             />
           ))}
         </div>

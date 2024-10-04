@@ -189,7 +189,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
               </div>
             )}
 
-            {response?.descriptionInstalesoft && (
+            {/* {response?.descriptionInstalesoft && (
               <div>
                 <h4 className="text-center text-gray text-[22px] font-bold leading-[31px] tracking-[2.2px] mb-2">
                   DESCRIÇÃO:
@@ -200,7 +200,7 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
                   dangerouslySetInnerHTML={{ __html: response?.descriptionInstalesoft?.replaceAll('\n', "<br /><br />")! }}
                 />
               </div>
-            )}
+            )} */}
           </div>
         </div>
 

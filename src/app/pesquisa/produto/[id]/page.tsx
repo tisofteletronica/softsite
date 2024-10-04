@@ -133,7 +133,7 @@ export default async function ProductDetails({ params, searchParams }: ProductDe
             </h4>
 
             <p
-              className="text-gray text-[18px] lg:text-[20px] leading-[23px] lg:leading-[24px] tracking-[2.2px] text-justify"
+              className="text-gray text-[18px] lg:text-[20px] leading-[23px] lg:leading-[24px] tracking-[2.2px]"
               dangerouslySetInnerHTML={{ __html: response[0]?.descricaoInstaleSoft.replaceAll('\n', "<br /><br />")! }}
             />
 

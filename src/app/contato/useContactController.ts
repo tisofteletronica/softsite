@@ -11,7 +11,11 @@ const schema = z.object({
   cidade: z.string().min(1, 'Cidade é obrigatório'),
   pais: z.string().min(1, 'País é obrigatório'),
   empresa: z.string().min(1, 'Empresa é obrigatório'),
-  telefone: z.string().min(1, 'Telefone é obrigatório'),
+  telefone: z.string()
+    .refine((val) => {
+      const numericValue = val.replace(/\D/g, '');
+      return numericValue.length === 10 || numericValue.length === 11;
+    }, { message: 'Número de telefone inválido' }),
   endereco: z.string().min(1, 'Endereço é obrigatório'),
   mensagem: z.string().min(1, 'Mensagem é obrigatório'),
 })

@@ -1085,6 +1085,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-input-mask@npm:^2":
+  version: 2.0.5
+  resolution: "@types/react-input-mask@npm:2.0.5"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: 10c0/43750b72da9eeb8acc6b6a78093c0a5a040feecd6d2d26340c12c1a4cb6f0e8b69f988cbdb426203306f8db2c20919897d7246b83eac9ad7a0d3d367600f59d9
+  languageName: node
+  linkType: hard
+
 "@types/react-simple-maps@npm:^3.0.6":
   version: 3.0.6
   resolution: "@types/react-simple-maps@npm:3.0.6"
@@ -4336,6 +4345,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-hook-mask@npm:^1.1.18":
+  version: 1.1.18
+  resolution: "react-hook-mask@npm:1.1.18"
+  peerDependencies:
+    react: ">= 17.0.0"
+    react-dom: ">= 17.0.0"
+  checksum: 10c0/89d809518de293dbfd7e863b88cce0ce53df0441cb7cb1081884fdba3a2cdcc9cdd8fdaeb05a168339acb0da1832d3349ce9a2dcbbcc5f3cad5f15ed923e76df
+  languageName: node
+  linkType: hard
+
 "react-icons@npm:^5.2.1":
   version: 5.2.1
   resolution: "react-icons@npm:5.2.1"
@@ -4772,6 +4791,7 @@ __metadata:
     "@types/nodemailer": "npm:^6.4.15"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
+    "@types/react-input-mask": "npm:^2"
     "@types/react-simple-maps": "npm:^3.0.6"
     "@zip.js/zip.js": "npm:^2.7.52"
     axios: "npm:^1.7.2"
@@ -4788,6 +4808,7 @@ __metadata:
     react: "npm:^18"
     react-dom: "npm:^18"
     react-hook-form: "npm:^7.52.1"
+    react-hook-mask: "npm:^1.1.18"
     react-icons: "npm:^5.2.1"
     react-simple-maps: "npm:^3.0.0"
     swiper: "npm:^11.1.5"

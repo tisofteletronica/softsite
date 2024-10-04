@@ -1,8 +1,9 @@
 'use client'
 
+import { createExcerpt } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import imgLogo from "../../../public/logo.png";
+import imgLogo from "../../../../../public/logo.png";
 
 interface CardProductProps {
   name: string;
@@ -13,9 +14,11 @@ interface CardProductProps {
   portas2?: boolean;
   porta4?: boolean;
   color?: string;
+  vidroConvencional?: string;
+  vidroInteligente?: string;
 }
 
-export function CardProduct({ name, imgUrl1, code, resume, link, portas2, porta4, color }: CardProductProps) {
+export function CardProductSearch({ name, imgUrl1, code, resume, link, color, vidroConvencional, vidroInteligente }: CardProductProps) {
   return (
     <article
       style={{
@@ -48,26 +51,25 @@ export function CardProduct({ name, imgUrl1, code, resume, link, portas2, porta4
       <p className="group-hover:text-white text-[17px] lg:text-[19px] text-gray leading-[23px] text-center mt-3 mb-9 tracking-[1.9px] max-w-[260px] mx-auto">
         {/* Módulo Bluetooth <br />
             de baixo consumo */}
-        {/* {createExcerpt(resume ?? '', 33)} */}
-        {resume}
+        {createExcerpt(resume ?? '', 33)}
       </p>
 
-      {portas2 && (
-        <p className="text-blue font-bold uppercase text-[17px] text-center mb-9 group-hover:text-white">
-          2 Vidros
+      {(Number(vidroConvencional) > 0) && (
+        <p className="text-blue font-bold uppercase text-[15px] text-center group-hover:text-white">
+          {`${vidroConvencional} Vidro(s) Convencional(is)`}
         </p>
       )}
 
-      {porta4 && (
-        <p className="text-blue font-bold uppercase text-[17px] text-center mb-9 group-hover:text-white">
-          4 Vidros
+      {(Number(vidroInteligente) > 0) && (
+        <p className="text-blue font-bold uppercase text-[15px] text-center group-hover:text-white">
+          {`${vidroInteligente} Vidro(s) Inteligente(s)`}
         </p>
       )}
 
       <Link
         href={link ?? ""}
         style={{ background: color }}
-        className="m-auto py-[9px] px-[22px] h-[38px] group-hover:!bg-white group-hover:text-gray bg-blue rounded-[10px_0] text-white font-medium tracking-[1.6px] w-[130px] flex items-center justify-center"
+        className="m-auto py-[9px] px-[22px] h-[38px] group-hover:!bg-white group-hover:text-gray bg-blue rounded-[10px_0] text-white font-medium tracking-[1.6px] w-[130px] flex items-center justify-center mt-9"
       >
         VER MAIS
       </Link>
