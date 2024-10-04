@@ -11,10 +11,13 @@ const schema = z.object({
   cidade: z.string().min(1, 'Cidade é obrigatório'),
   pais: z.string().min(1, 'País é obrigatório'),
   empresa: z.string().min(1, 'Empresa é obrigatório'),
+  // telefone: z.string().min(10, 'Número de telefone inválido'),
   telefone: z.string()
+    .min(10, 'Número de telefone inválido')
+    .max(11, 'Número de telefone inválido')
     .refine((val) => {
-      const numericValue = val.replace(/\D/g, '');
-      return numericValue.length === 10 || numericValue.length === 11;
+      // const numericValue = val.replace(/\D/g, ''); // Remove caracteres não numéricos
+      return val.length === 10 || val.length === 11; // Aceita fixo ou celular
     }, { message: 'Número de telefone inválido' }),
   endereco: z.string().min(1, 'Endereço é obrigatório'),
   mensagem: z.string().min(1, 'Mensagem é obrigatório'),
@@ -25,6 +28,7 @@ type FormData = z.infer<typeof schema>
 export function useContactController() {
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [msg, setMsg] = useState(false);
 
   const {
     reset,
@@ -32,6 +36,7 @@ export function useContactController() {
     control,
     handleSubmit: hookFormSubmit,
     formState: { errors },
+    clearErrors
   } = useForm<FormData>({
     resolver: zodResolver(schema)
   })
@@ -40,28 +45,52 @@ export function useContactController() {
     try {
       setIsLoading(true);
 
+      const telefone = data.telefone.replace(/^(\d{2})(\d{4,5})(\d{4})$/, '($1) $2-$3')
+
+      const dataModify = {
+        ...data,
+        telefone
+      }
+
       const response = await fetch('/api/sendEmail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(dataModify),
       });
 
       if (response.ok) {
-        reset();
+        reset({
+          nome: "",
+          email: "",
+          cidade: "",
+          pais: "",
+          empresa: "",
+          telefone: "",
+          endereco: "",
+          mensagem: "",
+        });
+        clearErrors();
+
         setSuccess(true);
+        setMsg(true);
 
         setTimeout(() => {
-          setSuccess(false)
-        }, 2000)
+          setSuccess(false);
+          clearErrors();
+        }, 1);
+
+        setTimeout(() => {
+          setMsg(false);
+        }, 2000);
       }
 
       if (!response.ok) {
         throw new Error('Failed to send email');
       }
 
-      const result = await response.json();
+      // const result = await response.json();
       setIsLoading(false);
     } catch (error) {
       console.error("error send form contact.");
@@ -75,6 +104,7 @@ export function useContactController() {
     errors,
     isLoading,
     success,
-    control
+    control,
+    msg
   }
 }

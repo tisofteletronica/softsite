@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
 
   // Configuração do e-mail
   const mailOptions = {
-    from: process.env.EMAIL_FROM, // Seu endereço de e-mail
+    from: `"Soft Eletrônica" <${process.env.EMAIL_FROM}>`, // Seu endereço de e-mail
     to: process.env.EMAIL_TO, // Destinatário
     subject: `Contato via site - ${nome}`,
     text: nome,

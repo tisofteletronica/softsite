@@ -13,15 +13,15 @@ export function Form() {
     errors,
     handleSubmit,
     isLoading,
-    success,
-    control
+    control,
+    msg
   } = useContactController();
 
   return (
     <form
       onSubmit={handleSubmit}
     >
-      {success && (
+      {msg && (
         <div className="bg-green-100 border border-green-600 rounded-[0_10px] mb-4 py-3 px-5 text-green-600 text-sm">
           E-mail enviado com sucesso!
         </div>
