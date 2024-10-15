@@ -321,6 +321,11 @@ html {
   max-height: 70px;
 }
 
+.dialog-whats {
+  content: '';
+  @apply before:w-4 before:h-4 before:rotate-45 before:bg-[#FFF] before:absolute before:z-[-1] before:bottom-0 before:top-0 before:my-auto before:-right-1 before:mx-auto before:z-10;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

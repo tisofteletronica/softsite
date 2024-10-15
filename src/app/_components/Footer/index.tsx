@@ -13,8 +13,17 @@ import { TitleFooter } from "./TitleFooter";
 export function Footer() {
   return (
     <>
-      <div className="fixed right-[15px] bottom-[15px]">
-        <a href="https://api.whatsapp.com/send?phone=554135448500&text=Ol%C3%A1!%20Acessei%20atrav%C3%A9s%20do%20website.%20Gostaria%20de%20tirar%20umas%20d%C3%BAvidas." target="_blank">
+      <div className="fixed right-[15px] bottom-[15px] group">
+        <span
+          className="absolute right-[115%] top-2 bg-white rounded-[5px] text-center text-[12px] leading-[14px] px-3 py-2 dialog-whats shadow-[0_0_15px_rgba(0,0,0,.15)] opacity-0 invisible transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:visible"
+        >
+          Fale com nossos atendentes
+        </span>
+
+        <a
+          href="https://api.whatsapp.com/send?phone=554135448500&text=Ol%C3%A1!%20Acessei%20atrav%C3%A9s%20do%20website.%20Gostaria%20de%20tirar%20umas%20d%C3%BAvidas."
+          target="_blank"
+        >
           <Image src={imgWhats} alt="Whatsapp" width={60} height={60} />
         </a>
       </div>
