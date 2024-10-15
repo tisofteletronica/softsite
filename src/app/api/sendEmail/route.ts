@@ -6,13 +6,13 @@ export async function POST(req: NextRequest) {
 
   // Configuração do transportador de e-mail
   const transporter = nodemailer.createTransport({
-    port: 465,
+    port: 587,
     host: process.env.EMAIL_HOST,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
-    secure: true, // true para port 465, false para outros ports
+    secure: false, // true para port 465, false para outros ports
   });
 
   // Configuração do e-mail
