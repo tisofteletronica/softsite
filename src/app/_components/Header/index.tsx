@@ -47,7 +47,7 @@ export async function Header() {
                 <button
                   className="shrink-0 lg:hidden"
                 >
-                  <LuMenu className="h-8 w-8" />
+                  <LuMenu className="h-8 w-8 !text-gray" />
                   <span className="sr-only">Toggle navigation menu</span>
                 </button>
               </SheetTrigger>
