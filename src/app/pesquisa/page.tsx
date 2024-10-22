@@ -8,10 +8,11 @@ import { NotFound } from "../_components/NotFound";
 import { Search } from "../_components/Search";
 
 interface PesquisaProps {
-  searchParams: { models?: string; year?: string; };
+  searchParams: { mon?: string;  models?: string; year?: string; };
 }
 
 export default async function Pesquisa({ searchParams }: PesquisaProps) {
+  const automaker = searchParams.mon!;
   const model = searchParams.models!;
   const year = searchParams.year!;
   const categories = await getCategoryByModelAndYearCachedData(model, year);
@@ -25,7 +26,7 @@ export default async function Pesquisa({ searchParams }: PesquisaProps) {
   return (
     <main>
       <Container type="div" className="my-6">
-        <Search />
+        <Search automakerSelected={automaker} modelSelected={model} yearSelected={year} />
       </Container>
 
       <Container type="div" className="mb-7">

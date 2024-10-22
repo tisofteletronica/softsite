@@ -12,10 +12,13 @@ interface SearchSelectOption {
 }
 
 interface FormSearchProps {
-  automakersData: SearchSelectOption[]
+  automakersData: SearchSelectOption[];
+  automakerSelected?: string;
+  modelSelected?: string;
+  yearSelected?: string;
 }
 
-export function FormSearch({ automakersData }: FormSearchProps) {
+export function FormSearch({ automakersData, automakerSelected, modelSelected, yearSelected }: FormSearchProps) {
   const {
     handleAutomakerChange,
     handleModelChange,
@@ -26,7 +29,7 @@ export function FormSearch({ automakersData }: FormSearchProps) {
     control,
     disabledModel,
     disabledYear
-  } = useFormSearchController();
+  } = useFormSearchController(automakerSelected, modelSelected);
 
   return (
     <form
@@ -36,7 +39,7 @@ export function FormSearch({ automakersData }: FormSearchProps) {
       <Controller
         control={control}
         name="automaker"
-        defaultValue=""
+        defaultValue={automakerSelected}
         render={({ field: { onChange, value } }) => (
           <Select
             className="lg:w-[200px]"
@@ -54,7 +57,7 @@ export function FormSearch({ automakersData }: FormSearchProps) {
       <Controller
         control={control}
         name="models"
-        defaultValue=""
+        defaultValue={modelSelected}
         render={({ field: { onChange, value } }) => (
           <Select
             className="lg:w-[200px]"
@@ -73,7 +76,7 @@ export function FormSearch({ automakersData }: FormSearchProps) {
       <Controller
         control={control}
         name="years"
-        defaultValue=""
+        defaultValue={yearSelected}
         render={({ field: { onChange, value } }) => (
           <Select
             className="lg:w-[200px]"

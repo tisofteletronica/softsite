@@ -6,6 +6,10 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+interface useFormSearchControllerProps {
+  modelSelected?: string | null;
+}
+
 interface SearchSelectOption {
   value: string;
   label: string;
@@ -19,9 +23,9 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>
 
-export function useFormSearchController() {
-  const [selectedAutomaker, setSelectedAutomaker] = useState<string>("");
-  const [selectedModel, setSelectedModel] = useState<string>("");
+export function useFormSearchController(automakerSelected?: string, modelSelected?: string) {
+  const [selectedAutomaker, setSelectedAutomaker] = useState<string>(automakerSelected ?? "");
+  const [selectedModel, setSelectedModel] = useState<string>(modelSelected ?? "");
   const [modelsData, setModelsData] = useState<SearchSelectOption[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [yearsData, setYearsData] = useState<SearchSelectOption[]>([]);
@@ -40,6 +44,8 @@ export function useFormSearchController() {
   })
 
   useEffect(() => {
+    // console.log({ automakerSelected, modelSelected, yearSelected });
+
     const fetchModels = async () => {
       try {
         setIsLoading(true);
@@ -91,7 +97,7 @@ export function useFormSearchController() {
 
   const handleSubmit = hookFormSubmit(async data => {
     try {
-      router.push(`/pesquisa?models=${data.models}&year=${data.years}`);
+      router.push(`/pesquisa?mon=${selectedAutomaker}&models=${data.models}&year=${data.years}`);
     } catch (error) {
       console.error("error search.")
     }

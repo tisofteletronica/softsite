@@ -1,7 +1,13 @@
 import { searchService } from "@/services/searchService";
 import { FormSearch } from "./FormSearch";
 
-export async function Search() {
+interface SearchProps {
+  automakerSelected?: string;
+  modelSelected?: string;
+  yearSelected?: string;
+}
+
+export async function Search({ automakerSelected, modelSelected, yearSelected }: SearchProps) {
   const automakers = await searchService.getAutomakers();
 
   return (
@@ -15,6 +21,9 @@ export async function Search() {
       </div>
 
       <FormSearch
+        automakerSelected={automakerSelected}
+        modelSelected={modelSelected}
+        yearSelected={yearSelected}
         automakersData={
           automakers.map(automaker => ({
             value: String(automaker.id),
