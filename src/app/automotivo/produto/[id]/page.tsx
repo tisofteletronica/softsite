@@ -15,8 +15,6 @@ import Link from "next/link";
 import { HiOutlineDownload } from "react-icons/hi";
 import { Measure } from "./_components/Measure";
 
-
-
 interface ProductDetailsProps {
   params: { id: string; };
 }
@@ -214,6 +212,18 @@ export default async function ProductDetails({ params }: ProductDetailsProps) {
             BAIXAR MANUAL
             <HiOutlineDownload className="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px]" />
           </Link>
+
+          {response.zip && (
+            <Link
+              style={{ background: color }}
+              href={response.zip}
+              className="bg-blue text-white text-[14px] lg:text-[22px] font-medium lg:leading-[31px] rounded-tl-[10px] rounded-br-[10px] px-4 lg:px-8 inline-flex tracking-[2.4px] gap-2 lg:gap-4 py-2 lg:py-4 hover:opacity-70 transition-all items-center mb-3 lg:mb-0"
+              target="_blank"
+            >
+              BAIXAR IMAGENS
+              <HiOutlineDownload className="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px]" />
+            </Link>
+          )}
 
           {/* <DownloadImages imageUrls={images} color={color} /> */}
           {/* <DownloadImages imageUrls={['https://raw.githubusercontent.com/diegoricardosouza/pokedex/main/.github/pokedex.jpg', 'https://raw.githubusercontent.com/diegoricardosouza/semana-javascript-expert05/main/resources/demo.gif', 'https://raw.githubusercontent.com/devcontainers/spec/main/images/dev-container-stages.png']} color={color} /> */}

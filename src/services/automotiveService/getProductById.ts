@@ -21,6 +21,7 @@ export interface ProductsByIdResponse {
   imgUrl4: string;
   imgUrl5: string;
   urlManual: string;
+  zip: string;
   categoryCommercialId: string;
   nameCategoryCommercial: string;
 }
