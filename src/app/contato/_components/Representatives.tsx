@@ -17,9 +17,6 @@ interface RepresentativesProps {
 }
 
 export function Representatives({ representatives }: RepresentativesProps) {
-  // console.log(representatives);
-
-
   return (
     <Container type="div">
       <div className="border border-gray rounded-tl-[45px] rounded-bl-[45px] rounded-br-[45px]">

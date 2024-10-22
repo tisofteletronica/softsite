@@ -19,7 +19,6 @@ const AccordionV2 = ({ options }: AccordionProps) => {
   const chicotes = options.filter((option) => option.tipo === "Chicotes")
   const linha = options.filter((option) => option.tipo === "Linha mecânica")
 
-
   return (
     (
       <AccordionDemo.Root
@@ -28,149 +27,165 @@ const AccordionV2 = ({ options }: AccordionProps) => {
         defaultValue="item-1"
         collapsible
       >
-        <AccordionItem value={`item-1`}>
-          <AccordionTrigger className="border">MÁQUINAS SMD</AccordionTrigger>
-          <AccordionContent>
-            <div className='grid lg:grid-cols-3 gap-[22px]'>
-              {smd.map((item) => (
-                <div key={item.id}>
-                  <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
-                    {item.maquina}
-                  </strong>
-                  <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
-                    {item.descricao}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+        {smd.length > 0 && (
+          <AccordionItem value={`item-1`}>
+            <AccordionTrigger className="border">MÁQUINAS SMD</AccordionTrigger>
+            <AccordionContent>
+              <div className='grid lg:grid-cols-3 gap-[22px]'>
+                {smd.map((item) => (
+                  <div key={item.id}>
+                    <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
+                      {item.maquina}
+                    </strong>
+                    <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
+                      {item.descricao}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        )}
 
-        <AccordionItem value={`item-2`}>
-          <AccordionTrigger>MÁQUINAS PTH</AccordionTrigger>
-          <AccordionContent>
-            <div className='grid lg:grid-cols-3 gap-[22px]'>
-              {pth.map((item) => (
-                <div key={item.id}>
-                  <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
-                    {item.maquina}
-                  </strong>
-                  <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
-                    {item.descricao}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+        {pth.length > 0 && (
+          <AccordionItem value={`item-2`}>
+            <AccordionTrigger>MÁQUINAS PTH</AccordionTrigger>
+            <AccordionContent>
+              <div className='grid lg:grid-cols-3 gap-[22px]'>
+                {pth.map((item) => (
+                  <div key={item.id}>
+                    <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
+                      {item.maquina}
+                    </strong>
+                    <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
+                      {item.descricao}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        )}
 
-        <AccordionItem value={`item-3`}>
-          <AccordionTrigger>ARMAZENAGEM</AccordionTrigger>
-          <AccordionContent>
-            <div className='grid lg:grid-cols-3 gap-[22px]'>
-              {armazenagem.map((item) => (
-                <div key={item.id}>
-                  <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
-                    {item.maquina}
-                  </strong>
-                  <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
-                    {item.descricao}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+        {armazenagem.length > 0 && (
+          <AccordionItem value={`item-3`}>
+            <AccordionTrigger>ARMAZENAGEM</AccordionTrigger>
+            <AccordionContent>
+              <div className='grid lg:grid-cols-3 gap-[22px]'>
+                {armazenagem.map((item) => (
+                  <div key={item.id}>
+                    <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
+                      {item.maquina}
+                    </strong>
+                    <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
+                      {item.descricao}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        )}
 
-        <AccordionItem value={`item-4`}>
-          <AccordionTrigger>MÁQUINAS DE REPARO</AccordionTrigger>
-          <AccordionContent>
-            <div className='grid lg:grid-cols-3 gap-[22px]'>
-              {reparo.map((item) => (
-                <div key={item.id}>
-                  <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
-                    {item.maquina}
-                  </strong>
-                  <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
-                    {item.descricao}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+        {reparo.length > 0 && (
+          <AccordionItem value={`item-4`}>
+            <AccordionTrigger>MÁQUINAS DE REPARO</AccordionTrigger>
+            <AccordionContent>
+              <div className='grid lg:grid-cols-3 gap-[22px]'>
+                {reparo.map((item) => (
+                  <div key={item.id}>
+                    <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
+                      {item.maquina}
+                    </strong>
+                    <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
+                      {item.descricao}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        )}
 
-        <AccordionItem value={`item-5`}>
-          <AccordionTrigger>MÁQUINA DE TAMPOGRAFIA</AccordionTrigger>
-          <AccordionContent>
-            <div className='grid lg:grid-cols-3 gap-[22px]'>
-              {tampografia.map((item) => (
-                <div key={item.id}>
-                  <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
-                    {item.maquina}
-                  </strong>
-                  <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
-                    {item.descricao}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+        {tampografia.length > 0 && (
+          <AccordionItem value={`item-5`}>
+            <AccordionTrigger>MÁQUINA DE TAMPOGRAFIA</AccordionTrigger>
+            <AccordionContent>
+              <div className='grid lg:grid-cols-3 gap-[22px]'>
+                {tampografia.map((item) => (
+                  <div key={item.id}>
+                    <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
+                      {item.maquina}
+                    </strong>
+                    <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
+                      {item.descricao}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        )}
 
-        <AccordionItem value={`item-6`}>
-          <AccordionTrigger>MÁQUINAS DE INJEÇÃO PLÁSTICA</AccordionTrigger>
-          <AccordionContent>
-            <div className='grid lg:grid-cols-3 gap-[22px]'>
-              {injecao.map((item) => (
-                <div key={item.id}>
-                  <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
-                    {item.maquina}
-                  </strong>
-                  <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
-                    {item.descricao}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+        {injecao.length > 0 && (
+          <AccordionItem value={`item-6`}>
+            <AccordionTrigger>MÁQUINAS DE INJEÇÃO PLÁSTICA</AccordionTrigger>
+            <AccordionContent>
+              <div className='grid lg:grid-cols-3 gap-[22px]'>
+                {injecao.map((item) => (
+                  <div key={item.id}>
+                    <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
+                      {item.maquina}
+                    </strong>
+                    <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
+                      {item.descricao}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        )}
 
-        <AccordionItem value={`item-7`}>
-          <AccordionTrigger>MÁQUINAS PARA CHICOTES</AccordionTrigger>
-          <AccordionContent>
-            <div className='grid lg:grid-cols-3 gap-[22px]'>
-              {chicotes.map((item) => (
-                <div key={item.id}>
-                  <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
-                    {item.maquina}
-                  </strong>
-                  <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
-                    {item.descricao}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+        {chicotes.length > 0 && (
+          <AccordionItem value={`item-7`}>
+            <AccordionTrigger>MÁQUINAS PARA CHICOTES</AccordionTrigger>
+            <AccordionContent>
+              <div className='grid lg:grid-cols-3 gap-[22px]'>
+                {chicotes.map((item) => (
+                  <div key={item.id}>
+                    <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
+                      {item.maquina}
+                    </strong>
+                    <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
+                      {item.descricao}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        )}
 
-        <AccordionItem value={`item-8`}>
-          <AccordionTrigger>LINHA MECÂNICA</AccordionTrigger>
-          <AccordionContent>
-            <div className='grid lg:grid-cols-3 gap-[22px]'>
-              {linha.map((item) => (
-                <div key={item.id}>
-                  <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
-                    {item.maquina}
-                  </strong>
-                  <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
-                    {item.descricao}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+        {linha.length > 0 && (
+          <AccordionItem value={`item-8`}>
+            <AccordionTrigger>LINHA MECÂNICA</AccordionTrigger>
+            <AccordionContent>
+              <div className='grid lg:grid-cols-3 gap-[22px]'>
+                {linha.map((item) => (
+                  <div key={item.id}>
+                    <strong className='text-[18px] font-bold text-gray leading-[22px] mb-[22px] block uppercase'>
+                      {item.maquina}
+                    </strong>
+                    <p className='text-gray text-[14px] font-medium leading-[19px] tracking-[1.4px]'>
+                      {item.descricao}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        )}
       </AccordionDemo.Root>
     )
   )

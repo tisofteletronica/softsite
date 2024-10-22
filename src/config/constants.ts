@@ -13,6 +13,10 @@ export const STATES = [
     valueTratament: "Venda Direta"
   },
   {
+    valueApi: "RS, PR, RR, AC, AM, RO, AM, PA, PI, CE, TO, MT, MS, RJ, Exportação",
+    valueTratament: "Venda Interna"
+  },
+  {
     valueApi: "ES, RJ (Interior)",
     valueTratament: "ESPÍRITO SANTO / INTERIOR DO RIO DE JANEIRO"
   },
@@ -39,6 +43,14 @@ export const STATES = [
   {
     valueApi: "SP (Capital)",
     valueTratament: "SÃO PAULO (CAPITAL)"
+  },
+  {
+    valueApi: "SE, AL",
+    valueTratament: "SERGIPE / ALAGOAS"
+  },
+  {
+    valueApi: "BA",
+    valueTratament: "BAHIA"
   }
 ]
 
