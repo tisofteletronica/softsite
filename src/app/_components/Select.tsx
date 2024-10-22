@@ -55,7 +55,7 @@ export function Select({ className, error, options, placeholder, onChange, value
           <RdxSelect.Portal>
             <RdxSelect.Content className="z-[99] overflow-hidden bg-white rounded-2xl shadow-[0px_11px_20px_0px_rgba(0,0,0,0.10)]">
               <RdxSelect.ScrollUpButton
-                className="flex items-center justify-center h-[25px] bg-white text-gray cursor-default"
+                className="flex items-center justify-center h-[25px] bg-white !text-gray cursor-default"
               >
                 <LuChevronUp />
               </RdxSelect.ScrollUpButton>
@@ -64,7 +64,7 @@ export function Select({ className, error, options, placeholder, onChange, value
                 {options && options?.map(option => (
                   <RdxSelect.Item
                     key={option.value}
-                    className="p-2 text-gray-800 text-[15px] data-[state=checked]:font-bold outline-none data-[highlighted]:bg-lighterGray rounded-lg transition-colors cursor-pointer "
+                    className="p-2 !text-gray text-[15px] data-[state=checked]:font-bold outline-none data-[highlighted]:bg-lighterGray rounded-lg transition-colors cursor-pointer "
                     value={option.value}
                   >
                     <RdxSelect.ItemText>{option.label}</RdxSelect.ItemText>
@@ -73,7 +73,7 @@ export function Select({ className, error, options, placeholder, onChange, value
               </RdxSelect.Viewport>
 
               <RdxSelect.ScrollDownButton
-                className="flex items-center justify-center h-[25px] bg-white text-gray-800 cursor-default"
+                className="flex items-center justify-center h-[25px] bg-white !text-gray cursor-default"
               >
                 <LuChevronDown />
               </RdxSelect.ScrollDownButton>
