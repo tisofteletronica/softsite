@@ -73,7 +73,7 @@ export default async function SobreNos() {
           </div>
 
           <div className="text-white text-[18px] lg:text-[20px] leading-[23px] lg:leading-[25px] font-medium tracking-[2px] mt-[28px]">
-            <p>Escopo do sistema de gestão da qualidade ISO9001:2015</p><br />
+            <p>Escopo do sistema de gestão da qualidade ISO9001:2015 e ISO 14.001:2015</p><br />
             <p>Projeto, desenvolvimento e fabricação de produtos eletrônicos automotivos, lâmpadas LED (direcional) e balanças digitais. Montagem e assistência técnica de placas eletrônicas.</p>
           </div>
         </article>
