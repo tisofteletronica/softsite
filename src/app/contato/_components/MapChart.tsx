@@ -79,7 +79,7 @@ export function MapChart({ handleState }: MapProps) {
   const renderGeograph = (dataSource: string | Record<string, any> | string[] | undefined, countryId: string, countryColor: string) => {
       return (
       
-        <Geographies geography={dataSource}>
+        <GeographiesAny geography={dataSource}>
           {({ geographies }) => (
             <>
               {geographies.map((geo) => {
@@ -163,7 +163,7 @@ export function MapChart({ handleState }: MapProps) {
               })}
             </>
           )}
-        </Geographies>
+        </GeographiesAny>
       );
     };
 
