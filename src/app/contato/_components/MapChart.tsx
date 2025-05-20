@@ -13,6 +13,17 @@ import brTopoJson from "../../../config/br-topo.json";
 
 const GeographiesAny = Geographies as any; // Ignora a verificação de tipos
 
+type GeographiesRenderProps = {
+  geographies: {
+    rsmKey: string;
+    properties: {
+      id: string;
+      // Add other properties you use from geo.properties
+    };
+    // Add other geo properties you use
+  }[];
+};
+
 const statesWithAnnotations = {
   BR_DF: {
     annotation: { x: -10, y: -15 },
@@ -80,7 +91,7 @@ export function MapChart({ handleState }: MapProps) {
       return (
       
         <GeographiesAny geography={dataSource}>
-          {({ geographies }) => (
+          {({ geographies }: GeographiesRenderProps) => (
             <>
               {geographies.map((geo) => {
                 const geoId = geo.properties.id;
