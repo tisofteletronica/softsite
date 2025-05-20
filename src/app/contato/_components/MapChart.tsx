@@ -75,6 +75,7 @@ export function MapChart({ handleState }: MapProps) {
 
   const renderGeograph = (dataSource: string | Record<string, any> | string[] | undefined, countryId: string, countryColor: string) => {
       return (
+        // @ts-ignore
         <Geographies geography={dataSource}>
           {({ geographies }) => (
             <>
