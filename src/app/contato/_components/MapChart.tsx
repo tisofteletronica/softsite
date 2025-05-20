@@ -11,18 +11,9 @@ import {
 import { useState } from "react";
 import brTopoJson from "../../../config/br-topo.json";
 
-const GeographiesAny = Geographies as any; // Ignora a verificação de tipos
 
-type GeographiesRenderProps = {
-  geographies: {
-    rsmKey: string;
-    properties: {
-      id: string;
-      // Add other properties you use from geo.properties
-    };
-    // Add other geo properties you use
-  }[];
-};
+
+
 
 const statesWithAnnotations = {
   BR_DF: {
@@ -90,8 +81,8 @@ export function MapChart({ handleState }: MapProps) {
   const renderGeograph = (dataSource: string | Record<string, any> | string[] | undefined, countryId: string, countryColor: string) => {
       return (
       
-        <GeographiesAny geography={dataSource}>
-          {({ geographies }: GeographiesRenderProps) => (
+        <Geographies geography={dataSource}>
+          {({ geographies }) => (
             <>
               {geographies.map((geo) => {
                 const geoId = geo.properties.id;
@@ -174,7 +165,7 @@ export function MapChart({ handleState }: MapProps) {
               })}
             </>
           )}
-        </GeographiesAny>
+        </Geographies>
       );
     };
 
