@@ -58,17 +58,21 @@ export default async function SobreNos() {
         </div>
 
         <article id="politica" className="bg-orange rounded-tl-[30px] rounded-br-[30px] px-5 lg:px-[60px] py-4 lg:py-[50px] my-[115px] relative">
-          <Image src={imgAspas} alt="Aspas" className="hidden absolute right-[-25px] top-[85px] lg:block" />
+          <Image src={imgAspas} alt="Aspas" className="hidden absolute right-[-5px] top-[45px] lg:block" />
 
           <div className="mb-9 lg:mb-16">
-            <h2 className="text-white text-[30px] lg:text-[39px] font-semibold leading-[38px] lg:leading-[46px] mb-[19px]">POLÍTICA DE QUALIDADE</h2>
+            <h2 className="text-white text-[30px] lg:text-[39px] font-semibold leading-[38px] lg:leading-[46px] mb-[19px]">COMPROMISSOS</h2>
             <hr className="border-0 w-[64px] h-[5px] bg-white" />
           </div>
 
           <div className="bg-white rounded-tl-[10px] rounded-br-[10px] px-[10px] lg:px-0">
             <h3
-              className="text-center text-[23px] lg:text-[36px] font-semibold italic leading-[30px] lg:leading-[51px] text-orange py-3"
+              className="text-center text-[23px] lg:text-[30px] font-semibold italic leading-[30px] lg:leading-[51px] text-orange py-3"
               dangerouslySetInnerHTML={{ __html: response.content[0].politica.replace('Política da Qualidade:\n', '') }}
+            />
+              <h3
+              className="text-center text-[23px] lg:text-[30px] font-semibold italic leading-[30px] lg:leading-[51px] text-orange py-3"
+              dangerouslySetInnerHTML={{ __html: response.content[0].politicaAmbiental.replace('Política da Qualidade:\n', '') }}
             />
           </div>
 
