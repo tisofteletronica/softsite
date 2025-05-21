@@ -5,6 +5,7 @@ export interface AboutResponse {
     id: string;
     historico: string;
     politica: string;
+    politicaAmbiental: string;
   }[]
 }
 
