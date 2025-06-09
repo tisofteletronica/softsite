@@ -8,7 +8,7 @@ const nextConfig = {
     return [
       {
         source: '/manual/:image',
-        destination: 'https://www.instalesoft.com.br/imagens/icons/:image',
+        destination: 'https://www.instalesoft.com.br/manuais/:image',
         permanent: true,
       },
     ];
